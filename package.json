@@ -1,0 +1,45 @@
+{
+  "name": "avram",
+  "version": "0.0.1",
+  "description": "Avram Schema Language implementation in JavaScript",
+  "homepage": "https://github.com/gbv/avram-js#readme",
+  "author": "Jakob Voß",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gbv/avram-js.git"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "lib/",
+    "bin/"
+  ],
+  "bin": {
+    "avram-build": "./bin/avram-build"
+  },
+  "scripts": {
+    "test": "mocha",
+    "lint": "standard",
+    "fix": "standard --fix",
+    "lint-staged": "lint-staged"
+  },
+  "pre-commit": "lint-staged",
+  "lint-staged": {
+    "*.js": [
+      "standard --fix",
+      "git add"
+    ]
+  },
+  "engines": {
+    "node": ">= 6.0"
+  },
+  "devDependencies": {
+    "lint-staged": "^7.2.2",
+    "marcjs": "^1.0.7",
+    "mocha": "^5.2.0",
+    "pre-commit": "^1.2.2",
+    "should": "^13.2.3",
+    "standard": "^12.0.1"
+  }
+}
