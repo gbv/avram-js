@@ -1,272 +1,274 @@
 {
   "fields": {
     "100": {
-      "tag": "100",
+      "indicator1": {"codes": {"1": {}}},
       "required": true,
-      "indicator1": {
-        "codes": {
-          "1": {}
-        }
-      },
       "subfields": {
         "a": {
           "code": "a",
+          "positions": {"0-14": {"codes": {"Sandburg, Carl,": {}}}},
           "required": true
         },
         "d": {
           "code": "d",
+          "positions": {"0-9": {"codes": {"1878-1967.": {}}}},
           "required": true
         }
-      }
+      },
+      "tag": "100"
     },
     "245": {
-      "tag": "245",
+      "indicator1": {"codes": {"1": {}}},
+      "indicator2": {"codes": {"0": {}}},
       "required": true,
-      "indicator1": {
-        "codes": {
-          "1": {}
-        }
-      },
-      "indicator2": {
-        "codes": {
-          "0": {}
-        }
-      },
       "subfields": {
         "a": {
           "code": "a",
+          "positions": {"0-11": {"codes": {"Arithmetic /": {}}}},
           "required": true
         },
         "c": {
           "code": "c",
+          "positions": {
+            "0-66": {
+              "codes": {
+                "Carl Sandburg ; illustrated as an anamorphic adventure by Ted Rand.": {}
+              }
+            }
+          },
           "required": true
         }
-      }
+      },
+      "tag": "245"
     },
     "250": {
-      "tag": "250",
       "required": true,
       "subfields": {
         "a": {
           "code": "a",
+          "positions": {"0-6": {"codes": {"1st ed.": {}}}},
           "required": true
         }
-      }
+      },
+      "tag": "250"
     },
     "260": {
-      "tag": "260",
       "required": true,
       "subfields": {
         "a": {
           "code": "a",
+          "positions": {"0-10": {"codes": {"San Diego :": {}}}},
           "required": true
         },
         "b": {
           "code": "b",
+          "positions": {"0-25": {"codes": {"Harcourt Brace Jovanovich,": {}}}},
           "required": true
         },
         "c": {
           "code": "c",
+          "positions": {"0-5": {"codes": {"c1993.": {}}}},
           "required": true
         }
-      }
+      },
+      "tag": "260"
     },
     "300": {
-      "tag": "300",
       "required": true,
       "subfields": {
         "a": {
           "code": "a",
+          "positions": {"0-15": {"codes": {"1 v. (unpaged) :": {}}}},
           "required": true
         },
         "b": {
           "code": "b",
+          "positions": {"0-17": {"codes": {"ill. (some col.) ;": {}}}},
           "required": true
         },
         "c": {
           "code": "c",
+          "positions": {"0-5": {"codes": {"26 cm.": {}}}},
           "required": true
         }
-      }
+      },
+      "tag": "300"
     },
     "500": {
-      "tag": "500",
       "required": true,
       "subfields": {
         "a": {
           "code": "a",
+          "positions": {
+            "0-34": {"codes": {"One Mylar sheet included in pocket.": {}}}
+          },
           "required": true
         }
-      }
+      },
+      "tag": "500"
     },
     "520": {
-      "tag": "520",
       "required": true,
       "subfields": {
         "a": {
           "code": "a",
+          "positions": {
+            "0-222": {
+              "codes": {
+                "A poem about numbers and their characteristics. Features anamorphic, or distorted, drawings which can be restored to normal by viewing from a particular angle or by viewing the image's reflection in the provided Mylar cone.": {}
+              }
+            }
+          },
           "required": true
         }
-      }
+      },
+      "tag": "520"
     },
     "650": {
-      "tag": "650",
+      "indicator2": {"codes": {"0": {}, "1": {}}},
+      "repeatable": true,
       "required": true,
-      "indicator2": {
-        "codes": {
-          "0": {},
-          "1": {}
-        }
-      },
-      "subfields": {
-        "a": {
-          "code": "a",
-          "required": true
-        },
-        "x": {
-          "code": "x"
-        }
-      },
-      "repeatable": true
+      "subfields": {"a": {"code": "a", "required": true}, "x": {"code": "x"}},
+      "tag": "650"
     },
     "700": {
-      "tag": "700",
+      "indicator1": {"codes": {"1": {}}},
       "required": true,
-      "indicator1": {
-        "codes": {
-          "1": {}
-        }
-      },
       "subfields": {
         "a": {
           "code": "a",
+          "positions": {"0-9": {"codes": {"Rand, Ted,": {}}}},
           "required": true
         },
         "e": {
           "code": "e",
+          "positions": {"0-3": {"codes": {"ill.": {}}}},
           "required": true
         }
-      }
-    },
-    "LDR": {
-      "tag": "LDR",
-      "required": true
+      },
+      "tag": "700"
     },
     "001": {
-      "tag": "001",
-      "required": true
+      "positions": {"0-11": {"codes": {"   92005291 ": {}}}},
+      "required": true,
+      "tag": "001"
     },
     "003": {
-      "tag": "003",
-      "required": true
+      "positions": {"0-2": {"codes": {"DLC": {}}}},
+      "required": true,
+      "tag": "003"
     },
     "005": {
-      "tag": "005",
-      "required": true
+      "positions": {"0-15": {"codes": {"19930521155141.9": {}}}},
+      "required": true,
+      "tag": "005"
     },
     "008": {
-      "tag": "008",
-      "required": true
+      "positions": {
+        "0-39": {"codes": {"920219s1993    caua   j      000 0 eng  ": {}}}
+      },
+      "required": true,
+      "tag": "008"
     },
     "010": {
-      "tag": "010",
       "required": true,
       "subfields": {
         "a": {
           "code": "a",
+          "positions": {"0-11": {"codes": {"   92005291 ": {}}}},
           "required": true
         }
-      }
+      },
+      "tag": "010"
     },
     "020": {
-      "tag": "020",
       "required": true,
       "subfields": {
         "a": {
           "code": "a",
+          "positions": {"0-11": {"codes": {"0152038655 :": {}}}},
           "required": true
         },
         "c": {
           "code": "c",
+          "positions": {"0-5": {"codes": {"$15.95": {}}}},
           "required": true
         }
-      }
+      },
+      "tag": "020"
     },
     "040": {
-      "tag": "040",
       "required": true,
       "subfields": {
         "a": {
           "code": "a",
+          "positions": {"0-2": {"codes": {"DLC": {}}}},
           "required": true
         },
         "c": {
           "code": "c",
+          "positions": {"0-2": {"codes": {"DLC": {}}}},
           "required": true
         },
         "d": {
           "code": "d",
+          "positions": {"0-2": {"codes": {"DLC": {}}}},
           "required": true
         }
-      }
+      },
+      "tag": "040"
     },
     "042": {
-      "tag": "042",
       "required": true,
       "subfields": {
         "a": {
           "code": "a",
+          "positions": {"0-3": {"codes": {"lcac": {}}}},
           "required": true
         }
-      }
+      },
+      "tag": "042"
     },
     "050": {
-      "tag": "050",
+      "indicator1": {"codes": {"0": {}}},
+      "indicator2": {"codes": {"0": {}}},
       "required": true,
-      "indicator1": {
-        "codes": {
-          "0": {}
-        }
-      },
-      "indicator2": {
-        "codes": {
-          "0": {}
-        }
-      },
       "subfields": {
         "a": {
           "code": "a",
+          "positions": {"0-10": {"codes": {"PS3537.A618": {}}}},
           "required": true
         },
         "b": {
           "code": "b",
+          "positions": {"0-7": {"codes": {"A88 1993": {}}}},
           "required": true
         }
-      }
+      },
+      "tag": "050"
     },
     "082": {
-      "tag": "082",
+      "indicator1": {"codes": {"0": {}}},
+      "indicator2": {"codes": {"0": {}}},
       "required": true,
-      "indicator1": {
-        "codes": {
-          "0": {}
-        }
-      },
-      "indicator2": {
-        "codes": {
-          "0": {}
-        }
-      },
       "subfields": {
         "2": {
           "code": "2",
+          "positions": {"0-1": {"codes": {"20": {}}}},
           "required": true
         },
         "a": {
           "code": "a",
+          "positions": {"0-6": {"codes": {"811/.52": {}}}},
           "required": true
         }
-      }
+      },
+      "tag": "082"
+    },
+    "LDR": {
+      "positions": {"0-23": {"codes": {"01142cam  2200301 a 4500": {}}}},
+      "required": true,
+      "tag": "LDR"
     }
   },
   "description": "Based on analyzing 1 record"

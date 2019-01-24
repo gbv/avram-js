@@ -21,7 +21,7 @@ describe('Analyzer', () => {
   })
 
   it('builds a simple schema', () => {
-    let b = new Analyzer()
+    let b = new Analyzer({ positions: false })
     b.add([['003@', null, '0', '1234']])
     should.deepEqual(b.schema(), {
       fields,

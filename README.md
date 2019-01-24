@@ -13,6 +13,7 @@ library data formats such as MARC, PICA, MAB, and allegro.
 
 ## Table of Contents
 
+* [Background](#background)
 * [Install](#install)
 * [Usage](#usage)
   * [avram-analyze](#avram-analyze)
@@ -20,6 +21,11 @@ library data formats such as MARC, PICA, MAB, and allegro.
   * [analyze](#analyze)
   * [Analyzer](#builder)
   * [marcjson](#marcjson)
+
+## Background
+
+See also Perl modules [MARC::Schema](https://metacpan.org/pod/MARC::Schema) and
+[PICA::Schema](https://metacpan.org/pod/PICA::Schema).
 
 ## Install
 
