@@ -1,19 +1,25 @@
 #!/usr/bin/env node
-const fs = require('fs')
-const args = process.argv.splice(2)
+const program = require('../lib/cli')
 const { processRecords } = require('../lib/recordstream')
 const marcjson = require('../lib/marcjson')
+const stringify = require('../lib/stringify')
 
-let { stringify } = JSON
-try { stringify = require('json-stringify-pretty-compact') } catch (e) { }
-
-if (!args.length) {
-  console.log(`Usage: marcjson <-|files...>
-Parse MARC or PICA records and convert them to JSON.`)
-  process.exit()
-}
-
-const records = []
-processRecords(rec => records.push(marcjson(rec)), args).then( () => {
-  console.log(stringify(records, null, 2))
-})
+program
+  .usage('marcjson [options] files...')
+  .description('Parse MARC or related format files and convert records to JSON')
+  .option('-f, --format [name]  specify input format (json|ndjson)')
+  .option('-t, --to [name]      specify output format (json|ndjson)')
+  .action((sources, options) => {
+    const records = []
+    Object.assign(options, { sources, action: rec => records.push(marcjson(rec)) })
+    processRecords(options).then( () => {
+      if (options.to === 'ndjson') {
+        for (let rec of records) {
+          console.log(JSON.stringify(rec))
+        }
+      } else {
+        console.log(stringify(records, null, 2))
+      }
+    })
+  })
+  .parse(process.argv)

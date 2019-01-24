@@ -54,7 +54,16 @@ npm install -g json-stringify-pretty-compact
 Command line client to build an Avram schema from existing record files.
 
 ~~~
-avram-analyze records.mrc more-records.ndjson even-more-records.xml.gz
+Usage: avram-analyze [opts] files...
+
+Parse MARC or PICA record files and create a basic Avram Schema.
+
+Options (negate with uppercase letter or '--no-...'):
+  -s, --subfields   include subfields (default)
+  -i, --indicators  include indicators (default)
+  -p, --positions   include positions (default)
+  -h, --help        output usage information
+  -V, --version     output the version number
 ~~~
 
 ## API
