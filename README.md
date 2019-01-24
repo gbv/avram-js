@@ -9,33 +9,72 @@
 This Node package implements [Avram Schema Language] to analyze and validate
 library data formats such as MARC, PICA, MAB, and allegro.
 
-*experimental*
+*The current version of only supports creation of schema but no validation yet!*
 
 ## Table of Contents
 
 * [Install](#install)
 * [Usage](#usage)
+  * [avram-analyze](#avram-analyze)
 * [API](#api)
+  * [analyze](#analyze)
+  * [Analyzer](#builder)
   * [marcjson](#marcjson)
-  * [Builder](#builder)
 
 ## Install
 
-```bash
+~~~sh
 npm install -g avram
-```
+~~~
+
+To handle MARC files other than JSON serializations (e.g. MARCXML) you als need
+to install MARC parsing library [marcjs](https://www.npmjs.com/package/marcjs):
+
+~~~sh
+npm install -g marcjs
+~~~
+
+To get more readable JSON output also install
+[json-stringify-pretty-compact](https://www.npmjs.com/package/json-stringify-pretty-compact):
+
+~~~sh
+npm install -g json-stringify-pretty-compact
+~~~
 
 ## Usage
 
-This package does not include or enforce a MARC parsing library, such as
-[marcjs](https://www.npmjs.com/package/marcjs).
+### avram-analyze
+ 
+Command line client to build an Avram schema from existing record files.
 
-See `examples/` for examples.
+~~~
+avram-analyze records.mrc more-records.ndjson even-more-records.xml.gz
+~~~
 
 ## API
 
 ~~~js
-const { Builder, marcjson } = require('avram')
+const { analyze, Analyzer, marcjson } = require('avram')
+~~~
+
+### analyze
+
+Read a list of record files and promise an Avram schema:
+
+~~~js
+analyze(['records.mrc', 'more-records.ndjson', 'even-more-records.xml.gz'])
+.then( schema => { console.log(schema) } )
+~~~
+
+### Analyzer
+
+Builds an Avram schema from a set of existing records:
+
+~~~js
+const inspect = new Analyzer()
+records.forEach(r => inspect.add(r))
+var schema = inspect.schema()
+var count  = inspect.count
 ~~~
 
 ### marcjson
@@ -51,10 +90,6 @@ representation, MARC JSON...) into an array of fields such as the following:
   ["035", " ", " ", "9", "(DLC)   93707283"]
 ]
 ~~~
-
-### Builder
-
-Builds an Avram schema based on a set of existing records.
 
 ## Maintainers
 

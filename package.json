@@ -35,6 +35,7 @@
     "node": ">= 6.0"
   },
   "devDependencies": {
+    "json-stringify-pretty-compact": "^1.2.0",
     "lint-staged": "^7.2.2",
     "marcjs": "^1.0.7",
     "mocha": "^5.2.0",

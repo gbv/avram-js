@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+const fs = require('fs')
+const args = process.argv.splice(2)
+const { analyze } = require('../index')
+
+let { stringify } = JSON
+try { stringify = require('json-stringify-pretty-compact') } catch (e) { }
+
+if (!args.length) {
+  console.log(`Usage: avram-analyze [options] <-|files...>
+Parse MARC or PICA record files and create a basic Avram Schema.`)
+  process.exit()
+}
+
+analyze(args).then( schema => { 
+  console.log(stringify(schema, null, 2))
+})

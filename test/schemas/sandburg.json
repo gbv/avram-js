@@ -1,0 +1,273 @@
+{
+  "fields": {
+    "100": {
+      "tag": "100",
+      "required": true,
+      "indicator1": {
+        "codes": {
+          "1": {}
+        }
+      },
+      "subfields": {
+        "a": {
+          "code": "a",
+          "required": true
+        },
+        "d": {
+          "code": "d",
+          "required": true
+        }
+      }
+    },
+    "245": {
+      "tag": "245",
+      "required": true,
+      "indicator1": {
+        "codes": {
+          "1": {}
+        }
+      },
+      "indicator2": {
+        "codes": {
+          "0": {}
+        }
+      },
+      "subfields": {
+        "a": {
+          "code": "a",
+          "required": true
+        },
+        "c": {
+          "code": "c",
+          "required": true
+        }
+      }
+    },
+    "250": {
+      "tag": "250",
+      "required": true,
+      "subfields": {
+        "a": {
+          "code": "a",
+          "required": true
+        }
+      }
+    },
+    "260": {
+      "tag": "260",
+      "required": true,
+      "subfields": {
+        "a": {
+          "code": "a",
+          "required": true
+        },
+        "b": {
+          "code": "b",
+          "required": true
+        },
+        "c": {
+          "code": "c",
+          "required": true
+        }
+      }
+    },
+    "300": {
+      "tag": "300",
+      "required": true,
+      "subfields": {
+        "a": {
+          "code": "a",
+          "required": true
+        },
+        "b": {
+          "code": "b",
+          "required": true
+        },
+        "c": {
+          "code": "c",
+          "required": true
+        }
+      }
+    },
+    "500": {
+      "tag": "500",
+      "required": true,
+      "subfields": {
+        "a": {
+          "code": "a",
+          "required": true
+        }
+      }
+    },
+    "520": {
+      "tag": "520",
+      "required": true,
+      "subfields": {
+        "a": {
+          "code": "a",
+          "required": true
+        }
+      }
+    },
+    "650": {
+      "tag": "650",
+      "required": true,
+      "indicator2": {
+        "codes": {
+          "0": {},
+          "1": {}
+        }
+      },
+      "subfields": {
+        "a": {
+          "code": "a",
+          "required": true
+        },
+        "x": {
+          "code": "x"
+        }
+      },
+      "repeatable": true
+    },
+    "700": {
+      "tag": "700",
+      "required": true,
+      "indicator1": {
+        "codes": {
+          "1": {}
+        }
+      },
+      "subfields": {
+        "a": {
+          "code": "a",
+          "required": true
+        },
+        "e": {
+          "code": "e",
+          "required": true
+        }
+      }
+    },
+    "LDR": {
+      "tag": "LDR",
+      "required": true
+    },
+    "001": {
+      "tag": "001",
+      "required": true
+    },
+    "003": {
+      "tag": "003",
+      "required": true
+    },
+    "005": {
+      "tag": "005",
+      "required": true
+    },
+    "008": {
+      "tag": "008",
+      "required": true
+    },
+    "010": {
+      "tag": "010",
+      "required": true,
+      "subfields": {
+        "a": {
+          "code": "a",
+          "required": true
+        }
+      }
+    },
+    "020": {
+      "tag": "020",
+      "required": true,
+      "subfields": {
+        "a": {
+          "code": "a",
+          "required": true
+        },
+        "c": {
+          "code": "c",
+          "required": true
+        }
+      }
+    },
+    "040": {
+      "tag": "040",
+      "required": true,
+      "subfields": {
+        "a": {
+          "code": "a",
+          "required": true
+        },
+        "c": {
+          "code": "c",
+          "required": true
+        },
+        "d": {
+          "code": "d",
+          "required": true
+        }
+      }
+    },
+    "042": {
+      "tag": "042",
+      "required": true,
+      "subfields": {
+        "a": {
+          "code": "a",
+          "required": true
+        }
+      }
+    },
+    "050": {
+      "tag": "050",
+      "required": true,
+      "indicator1": {
+        "codes": {
+          "0": {}
+        }
+      },
+      "indicator2": {
+        "codes": {
+          "0": {}
+        }
+      },
+      "subfields": {
+        "a": {
+          "code": "a",
+          "required": true
+        },
+        "b": {
+          "code": "b",
+          "required": true
+        }
+      }
+    },
+    "082": {
+      "tag": "082",
+      "required": true,
+      "indicator1": {
+        "codes": {
+          "0": {}
+        }
+      },
+      "indicator2": {
+        "codes": {
+          "0": {}
+        }
+      },
+      "subfields": {
+        "2": {
+          "code": "2",
+          "required": true
+        },
+        "a": {
+          "code": "a",
+          "required": true
+        }
+      }
+    }
+  },
+  "description": "Based on analyzing 1 record"
+}

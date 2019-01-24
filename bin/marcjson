@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+const fs = require('fs')
+const args = process.argv.splice(2)
+const { processRecords } = require('../lib/recordstream')
+const marcjson = require('../lib/marcjson')
+
+let { stringify } = JSON
+try { stringify = require('json-stringify-pretty-compact') } catch (e) { }
+
+if (!args.length) {
+  console.log(`Usage: marcjson <-|files...>
+Parse MARC or PICA records and convert them to JSON.`)
+  process.exit()
+}
+
+const records = []
+processRecords(rec => records.push(marcjson(rec)), args).then( () => {
+  console.log(stringify(records, null, 2))
+})
