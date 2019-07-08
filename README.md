@@ -17,6 +17,7 @@ library data formats such as MARC, PICA, MAB, and allegro.
 * [Install](#install)
 * [Usage](#usage)
   * [avram-analyze](#avram-analyze)
+  * [marc-json](#marc-json)
 * [API](#api)
   * [analyze]
   * [Analyzer]
@@ -67,6 +68,22 @@ Options (negate with uppercase letter or '--no-...'):
   -p, --positions   include positions (default)
   -h, --help        output usage information
   -V, --version     output the version number
+~~~
+
+### marc-json
+
+Utility command line client to normalize MARC or related format files to JSON.
+
+~~~
+Usage: marc-json [options] files...
+
+Parse MARC or related format files and convert records to JSON
+
+Options (negate with uppercase letter or '--no-...'):
+  -f, --format [name]  specify input format (json|ndjson)
+  -t, --to [name]      specify output format (json|ndjson)
+  -h, --help           output usage information
+  -V, --version        output the version number
 ~~~
 
 ## API

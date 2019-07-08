@@ -17,7 +17,8 @@
     "bin/"
   ],
   "bin": {
-    "avram-analyze": "./bin/avram-analyze"
+    "avram-analyze": "./bin/avram-analyze",
+    "marc-json": "./bin/marc-json"
   },
   "scripts": {
     "test": "mocha",

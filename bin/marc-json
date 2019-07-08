@@ -5,7 +5,7 @@ const marcjson = require('../lib/marcjson')
 const stringify = require('../lib/stringify')
 
 program
-  .usage('marcjson [options] files...')
+  .usage('marc-json [options] files...')
   .description('Parse MARC or related format files and convert records to JSON')
   .option('-f, --format [name]  specify input format (json|ndjson)')
   .option('-t, --to [name]      specify output format (json|ndjson)')
