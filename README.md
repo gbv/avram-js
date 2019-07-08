@@ -18,6 +18,7 @@ library data formats such as MARC, PICA, MAB, and allegro.
 * [Usage](#usage)
   * [avram-analyze](#avram-analyze)
   * [marc-json](#marc-json)
+  * [In the browser](#in-the-browser)
 * [API](#api)
   * [analyze]
   * [Analyzer]
@@ -85,6 +86,11 @@ Options (negate with uppercase letter or '--no-...'):
   -h, --help           output usage information
   -V, --version        output the version number
 ~~~
+
+### In the browser
+
+File `avram.js` contains class [Analyzer] class function [marcjson] to be used
+in a web browser. See directory `example` for a demo application.
 
 ## API
 

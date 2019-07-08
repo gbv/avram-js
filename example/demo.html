@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Avram Schema Demo</title>
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../avram.js"></script>
+
+  </head>
+  <body>
+	  <div class="container" style="padding-top: 2rem">
+      <h1>Avram Schema Demo</h1>
+		  <p>
+			  Retrieve and analyze a record from K10plus catalog.
+		  </p>
+
+			<form class="form-inline">
+				<div class="form-group mx-sm-3 mb-2">
+					<input type="text" class="form-control" id="ppn" placeholder="PPN">
+				</div>
+			  <select class="custom-select mb-2" id="format">
+				  <option value="picajson" selected>PICA+</option>
+  				<option value="marcjson">MARC21</option>
+	  		</select>
+			  <div class="form-check">
+			    <input class="form-check-input" type="checkbox" value="" id="subfields">
+  				<label class="form-check-label" for="subfields">
+					  subfields
+				  </label>
+			  </div>
+			  <div class="form-check">
+			    <input class="form-check-input" type="checkbox" value="" id="positions">
+  				<label class="form-check-label" for="positions">
+					  positions
+				  </label>
+			  </div>
+			  <div class="form-check">
+			    <input class="form-check-input" type="checkbox" value="" id="indicators">
+  				<label class="form-check-label" for="indicators">
+					  indicators
+				  </label>
+			  </div>
+			</form>
+
+      <p><a href="" id="url"></a></p>
+
+		  <code><pre id="record"></pre></code>
+
+      <code><pre id="schema"></pre></code>
+
+		</div>
+  </body>
+</html>
+<script>
+const params = new URLSearchParams(location.search)
+const unAPI = "https://unapi.k10plus.de/"
+const dbkey = "gvk"
+var oldRecord = undefined
+
+function update() {
+  updateLocation()
+
+  const oldUrl = $('#url').text()
+  const url = updateUrl()
+  var record = oldRecord
+  console.log(record)
+
+  $("#schema").text("")
+  $("#record").text("")
+
+  if (url != oldUrl) {
+    record = updateRecord(url)
+  }
+
+  if (record) {
+    analyzeRecord(record)
+  }
+}
+
+function updateLocation() {
+  if (history.pushState) {
+    ;['ppn','format'].forEach(function(name) {
+      params.set(name, $("#"+name).val())
+    })
+    ;['subfields','positions','indicators'].forEach(function(name) {    
+      params.set(name,  $("#"+name).prop('checked') ? 1 : 0)
+    })
+
+	  const url = new URL(window.location.href)
+    url.search = '?' + params.toString()
+    window.history.replaceState({}, '', url.href)
+  }
+}
+
+function updateUrl() {
+  const format = $('#format').val()
+  const ppn = $('#ppn').val()
+  const url = unAPI + "?format=" + format + "&id=" + dbkey + ":ppn:" + ppn 
+  $('#url').text(url).attr('href', url)
+  return url
+}
+
+function updateRecord() {
+  $.getJSON(url, function(record) {
+    analyzeRecord(record)
+  })
+}
+
+function analyzeRecord(record) {
+  $("#record").text("got " + record.length + " fields")
+  const inspect = new Analyzer({
+    subfields: $("#subfields").prop('checked'),
+    positions: $("#positions").prop('checked'),
+    indicators: $("#indicators").prop('checked'),
+  })
+  inspect.add(record)
+  var schema = inspect.schema()
+  $("#schema").text(JSON.stringify(schema, null, ' '))
+
+  oldRecord = record
+}
+
+$(function(){
+
+  ;['ppn','format'].forEach(function(name) {
+    if (params.has(name)) {
+      $("#"+name).val(params.get(name))
+    }
+  })
+  ;['subfields','positions','indicators'].forEach(function(name) {    
+    $("#"+name).prop('checked', params.get(name)>0)
+  })
+
+  update()
+
+  $("#format").change(update)
+  $("#subfields").change(update)
+  $("#ppn").on("input", update)
+})
+</script>

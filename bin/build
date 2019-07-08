@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+const fs = require('fs')
+
+function filter(file, regexp) {
+  return (fs.readFileSync(__dirname + file).toString().split("\n")
+    .filter(line => !line.match(regexp))
+    .join("\n")) + "\n"
+}
+
+function tidy(str) {
+  return str.replace(/(\n)+/g, "\n").replace(/\n+$/,'')
+}
+
+console.log(tidy(`/*
+
+* This file contains a subset of node module 'avram' to be used in a browser.
+*/`
+  + filter('/../lib/marcjson.js', /^module.exports/)
+  + filter('/../lib/analyzer.js', /^const marcjson|^module.exports/)
+))

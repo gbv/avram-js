@@ -14,7 +14,8 @@
   "files": [
     "index.js",
     "lib/",
-    "bin/"
+    "bin/avram-analyze",
+    "bin/marc-json"
   ],
   "bin": {
     "avram-analyze": "./bin/avram-analyze",
@@ -24,9 +25,13 @@
     "test": "mocha",
     "lint": "standard",
     "fix": "standard --fix",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "build": "./bin/build > avram.js"
   },
-  "pre-commit": "lint-staged",
+  "pre-commit": [
+    "build",
+    "lint-staged"
+  ],
   "lint-staged": {
     "*.js": [
       "standard --fix",
