@@ -18,9 +18,12 @@ library data formats such as MARC, PICA, MAB, and allegro.
 * [Usage](#usage)
   * [avram-analyze](#avram-analyze)
 * [API](#api)
-  * [analyze](#analyze)
-  * [Analyzer](#builder)
+  * [analyze]
+  * [Analyzer]
   * [marcjson](#marcjson)
+
+[analyze]: #analyzefiles-options
+[Analyzer]: #analyzeroptions
 
 ## Background
 
@@ -40,7 +43,7 @@ to install MARC parsing library [marcjs](https://www.npmjs.com/package/marcjs):
 npm install -g marcjs
 ~~~
 
-To get more readable JSON output also install
+Avram Schema files can get quite large. For more readable JSON output optionally install
 [json-stringify-pretty-compact](https://www.npmjs.com/package/json-stringify-pretty-compact):
 
 ~~~sh
@@ -72,7 +75,7 @@ Options (negate with uppercase letter or '--no-...'):
 const { analyze, Analyzer, marcjson } = require('avram')
 ~~~
 
-### analyze
+### analyze(files, options)
 
 Read a list of record files and promise an Avram schema:
 
@@ -81,9 +84,16 @@ analyze(['records.mrc', 'more-records.ndjson', 'even-more-records.xml.gz'])
 .then( schema => { console.log(schema) } )
 ~~~
 
-### Analyzer
+The following optional options are supported:
 
-Builds an Avram schema from a set of existing records:
+* `subfields` to include subfields (default `true`)
+* `positions` to include positions (default `true`) 
+* `indicators` to include indicators (default `true`)
+
+### Analyzer(options)
+
+Internally used by function [analyze] to synchronously build an Avram schema
+from a set of existing records:
 
 ~~~js
 const inspect = new Analyzer()
@@ -92,11 +102,12 @@ var schema = inspect.schema()
 var count  = inspect.count
 ~~~
 
+Supports the same options as [analyze].
+
 ### marcjson
 
-This utility function can be used to normalize one record from different
-variants of parsed JSON serializations (MARC in JSON, Javascript MARC record
-representation, MARC JSON...) into an array of fields such as the following:
+Normalize a record from different variants of parsed JSON serializations (MARC
+in JSON, Javascript MARC record representation...) into [MARC JSON] format:
 
 ~~~json
 [
@@ -108,7 +119,7 @@ representation, MARC JSON...) into an array of fields such as the following:
 
 ## Maintainers
 
-- [@nichtich](https://github.com/nichtich)
+- [@nichtich](https://github.com/nichtich) (Jakob Voß)
 
 ## Contributing
 
@@ -120,3 +131,4 @@ for questions, bug reports, and/or feature requests!
 MIT license
 
 [Avram Schema Language]: http://format.gbv.de/schema/avram/specification
+[MARC JSON]: http://format.gbv.de/marc/json
