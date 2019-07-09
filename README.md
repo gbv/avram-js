@@ -89,8 +89,9 @@ Options (negate with uppercase letter or '--no-...'):
 
 ### In the browser
 
-File `avram.js` contains class [Analyzer] class function [marcjson] to be used
-in a web browser. See directory `example` for a demo application.
+File `docs/avram.js` contains class [Analyzer] class function [marcjson] to be
+used in a web browser. See `docs/index.html` for a demo application, hosted at
+<https://gbv.github.io/avram-js/>.
 
 ## API
 
