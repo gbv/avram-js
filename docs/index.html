@@ -87,6 +87,7 @@
 <script>
 const params = new URLSearchParams(location.search)
 const unAPI = "https://unapi.k10plus.de/"
+const avramAPI = "https://uri.gbv.de/avram-demo/" // TODO: URL will change!
 const dbkey = "gvk"
 var oldRecord = undefined
 
@@ -193,6 +194,24 @@ function analyzeRecord(record) {
     table.append(row)
   })
   table.show()
+
+  if ($('#format').val() == "picajson" && avramAPI) {
+    var ids = Object.keys(schema.fields)
+    var url = avramAPI + "?profile=all&field=" + ids.join("|")
+    fetch(url).then(res => res.json()).then(schema => {
+      const fields = schema.fields
+      $("#schema-table tr").each((_,row) => {
+        var tag = (row.firstChild || {}).innerHTML || ""
+        var spec = fields[tag] || fields[tag.split("/")[0]]
+        if (spec) {
+          var td = $("<td>")
+          td.text(spec.label)
+          td.appendTo(row)
+        }
+      })
+    })
+  }
+
 
   oldRecord = record
 }
