@@ -16,8 +16,8 @@
 	  <div class="container" style="padding-top: 2rem">
       <h1>Avram Schema Demo</h1>
 		  <p>
-        Retrieve a MARC21 or PICA+ record from 
-        <a href="http://kxp.k10plus.de/DB=2.1/">GBV Union Catalog</a> and analyze
+        Retrieve a MARC21 or PICA+ record from
+        <a href="http://opac.k10plus.de/">K10plus Union Catalog</a> and analyze
         an <a href="http://format.gbv.de/schema/avram/specification">Avram Schema</a>
         based on its fields. See <a href="https://github.com/gbv/avram-js#readme">avram-js</a>
         for implementation.
@@ -32,7 +32,7 @@
               <a href="?ppn=1030386986" class="form-text text-muted">example: 1030386986</a>
             </span>
 		  		</div>
-          <div class="col-sm-2"> 
+          <div class="col-sm-2">
             <select class="custom-select mb-2" id="format">
 				      <option value="picajson" selected>PICA+</option>
     				  <option value="marcjson">MARC21</option>
@@ -88,7 +88,7 @@
 const params = new URLSearchParams(location.search)
 const unAPI = "https://unapi.k10plus.de/"
 const avramAPI = "https://uri.gbv.de/avram-demo/" // TODO: URL will change!
-const dbkey = "gvk"
+const dbkey = "opac-de-627"
 var oldRecord = undefined
 
 function update() {
@@ -115,7 +115,7 @@ function updateLocation() {
     ;['ppn','format'].forEach(function(name) {
       params.set(name, $("#"+name).val())
     })
-    ;['subfields','positions','indicators'].forEach(function(name) {    
+    ;['subfields','positions','indicators'].forEach(function(name) {
       params.set(name,  $("#"+name).prop('checked') ? 1 : 0)
     })
 
@@ -128,7 +128,7 @@ function updateLocation() {
 function updateUrl() {
   const format = $('#format').val()
   const ppn = $('#ppn').val()
-  const url = unAPI + "?format=" + format + "&id=" + dbkey + ":ppn:" + ppn 
+  const url = unAPI + "?format=" + format + "&id=" + dbkey + ":ppn:" + ppn
   $('#url').text(url).attr('href', url)
   return url
 }
@@ -185,7 +185,7 @@ function analyzeRecord(record) {
           info = info + " ..."
         }
         return info
-      }).join("<br>")  
+      }).join("<br>")
       row.append('<td>'+subfields+'</td>')
     }
 
@@ -201,8 +201,9 @@ function analyzeRecord(record) {
     fetch(url).then(res => res.json()).then(schema => {
       const fields = schema.fields
       $("#schema-table tr").each((_,row) => {
-        var tag = (row.firstChild || {}).innerHTML || ""
-        var spec = fields[tag] || fields[tag.split("/")[0]]
+        var id = (row.firstChild || {}).innerHTML || ""
+        var tag = id.split("/")[0]
+        var spec = fields[id] || fields[tag]
         if (spec) {
           var td = $("<td>")
           td.text(spec.label)
@@ -211,7 +212,6 @@ function analyzeRecord(record) {
       })
     })
   }
-
 
   oldRecord = record
 }
@@ -222,7 +222,7 @@ $(function(){
       $("#"+name).val(params.get(name))
     }
   })
-  ;['subfields','positions','indicators'].forEach(function(name) {    
+  ;['subfields','positions','indicators'].forEach(function(name) {
     $("#"+name).prop('checked', params.get(name)>0)
     $("#"+name).change(update)
   })
