@@ -1,17 +1,15 @@
-const marcjson = require('./lib/marcjson')
-const Analyzer = require('./lib/analyzer')
-const { processRecords } = require('./lib/recordstream')
+import marcjson from "./lib/marcjson.js"
+import Analyzer from "./lib/analyzer.js"
+import { processRecords } from "./lib/recordstream.js"
 
-function analyze (sources, options) {
-  return new Promise((resolve, reject) => {
-    const inspect = new Analyzer(options)
-    Object.assign(options, { sources, action: rec => { inspect.add(rec) } })
-    processRecords(options).then(() => resolve(inspect.schema()))
-  })
+async function analyze (sources, options) {
+  const inspect = new Analyzer(options)
+  Object.assign(options, { sources, action: rec => { inspect.add(rec) } })
+  processRecords(options).then(() => inspect.schema())
 }
 
-module.exports = {
+export {
   marcjson,
   analyze,
-  Analyzer
+  Analyzer,
 }

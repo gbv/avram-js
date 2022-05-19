@@ -87,18 +87,6 @@ Options (negate with uppercase letter or '--no-...'):
   -V, --version        output the version number
 ~~~
 
-### In the browser
-
-File `docs/avram.js` contains class [Analyzer] class function [marcjson] to be
-used in a web browser. See `docs/index.html` for a demo application, hosted at
-<https://gbv.github.io/avram-js/>.
-
-## API
-
-~~~js
-const { analyze, Analyzer, marcjson } = require('avram')
-~~~
-
 ### analyze(files, options)
 
 Read a list of record files and promise an Avram schema:

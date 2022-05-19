@@ -1,37 +1,37 @@
-/* global describe it */
-const { equal, deepEqual } = require('should')
-const should = require('should')
-const { Analyzer } = require('../index')
+/* eslint-env node, mocha */
+import { expect, jsonFile } from "./test.js"
+
+import { Analyzer } from "../index.js"
 
 const fields = {
-  '003@': {
-    tag: '003@',
+  "003@": {
+    tag: "003@",
     required: true,
     subfields: {
-      '0': { code: '0', required: true }
-    }
-  }
+      0: { code: "0", required: true },
+    },
+  },
 }
 
-describe('Analyzer', () => {
-  it('start with an empty schema', () => {
+describe("Analyzer", () => {
+  it("start with an empty schema", () => {
     let b = new Analyzer()
-    deepEqual(b.schema(), { fields: {} })
-    equal(b.count, 0)
+    expect(b.schema()).deep.equal({ fields: {} })
+    expect(b.count).equal(0)
   })
 
-  it('builds a simple schema', () => {
+  it("builds a simple schema", () => {
     let b = new Analyzer({ positions: false })
-    b.add([['003@', null, '0', '1234']])
-    should.deepEqual(b.schema(), {
+    b.add([["003@", null, "0", "1234"]])
+    expect(b.schema()).deep.equal({
       fields,
-      description: 'Based on analyzing 1 record'
+      description: "Based on analyzing 1 record",
     })
   })
 
-  it('builds a complex schema', () => {
+  it("builds a complex schema", () => {
     let inspect = new Analyzer()
-    inspect.add(require('./files/sandburg.json')[0])
-    should.deepEqual(inspect.schema(), require('./schemas/sandburg.json'))
+    inspect.add(jsonFile("./files/sandburg.json")[0])
+    expect(inspect.schema()).deep.equal(jsonFile("./schemas/sandburg.json"))
   })
 })

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-const program = require('../lib/cli')
-const { analyze } = require('../index')
-const stringify = require('../lib/stringify')
+import stringify from "json-stringify-pretty-compact"
+import program from '../lib/cli.js'
+import { analyze } from '../index.js'
 
 program
   .usage('avram-analyze [opts] files...')
@@ -12,7 +12,7 @@ program
   .option('-p, --positions      include positions (default)')
   .action((files, options) => {
     analyze(files, options).then(schema => { 
-      console.log(stringify(schema, null, 2))
+      console.log(stringify(schema))
     })  
   })
   .parse(process.argv)

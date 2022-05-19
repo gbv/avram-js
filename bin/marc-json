@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-const program = require('../lib/cli')
-const { processRecords } = require('../lib/recordstream')
-const marcjson = require('../lib/marcjson')
-const stringify = require('../lib/stringify')
+import program from '../lib/cli'
+import { processRecords } from '../lib/recordstream'
+import marcjson = require('../lib/marcjson'
+import stringify from "json-stringify-pretty-compact"
 
 program
   .usage('marc-json [options] files...')
@@ -15,10 +15,10 @@ program
     processRecords(options).then( () => {
       if (options.to === 'ndjson') {
         for (let rec of records) {
-          console.log(JSON.stringify(rec))
+          console.log(stringify(rec))
         }
       } else {
-        console.log(stringify(records, null, 2))
+        console.log(stringify(records))
       }
     })
   })
