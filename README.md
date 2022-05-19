@@ -2,7 +2,7 @@
 
 > Avram Schema Language implementation in JavaScript
 
-[![Build Status](https://travis-ci.com/gbv/avram-js.svg?branch=master)](https://travis-ci.com/gbv/avram-js)
+[![Test](https://github.com/gbv/avram-js/actions/workflows/test.yml/badge.svg?branch=dev)](https://github.com/gbv/avram-js/actions/workflows/test.yml)
 [![NPM Version](http://img.shields.io/npm/v/avram.svg?style=flat)](https://www.npmjs.org/package/avram)
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg)](https://github.com/RichardLitt/standard-readme)
 
