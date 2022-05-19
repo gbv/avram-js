@@ -42,12 +42,12 @@
     "node": ">= 6.0"
   },
   "devDependencies": {
-    "json-stringify-pretty-compact": "^1.2.0",
-    "lint-staged": "^7.2.2",
-    "marcjs": "^1.0.7",
-    "mocha": "^5.2.0",
+    "json-stringify-pretty-compact": "^4.0.0",
+    "lint-staged": "^12.4.1",
+    "marcjs": "^2.0.1",
+    "mocha": "^10.0.0",
     "pre-commit": "^1.2.2",
     "should": "^13.2.3",
-    "standard": "^12.0.1"
+    "standard": "^17.0.0"
   }
 }
