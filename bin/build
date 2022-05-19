@@ -15,6 +15,6 @@ console.log(tidy(`/*
 
 * This file contains a subset of node module 'avram' to be used in a browser.
 */`
-  + filter('/../lib/marcjson.js', /^module.exports/)
-  + filter('/../lib/analyzer.js', /^const marcjson|^module.exports/)
+  + filter('/../lib/jsonRecord.js', /^module.exports/)
+  + filter('/../lib/analyzer.js', /^const jsonRecord|^module.exports/)
 ))

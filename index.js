@@ -1,4 +1,4 @@
-import marcjson from "./lib/marcjson.js"
+import jsonRecord from "./lib/json-record.js"
 import Analyzer from "./lib/analyzer.js"
 import { processRecords } from "./lib/recordstream.js"
 
@@ -9,7 +9,7 @@ async function analyze (sources, options) {
 }
 
 export {
-  marcjson,
+  jsonRecord,
   analyze,
   Analyzer,
 }

@@ -22,7 +22,7 @@ library data formats such as MARC, PICA, MAB, and allegro.
 * [API](#api)
   * [analyze]
   * [Analyzer]
-  * [marcjson](#marcjson)
+  * [jsonRecord](#jsonrecord)
 
 [analyze]: #analyzefiles-options
 [Analyzer]: #analyzeroptions
@@ -116,10 +116,11 @@ var count  = inspect.count
 
 Supports the same options as [analyze].
 
-### marcjson
+### jsonRecord
 
 Normalize a record from different variants of parsed JSON serializations (MARC
-in JSON, Javascript MARC record representation...) into [MARC JSON] format:
+in JSON, Javascript MARC record representation...) into common JSON format
+(MARC JSON or PICA JSON) like this:
 
 ~~~json
 [

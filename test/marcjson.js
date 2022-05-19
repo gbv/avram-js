@@ -1,7 +1,7 @@
 /* eslint-env node, mocha */
 import { expect } from "./test.js"
 
-import { marcjson } from "../index.js"
+import { jsonRecord } from "../index.js"
 
 const record = [
   ["LDR", null, null, "_", "01471cjm a2200349 a 4500"],
@@ -40,14 +40,14 @@ const examples = {
   },
 }
 
-describe("marcjson", () => {
+describe("jsonRecord", () => {
   it("returns MARC JSON unmodified", () => {
-    expect(marcjson(record)).deep.equal(record)
+    expect(jsonRecord(record)).deep.equal(record)
   })
 
   for (let variant in examples) {
     it(`converts ${variant}`, () => {
-      expect(marcjson(examples[variant])).deep.equal(record)
+      expect(jsonRecord(examples[variant])).deep.equal(record)
     })
   }
 })
