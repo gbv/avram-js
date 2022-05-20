@@ -26,6 +26,7 @@
     "test": "mocha",
     "lint": "eslint './**/*.js';",
     "fix": "eslint --fix './**/*.js'",
+    "coverage": "NODE_ENV=debug c8 --skip-full mocha",
     "lint-staged": "lint-staged",
     "release": "git checkout dev && git pull && npm test && npm version $SEMVER && git push && git checkout main && git merge dev && git push --follow-tags && git checkout dev",
     "release:patch": "SEMVER=patch npm run release",
@@ -51,6 +52,7 @@
     "json-stringify-pretty-compact": "^4.0.0"
   },
   "devDependencies": {
+    "c8": "^7.11.3",
     "chai": "^4.3.6",
     "chai-as-promised": "^7.1.1",
     "eslint": "^8.8.0",
