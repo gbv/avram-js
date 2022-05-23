@@ -1,0 +1,16 @@
+{
+  "valid": {
+    "LDR": { "tag": "LDR" },
+    "@": { "tag": "@" },
+    "001": { "tag": "001" },
+    "021A": { "tag": "021A" },
+    "045Q/01": { "tag": "045Q", "occurrence": { "from": 1, "length": 2 } },
+    "028B/01-02": { "tag": "028B", "occurrence": { "from": 1, "to": 2, "length": 2 } },
+    "247x1": { "tag": "247", "counter": { "from": 1, "length": 1 } },
+    "247x00": { "tag": "247", "counter": { "from": 0, "length": 2 } },
+    "209Ax00-09": { "tag": "209A", "counter": { "from": 0, "to": 9, "length": 2 } }
+  },
+  "invalid": [
+    "", "+", "1/", "045Q/01-01", "045Q/012", "247x1-19"
+  ]
+}
