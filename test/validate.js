@@ -1,6 +1,6 @@
 /* eslint-env node, mocha */
 import { expect } from "./test.js"
-import { validateValue, validatePositions } from "../lib/validate.js"
+import { validateValue, validatePositions, validateSubfields, validateRecord } from "../lib/validate.js"
 
 const valueTests = [
   [ "x", {} ],
@@ -23,18 +23,48 @@ describe("validateValue", () => {
         errors.forEach(e => e.value = value)
         expect(result).deep.equal(errors)
       } else {
-        expect(result).not.ok
+        expect(result).deep.equal([])
       }
     })
   })
 })
 
 describe("validateRecord", () => {
-  // TODO
+  const record = [
+    { tag: "A", subfields: [] },
+  ]
+  const schema = {
+    fields: {
+      A: { subfields: { x: { required: true } } },
+    },
+  }
+  const errors = validateRecord(record, schema, {})
+  it("", () => {
+    expect(errors).deep.equal([
+      { code: "x", message: "Missing subfield 'x'." },
+    ])
+  })
 })
 
 describe("validateSubfields", () => {
-  // TODO
+  const schedule = {
+    0: { required: true },
+    a: { repeatable: true },
+  }
+  const missing = { code: "0", message: "Missing subfield '0'." }
+  const repeated = { code: "0", message: "Subfield '0' must not be repeated." }
+  const unknown = { code: "x", message: "Unknown subfield 'x'." }
+  const tests = [
+    {subfields:["0"," ","a"," ","a"," "], errors: []},
+    {subfields:["a"," "], errors: [missing]},
+    {subfields:["0"," ","0"," "], errors: [repeated]},
+    {subfields:["x"," "], errors: [unknown,missing]},
+  ]
+  it("validates subfields", () => {
+    tests.forEach(({subfields, errors}) => {  
+      expect(validateSubfields(subfields, schedule, {})).deep.equal(errors)
+    })
+  })
 })
 
 describe("validatePositions", () => {
@@ -42,10 +72,8 @@ describe("validatePositions", () => {
     "00": { pattern: "[a-z]" },
     "01-2": { codes: { xy: {} } },
   }
-
   for (let value of ["axy","bxyz"]) {
     const errors = validatePositions(value, positions)
-    expect(errors).not.ok
+    expect(errors).deep.equal([])
   }
-
 })
