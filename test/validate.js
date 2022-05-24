@@ -1,6 +1,6 @@
 /* eslint-env node, mocha */
 import { expect } from "./test.js"
-import { validateValue, validatePositions, validateSubfields, validateRecord } from "../lib/validate.js"
+import { validateValue, validatePositions, validateSubfields, Validator } from "../lib/validate.js"
 
 const valueTests = [
   [ "x", {} ],
@@ -29,21 +29,66 @@ describe("validateValue", () => {
   })
 })
 
-describe("validateRecord", () => {
-  const record = [
-    { tag: "A", subfields: [] },
-  ]
+describe("Validator", () => {
+  const codes = { x: {}, y: {} }
   const schema = {
     fields: {
-      A: { subfields: { x: { required: true } } },
+      A: { 
+        subfields: { x: { required: true, pattern: "^[a-z]$" } },
+        required: true,
+      },
+      B: { codes },
+      C: {
+        subfields: { z: { repeatable: true, codes } },
+      },
     },
   }
-  const errors = validateRecord(record, schema, {})
-  it("", () => {
-    expect(errors).deep.equal([
-      { code: "x", message: "Missing subfield 'x'." },
-    ])
+  const validator = new Validator(schema)
+  
+  const tests = [
+    {
+      record: [
+        { tag: "A", subfields: [] }, 
+        { tag: "A", subfields: ["x", "1"] }, 
+        { tag: "Y", occurrence: "1", value: "" },
+      ],
+      errors: [ 
+        { code: "x", message: "Missing subfield 'x'." },
+        {
+          message: "Value '1' does not match regex pattern '^[a-z]$'.",
+          pattern: "^[a-z]$", value: "1",
+        },          
+        { identifier: "A", message: "Field 'A' must not be repeated." },
+        { tag: "Y", occurrence: "1", message: "Unknown field 'Y/1'." },
+      ],
+    },{
+      record: [
+        { tag: "Y", value: "" },
+        { tag: "B", value: "z" },
+        { tag: "C", subfields: ["z", " "] },
+      ],
+      errors: [ 
+        { tag: "Y", message: "Unknown field 'Y'." },
+        {
+          message: "Value 'z' is not defined in codelist.",
+          value: "z",
+        },
+        {
+          message: "Value ' ' is not defined in codelist.",
+          value: " ",
+        },
+        { identifier: "A", message: "Missing field 'A'." },
+      ],
+    },
+  ]
+
+  tests.forEach(({record, errors},i) => {
+    it(`validate (${i+1})`, () => {
+      expect(validator.validate(record)).deep.equal(errors)
+    })
   })
+
+  // TODO: test options
 })
 
 describe("validateSubfields", () => {
