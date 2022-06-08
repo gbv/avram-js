@@ -9,23 +9,14 @@
 This Node package implements [Avram Schema Language] to analyze and validate
 library data formats such as MARC, PICA, MAB, and allegro.
 
-*The current version of only supports creation of schema but no validation yet!*
-
 ## Table of Contents
 
 * [Background](#background)
 * [Install](#install)
 * [Usage](#usage)
+  * [avram-validate](#avram-validate)
   * [avram-analyze](#avram-analyze)
-  * [marc-json](#marc-json)
-  * [In the browser](#in-the-browser)
 * [API](#api)
-  * [analyze]
-  * [Analyzer]
-  * [jsonRecord](#jsonrecord)
-
-[analyze]: #analyzefiles-options
-[Analyzer]: #analyzeroptions
 
 ## Background
 
@@ -43,6 +34,12 @@ to install MARC parsing library [marcjs](https://www.npmjs.com/package/marcjs):
 
 ~~~sh
 npm install -g marcjs
+~~~
+
+To handle PICA files install pica-data:
+
+~~~sh
+npm install -g pica-data
 ~~~
 
 Avram Schema files can get quite large. For more readable JSON output optionally install
@@ -69,22 +66,6 @@ Options (negate with uppercase letter or '--no-...'):
   -p, --positions   include positions (default)
   -h, --help        output usage information
   -V, --version     output the version number
-~~~
-
-### marc-json
-
-Utility command line client to normalize MARC or related format files to JSON.
-
-~~~
-Usage: marc-json [options] files...
-
-Parse MARC or related format files and convert records to JSON
-
-Options (negate with uppercase letter or '--no-...'):
-  -f, --format [name]  specify input format (json|ndjson)
-  -t, --to [name]      specify output format (json|ndjson)
-  -h, --help           output usage information
-  -V, --version        output the version number
 ~~~
 
 ### analyze(files, options)
