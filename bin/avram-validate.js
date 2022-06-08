@@ -21,15 +21,27 @@ const Pica = {
         record = []
       }
     }
-    readline.createInterface(input)
+    readline.createInterface(input) // TODO: use transformer instead?
       .on("line", line => {
         if (line === "") {
           nextRecord()
         } else {
-          record.push(parsePicaLine(line))
+          const field = parsePicaLine(line)
+          if (field) {
+            record.push(field)
+          } else {
+            const error = new Error(`Malformed PICA+ Plain: '${line}'`)
+            stream.destroy(error)
+          }
         }
       })
-      .on("close", () => nextRecord) // TODO: end
+      .on("close", () => {
+        nextRecord()
+        stream.push(null)
+      })
+      .on("error", e => {
+        console.error(e)
+      })
     return stream
   },
 }
@@ -37,12 +49,12 @@ const Pica = {
 const formats = {
   marcxml: {
     stream: input => Marc.stream(input, "marcxml").pipe(marcTransform),
-    pattern: /\.xml(\.gz)?$/,
+    pattern: /\.xml$/,
     family: "marc",
   },
   iso2709: {
     stream: input => Marc.stream(input, "iso2709").pipe(marcTransform),
-    pattern: /\.mrc(\.gz)?$/,
+    pattern: /\.mrc$/,
     family: "marc",
   },
   pp: {
@@ -73,8 +85,9 @@ function getFormat(file, name) {
 cli.usage("avram-validate [options] <schema> [<files...>]")
   .description("Validate file(s) with an Avram schema")
   .option("-f, --format [name]  input format")
+  .option("-v, --verbose        verbose output")
   // TODO: support avram validation options
-  .action(async (files, options) => {      
+  .action(async (files, options) => {    
     const schema = JSON.parse(fs.readFileSync(files.shift()))
     // TODO: validate schema
     const validator = new Validator(schema)
@@ -92,21 +105,26 @@ cli.usage("avram-validate [options] <schema> [<files...>]")
 
       stream.on("data", record => {
         const errors = validator.validate(record)
-        if (errors.length) {
-          // TODO: add input filename?
-          errors.forEach(e => console.error(e))
+        errors.forEach(e => {
+          if (file !== "-") {
+            e.file = file
+          }
+          if (options.verbose) {
+            console.error(JSON.stringify(e))
+          } else {
+            console.error(e.message)
+          }
           ok = false
-        }
+        })
       })
       stream.on("end", resolve)
       stream.on("error", reject)
-    })))
+    }))) // TODO: catch errors
 
     process.exit(ok ? 0 : 2) 
   })
   .parse(process.argv)
   .catch(e => {
-    console.error(e)
     console.error(`${e}`)
     process.exit(1)
   })
