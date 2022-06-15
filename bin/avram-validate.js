@@ -1,69 +1,47 @@
 #!/usr/bin/env node
 import cli from "../lib/cli.js"
 import fs from "fs"
-import { Marc } from "marcjs" // not listed as dependency!
-import { parsePicaLine } from "pica-data" // not listed as dependency!
 
 import { marcTransform, picaTransform } from "../lib/record.js"
 import { Validator } from "../lib/validate.js"
-// TODO: move to picadata
 
-import { Readable } from "stream"
-import readline from "readline"
+const formats = {}
+// TODO: more formats (marcjson, picajson, csv, tsv, normalized pica...)
 
-const Pica = {
-  stream: input => {
-    const stream = new Readable({ objectMode: true, read () {} })
-    var record = []
-    const nextRecord = () => {
-      if (record.length) {
-        stream.push(record)
-        record = []
-      }
+const enableMarc = module => {
+  if (module) {
+    formats.marcxml = {
+      stream: input => module.Marc.stream(input, "marcxml").pipe(marcTransform),
+      pattern: /\.xml$/,
+      family: "marc",
     }
-    readline.createInterface(input) // TODO: use transformer instead?
-      .on("line", line => {
-        if (line === "") {
-          nextRecord()
-        } else {
-          const field = parsePicaLine(line)
-          if (field) {
-            record.push(field)
-          } else {
-            const error = new Error(`Malformed PICA+ Plain: '${line}'`)
-            stream.destroy(error)
-          }
-        }
-      })
-      .on("close", () => {
-        nextRecord()
-        stream.push(null)
-      })
-      .on("error", e => {
-        console.error(e)
-      })
-    return stream
-  },
+    formats.iso2709 = {
+      stream: input => module.Marc.stream(input, "iso2709").pipe(marcTransform),
+      pattern: /\.mrc$/,
+      family: "marc",
+    }
+    formats.mrc = formats.iso2709
+  }
 }
 
-const formats = {
-  marcxml: {
-    stream: input => Marc.stream(input, "marcxml").pipe(marcTransform),
-    pattern: /\.xml$/,
-    family: "marc",
-  },
-  iso2709: {
-    stream: input => Marc.stream(input, "iso2709").pipe(marcTransform),
-    pattern: /\.mrc$/,
-    family: "marc",
-  },
-  pp: {
-    stream: input => Pica.stream(input, "plain").pipe(picaTransform),
-    pattern: /\.(pp|plain)$/,
-    family: "pica",
-  },
-  // TODO: more formats (marcjson, picajson, csv, tsv, normalized pica...)
+const enablePica = pica => {
+  if (pica) {
+    formats.pp = {
+      stream: input => pica.parseStream(input, { format: "plain" }).pipe(picaTransform),
+      pattern: /\.(pp|plain)$/,
+      family: "pica",
+    }
+    formats.plain = formats.pica
+  }
 }
+
+// dynamically and parallely load optional modules
+await Promise.allSettled([import("marcjs"),import("pica-data")])
+  .then(imports => {
+    enableMarc(imports[0].value)
+    enablePica(imports[1].value)
+  })
+
 
 function getFormat(file, name) {
   if (name) {
@@ -82,14 +60,19 @@ function getFormat(file, name) {
   }
 }
 
+function readSchema(file) { // TODO: check family
+  const schema = JSON.parse(fs.readFileSync(file))
+  // TODO: validate schema
+  return schema
+}
+
 cli.usage("avram-validate [options] <schema> [<files...>]")
   .description("Validate file(s) with an Avram schema")
-  .option("-f, --format [name]  input format")
+  .option(`-f, --format [name]  input format (${Object.keys(formats).join("|")})`)
   .option("-v, --verbose        verbose output")
   // TODO: support avram validation options
   .action(async (files, options) => {    
-    const schema = JSON.parse(fs.readFileSync(files.shift()))
-    // TODO: validate schema
+    const schema = readSchema(files.shift())
     const validator = new Validator(schema)
     var ok = true
 
@@ -97,7 +80,7 @@ cli.usage("avram-validate [options] <schema> [<files...>]")
       files = ["-"]
     }
 
-    // this validates parallel
+    // validate parallel
     await Promise.all(files.map(file => new Promise((resolve, reject) => {
       const format = getFormat(file, options.format)
       const input = file === "-" ? process.stdin : fs.createReadStream(file)
@@ -117,14 +100,15 @@ cli.usage("avram-validate [options] <schema> [<files...>]")
           ok = false
         })
       })
-      stream.on("end", resolve)
       stream.on("error", reject)
-    }))) // TODO: catch errors
+      stream.on("end", resolve)
+    }))) // TODO: catch errors?
 
     process.exit(ok ? 0 : 2) 
   })
   .parse(process.argv)
   .catch(e => {
+    // console.error(e)
     console.error(`${e}`)
     process.exit(1)
   })

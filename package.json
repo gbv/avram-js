@@ -60,7 +60,7 @@
     "lint-staged": "^12.4.1",
     "marcjs": "^2.0.1",
     "mocha": "^10.0.0",
-    "pica-data": "^0.4.0",
+    "pica-data": "^0.6.0",
     "pre-commit": "^1.2.2",
     "standard-readme": "^2.0.4"
   }
