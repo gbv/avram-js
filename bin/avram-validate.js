@@ -5,17 +5,23 @@ import fs from "fs"
 import { Validator } from "../lib/validate.js"
 import formats from "../lib/formats.js"
 
+const details = `
+An empty string schema argument uses the empty schema. Combining -n and -v emits
+parsed records. Validation options (separable with any of [ ,|+]):
+${Object.keys(Validator.options).map(o => "  "+o).join("\n")}`
+
 cli.usage("avram-validate [options] <schema> [<files...>]")
   .description("Validate file(s) with an Avram schema")
   .option(`-f, --format [name]     input format (${Object.keys(formats).join("|")})`)
   .option("-v, --verbose           verbose error messages")
   .option("-n, --no-validate       only parse schema and records.")
   .option("-o, --options [options] set validation options.") 
-  .details("An empty string as schema argument will use the empty schema.")
-  .details("Combining -n and -v will emit parsed records.")
+  .details(details)
   .action(async (files, opt) => {
     
-    var options = (opt.options||"").split(/[|, +]/).filter(Boolean)
+    var options = (opt.options||"").split(/[ ,|+]/).filter(Boolean)
+    options.filter(o => !(o in Validator.options))
+      .forEach(o => console.warn(`Unknown validation option '${o}'`))
     options = Object.fromEntries(options.map(name => [name,true]))
 
     if (opt.format && !(opt.format in formats)) {
