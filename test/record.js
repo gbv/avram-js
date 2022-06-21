@@ -1,6 +1,6 @@
 /* eslint-env node, mocha */
 import { expect } from "./test.js"
-import { fromMarc, fromKeyValue } from "../lib/record.js"
+import { fromMarc, fromFlat } from "../lib/record.js"
 
 describe("fromMarc", () => {
   const record = {
@@ -19,7 +19,7 @@ describe("fromMarc", () => {
   })
 })
 
-describe("fromKeyValue", () => {
+describe("fromFlat", () => {
   const record = {
     "": "?",
     "/": "",
@@ -29,7 +29,7 @@ describe("fromKeyValue", () => {
     b: [],
   }
   it("converts object with key-values", () => {
-    expect(fromKeyValue(record)
+    expect(fromFlat(record)
       .sort((a,b) => a.tag > b.tag ? 1 : -1)).deep.equal([
       { tag: "/", value: "" },
       { tag: "0", value: "0" },

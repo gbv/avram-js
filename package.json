@@ -53,6 +53,7 @@
     "c8": "^7.11.3",
     "chai": "^4.3.6",
     "chai-as-promised": "^7.1.1",
+    "csv-parser": "^3.0.0",
     "eslint": "^8.8.0",
     "eslint-config-gbv": "^1.0.3",
     "lint-staged": "^12.4.1",
