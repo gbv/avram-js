@@ -10,11 +10,11 @@ This Node package implements [Avram Schema Language](http://format.gbv.de/schema
 
 ## Table of Contents
 
+* [Background](#background)
 * [Install]
 * [Usage](#usage)
   * [avram-validate]
 * [API]
-* [Related](#related)
 * [Maintainers](#maintainers)
 * [Contributing](#contributing)
 * [License](#license)
@@ -22,6 +22,11 @@ This Node package implements [Avram Schema Language](http://format.gbv.de/schema
 [Install]: #install
 [avram-validate]: #avram-validate
 [API]: #api
+
+## Background
+
+See also Perl modules [MARC::Schema](https://metacpan.org/pod/MARC::Schema) and
+[PICA::Schema](https://metacpan.org/pod/PICA::Schema).
 
 ## Install
 
@@ -71,11 +76,6 @@ The list of supported input formats depends on installed parsing libraries (see 
 ~~~js
 TODO
 ~~~
-
-## Related
-
-See also Perl modules [MARC::Schema](https://metacpan.org/pod/MARC::Schema) and
-[PICA::Schema](https://metacpan.org/pod/PICA::Schema).
 
 ## Maintainers
 
