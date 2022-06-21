@@ -2,7 +2,7 @@
   "name": "avram",
   "version": "0.0.4",
   "description": "Avram Schema Language implementation in JavaScript",
-  "avram": "0.3.0",
+  "avram": "0.8.1",
   "homepage": "https://github.com/gbv/avram-js#readme",
   "author": "Jakob Voß",
   "license": "MIT",
@@ -15,12 +15,10 @@
   "files": [
     "index.js",
     "lib/",
-    "bin/avram-analyze",
-    "bin/marc-json"
+    "bin/"
   ],
   "bin": {
-    "avram-analyze": "./bin/avram-analyze",
-    "marc-json": "./bin/marc-json"
+    "avram-validate": "./bin/avram-validate.js"
   },
   "scripts": {
     "test": "mocha",
