@@ -40,7 +40,7 @@ cli.usage("avram-validate [options] <schema> [<files...>]")
 
     // validate parallel
     await Promise.all(files.map(file => new Promise((resolve, reject) => {
-      var format = opt.format || Object.values(formats).find(f => file.match(f.pattern))
+      var format = opt.format || Object.keys(formats).find(f => file.match(formats[f].pattern))
       format = formats[format]
       if (!format) {
         throw new Error("Please specify input format!")

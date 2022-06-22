@@ -1,0 +1,80 @@
+[
+  {
+    "schema": {"fields": { "_": { } } },
+    "tests": [
+      {
+        "record": [ {"tag":"_","value":"x"} ]
+      }
+    ]
+  },
+  {
+    "description": "flat field with pattern",
+    "schema": {"fields": { "_": {"pattern":"[0-9]"} } },
+    "tests":[
+      {
+        "record": [{"tag":"_","value":"1"}] 
+      },
+      {
+        "record": [{"tag":"_","value":"x"}],
+        "errors": [
+          { 
+            "message": "Value 'x' does not match regex pattern '[0-9]'.",
+            "pattern": "[0-9]",
+            "value": "x"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "schema": {"fields": { "_": {"codes":{} } } },
+    "tests": [
+      {
+        "record": [{"tag":"_","value":"x"}],
+        "errors": [
+          {
+            "message": "Value 'x' is not defined in codelist.",
+            "value": "x"
+          }
+        ]
+      },
+      {
+        "record": [{"tag":"_", "value":"x"}],
+        "options": ["ignore_codes"]
+      }
+    ]
+  },{
+    "description": "flat field with position",
+    "schema": {
+      "fields": { 
+        "_": {
+          "repeatable": true,
+          "positions": { 
+            "00-01": { "pattern": "[a-z]" }, 
+            "01-02": { "pattern": "[a-z0-9]" } 
+          } 
+        } 
+      } 
+    },
+    "tests":[
+      {
+        "record": [
+          {"tag":"_","value":""},
+          {"tag":"_","value":"ab"},
+          {"tag":"_","value":"abc"},
+          {"tag":"_","value":"ab9"}
+        ] 
+      },
+      {
+        "record": [{"tag":"_","value":"9"}],
+        "errors": [
+          { 
+            "message": "Value '9' does not match regex pattern '[a-z]'.",
+            "pattern": "[a-z]",
+            "value": "9"
+          }
+        ]
+      }
+    ]
+  }
+]

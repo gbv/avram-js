@@ -58,15 +58,29 @@ See [API] for usage as programming library.
 ### avram-validate
 
 ~~~
+
 Usage: avram-validate [options] <schema> [<files...>]
 
 Validate file(s) with an Avram schema
 
 Options:
-  -f, --format [name]  input format
-  -v, --verbose        verbose output
-  -h, --help           output usage information
-  -V, --version        output the version number
+  -f, --format [name]      input format (marcxml|iso2709|mrc|pp|plain|csv)
+  -v, --verbose            verbose error messages
+  -n, --no-validate        only parse schema and records.
+  -o, --options [options]  set validation options.
+  -h, --help               output usage information
+  -V, --version            output the version number
+
+An empty string schema argument uses the empty schema. Combining -n and -v emits
+parsed records. Validation options (separable with any of [ ,|+]):
+
+  ignore_unknown_fields
+  allow_deprecated
+  ignore_subfields
+  ignore_unknown_subfields
+  ignore_values
+  ignore_codes
+  ignore_unknown_codelists
 ~~~
 
 The list of supported input formats depends on installed parsing libraries (see [Install]).
@@ -74,7 +88,31 @@ The list of supported input formats depends on installed parsing libraries (see 
 ## API
 
 ~~~js
-TODO
+import { Validator } from "avram"
+
+const validator = new Validator(schema, options)
+const errors = validator.validate(record)
+if (!errors.length) {
+  console.log("valid")
+} else {
+  errors.forEach(e => console.error(e))
+}
+~~~
+
+The record structure expected by `validate` is an array of fields, each with
+
+* `tag` (string)
+* optional `occurrence` (string) or `indicators` (array of two strings)
+* `value` (string) or `subfields` (array with alternating subfield codes and subfield values)
+
+The `Record` object provides methods to convert usual formats to Avram record format:
+
+~~~js
+import { Record } from "avram"
+
+var record = Record.fromMarc(marc) // expect marjs record structure
+var record = Record.fromPica(pica) // expect PICA/JSON record stucture
+var record = Record.fromFlat(obj)  // any key-value object. Non-flat values are ignored
 ~~~
 
 ## Maintainers

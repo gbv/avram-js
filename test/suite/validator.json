@@ -1,0 +1,51 @@
+[
+  {
+    "schema": {
+      "fields": {
+        "A": { 
+          "subfields": { "x": { "required": true, "pattern": "^[a-z]$" } },
+          "required": true
+        },
+        "B": { "codes": { "x": {}, "y": {} } },
+        "C": {
+          "subfields": { "z": { "repeatable": true, "codes": { "x": {}, "y": {} } } }
+        }
+      }
+    },
+    "tests": [
+      {
+        "record": [
+          { "tag": "A", "subfields": [] }, 
+          { "tag": "A", "subfields": ["x", "1"] }, 
+          { "tag": "Y", "occurrence": "1", "value": "" }
+        ],
+        "errors": [ 
+          { "code": "x", "message": "Missing subfield 'x'." },
+          {
+            "message": "Value '1' does not match regex pattern '^[a-z]$'.",
+            "pattern": "^[a-z]$", "value": "1"
+          },          
+          { "identifier": "A", "message": "Field 'A' must not be repeated." },
+          { "tag": "Y", "occurrence": "1", "message": "Unknown field 'Y/1'." }
+        ]
+      },{
+        "record": [
+          { "tag": "Y", "value": "" },
+          { "tag": "B", "value": "z" },
+          { "tag": "C", "subfields": ["z", " "] }
+        ],
+        "errors": [ 
+          { "tag": "Y", "message": "Unknown field 'Y'." },
+          {
+            "message": "Value 'z' is not defined in codelist.",
+            "value": "z"
+          },{
+            "message": "Value ' ' is not defined in codelist.",
+            "value": " "
+          },
+          { "identifier": "A", "message": "Missing field 'A'." }
+        ]
+      }
+    ]
+  }
+]

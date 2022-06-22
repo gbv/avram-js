@@ -1,6 +1,6 @@
 /* eslint-env node, mocha */
 import { expect } from "./test.js"
-import { fromMarc, fromFlat } from "../lib/record.js"
+import { Record } from "../index.js"
 
 describe("fromMarc", () => {
   const record = {
@@ -11,10 +11,23 @@ describe("fromMarc", () => {
     ],
   }
   it("converts marcjs record", () => {
-    expect(fromMarc(record)).deep.equal([
+    expect(Record.fromMarc(record)).deep.equal([
       { tag: "LDR", value: "..." },
       { tag: "009", value: "http://example.org/" },
       { tag: "101", indicators: [ "0", " " ], subfields: [ "a", "eng" ] },
+    ])
+  })
+})
+
+describe("fromPica", () => {
+  const record = [
+    ["003@", "", "0", "123"],
+    ["123X", "01", "a", "", "+"],
+  ]
+  it("converts pica record", () => {
+    expect(Record.fromPica(record)).deep.equal([
+      { tag: "003@", subfields: ["0", "123"] },
+      { tag: "123X", occurrence: "01", subfields: ["a", ""] },
     ])
   })
 })
@@ -29,7 +42,7 @@ describe("fromFlat", () => {
     b: [],
   }
   it("converts object with key-values", () => {
-    expect(fromFlat(record)
+    expect(Record.fromFlat(record)
       .sort((a,b) => a.tag > b.tag ? 1 : -1)).deep.equal([
       { tag: "/", value: "" },
       { tag: "0", value: "0" },
