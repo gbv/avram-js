@@ -3,7 +3,7 @@
     "schema": {"fields": { "_": { } } },
     "tests": [
       {
-        "record": [ {"tag":"_","value":"x"} ]
+        "record": [ {"key":"_","value":"x"} ]
       }
     ]
   },
@@ -12,10 +12,10 @@
     "schema": {"fields": { "_": {"pattern":"[0-9]"} } },
     "tests":[
       {
-        "record": [{"tag":"_","value":"1"}] 
+        "record": [{"key":"_","value":"1"}] 
       },
       {
-        "record": [{"tag":"_","value":"x"}],
+        "record": [{"key":"_","value":"x"}],
         "errors": [
           { 
             "message": "Value 'x' does not match regex pattern '[0-9]'.",
@@ -30,7 +30,7 @@
     "schema": {"fields": { "_": {"codes":{} } } },
     "tests": [
       {
-        "record": [{"tag":"_","value":"x"}],
+        "record": [{"key":"_","value":"x"}],
         "errors": [
           {
             "message": "Value 'x' is not defined in codelist.",
@@ -39,7 +39,7 @@
         ]
       },
       {
-        "record": [{"tag":"_", "value":"x"}],
+        "record": [{"key":"_", "value":"x"}],
         "options": ["ignore_codes"]
       }
     ]
@@ -59,14 +59,14 @@
     "tests":[
       {
         "record": [
-          {"tag":"_","value":""},
-          {"tag":"_","value":"ab"},
-          {"tag":"_","value":"abc"},
-          {"tag":"_","value":"ab9"}
+          {"key":"_","value":""},
+          {"key":"_","value":"ab"},
+          {"key":"_","value":"abc"},
+          {"key":"_","value":"ab9"}
         ] 
       },
       {
-        "record": [{"tag":"_","value":"9"}],
+        "record": [{"key":"_","value":"9"}],
         "errors": [
           { 
             "message": "Value '9' does not match regex pattern '[a-z]'.",

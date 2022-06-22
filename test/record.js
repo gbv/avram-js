@@ -12,9 +12,9 @@ describe("fromMarc", () => {
   }
   it("converts marcjs record", () => {
     expect(Record.fromMarc(record)).deep.equal([
-      { tag: "LDR", value: "..." },
-      { tag: "009", value: "http://example.org/" },
-      { tag: "101", indicators: [ "0", " " ], subfields: [ "a", "eng" ] },
+      { key: "LDR", value: "..." },
+      { key: "009", value: "http://example.org/" },
+      { key: "101", indicators: [ "0", " " ], subfields: [ "a", "eng" ] },
     ])
   })
 })
@@ -26,8 +26,8 @@ describe("fromPica", () => {
   ]
   it("converts pica record", () => {
     expect(Record.fromPica(record)).deep.equal([
-      { tag: "003@", subfields: ["0", "123"] },
-      { tag: "123X", occurrence: "01", subfields: ["a", ""] },
+      { key: "003@", subfields: ["0", "123"] },
+      { key: "123X", occurrence: "01", subfields: ["a", ""] },
     ])
   })
 })
@@ -43,12 +43,12 @@ describe("fromFlat", () => {
   }
   it("converts object with key-values", () => {
     expect(Record.fromFlat(record)
-      .sort((a,b) => a.tag > b.tag ? 1 : -1)).deep.equal([
-      { tag: "/", value: "" },
-      { tag: "0", value: "0" },
-      { tag: "00", value: "null" },
-      { tag: "a", value: "!" },
-      { tag: "b", value: "" },
+      .sort((a,b) => a.key > b.key ? 1 : -1)).deep.equal([
+      { key: "/", value: "" },
+      { key: "0", value: "0" },
+      { key: "00", value: "null" },
+      { key: "a", value: "!" },
+      { key: "b", value: "" },
     ])
   })
 })

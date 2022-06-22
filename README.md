@@ -102,7 +102,7 @@ if (!errors.length) {
 
 The record structure expected by `validate` is an array of fields, each with
 
-* `tag` (string)
+* `key` (string)
 * optional `occurrence` (string) or `indicators` (array of two strings)
 * `value` (string) or `subfields` (array with alternating subfield codes and subfield values)
 
@@ -111,9 +111,9 @@ The `Record` object provides methods to convert usual formats to Avram record fo
 ~~~js
 import { Record } from "avram"
 
+var record = Record.fromFlat(obj)  // any key-value object. Non-flat values are ignored.
 var record = Record.fromMarc(marc) // expect marjs record structure
 var record = Record.fromPica(pica) // expect PICA/JSON record stucture
-var record = Record.fromFlat(obj)  // any key-value object. Non-flat values are ignored.
 ~~~
 
 ## Maintainers

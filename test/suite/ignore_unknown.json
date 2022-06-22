@@ -11,8 +11,8 @@
       {
         "description": "unknown field and subfield",
         "record": [ 
-          { "tag": "known", "subfields": [ "a", "" ] },
-          { "tag": "unknown", "value": "" }
+          { "key": "known", "subfields": [ "a", "" ] },
+          { "key": "unknown", "value": "" }
         ],
         "errors": [
           {
@@ -21,18 +21,18 @@
           },
           {
             "message": "Unknown field 'unknown'.",
-            "tag": "unknown"
+            "key": "unknown"
           }
         ]
       },
       {
         "description": "ignore_unknown_fields",
-        "record": [ { "tag": "unknown", "value": "" } ],
+        "record": [ { "key": "unknown", "value": "" } ],
         "options": ["ignore_unknown_fields"]
       },
       {
         "description": "ignore_unknown_subfields",
-        "record": [ { "tag": "known", "subfields": [ "a", "" ] } ],
+        "record": [ { "key": "known", "subfields": [ "a", "" ] } ],
         "options": ["ignore_unknown_subfields"]
       }
     ]

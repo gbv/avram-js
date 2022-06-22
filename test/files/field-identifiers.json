@@ -2,8 +2,8 @@
   {
     "family": "marc",
     "valid": {
-      "LDR": { "tag": "LDR" },
-      "001": { "tag": "001" }
+      "LDR": { "key": "LDR" },
+      "001": { "key": "001" }
     },
     "invalid": [ "", "1", "12", "1234", "021A", "123/12" ]
   },
@@ -11,30 +11,30 @@
     "family": "pica",
     "valid": {
       "000X": {
-        "tag": "000X",
-        "match": [{ "tag": "000X" }, { "tag": "000X", "occurrence": "00" }],
-        "nomatch": [{ "tag": "000Y" }]
+        "key": "000X",
+        "match": [{ "key": "000X" }, { "key": "000X", "occurrence": "00" }],
+        "nomatch": [{ "key": "000Y" }]
       },
-      "021A": { "tag": "021A" },
+      "021A": { "key": "021A" },
       "045Q/01": { 
-        "tag": "045Q", "occurrence": { "from": 1, "length": 2 },
-        "match": [{ "tag": "045Q", "occurrence": "01" }],
-        "nomatch": [{ "tag": "045Q" }]
+        "key": "045Q", "occurrence": { "from": 1, "length": 2 },
+        "match": [{ "key": "045Q", "occurrence": "01" }],
+        "nomatch": [{ "key": "045Q" }]
       },
-      "028B/01-02": { "tag": "028B", "occurrence": { "from": 1, "to": 2, "length": 2 } },
-      "247Ax1": { "tag": "247A", "counter": { "from": 1, "length": 1 } },
-      "247Ax00": { "tag": "247A", "counter": { "from": 0, "length": 2 } },
-      "209Ax00-09": { "tag": "209A", "counter": { "from": 0, "to": 9, "length": 2 } }
+      "028B/01-02": { "key": "028B", "occurrence": { "from": 1, "to": 2, "length": 2 } },
+      "247Ax1": { "key": "247A", "counter": { "from": 1, "length": 1 } },
+      "247Ax00": { "key": "247A", "counter": { "from": 0, "length": 2 } },
+      "209Ax00-09": { "key": "209A", "counter": { "from": 0, "to": 9, "length": 2 } }
     },
     "invalid": [ "", "+", "1/", "001", "045Q/01-01", "045Q/012", "247x1", "247Ax1-19", "200@/01" ]
   },
   {
     "family": "flat",
     "valid": {
-      "@": { "tag": "@" },
-      "000": { "tag": "000" },
-      "123X/00": { "tag": "123X/00" },
-      "247Ax1": { "tag": "247Ax1" }
+      "@": { "key": "@" },
+      "000": { "key": "000" },
+      "123X/00": { "key": "123X/00" },
+      "247Ax1": { "key": "247Ax1" }
     },
     "invalid": [ "" ]
   }

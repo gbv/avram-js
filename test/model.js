@@ -48,7 +48,7 @@ describe("FieldIdentifier", () => {
     })
 
     it("ignores occurrence /00 in pica family", () => {
-      expect(new FieldIdentifier("123X/00", "pica")).deep.equal({tag: "123X"})
+      expect(new FieldIdentifier("123X/00", "pica")).deep.equal({key: "123X"})
     })
 
     it("rejects unknown format family", () => {
@@ -71,12 +71,12 @@ describe("FieldSchedule (pica)", () => {
     expect("003@" in schedule).ok
     expect(schedule["003@"]).deep.equal({label: "003@"})
     expect("identifier" in schedule).not.ok
-    expect(schedule.identifier({ tag: "012X", occurrence: "03" })).equal("012X/03")
-    expect(schedule.identifier({ tag: "000X", occurrence: "02" })).equal("000X/00-02")
-    expect(schedule.identifier({ tag: "000X" })).equal("000X/00-02")
-    expect(schedule.identifier({ tag: "234X", subfields: ["x","1"] })).equal("234Xx1")
-    expect(schedule.identifier({ tag: "234X", subfields: ["y","1"] })).not.ok
-    expect(schedule.identifier({ tag: "234X" })).not.ok
+    expect(schedule.identifier({ key: "012X", occurrence: "03" })).equal("012X/03")
+    expect(schedule.identifier({ key: "000X", occurrence: "02" })).equal("000X/00-02")
+    expect(schedule.identifier({ key: "000X" })).equal("000X/00-02")
+    expect(schedule.identifier({ key: "234X", subfields: ["x","1"] })).equal("234Xx1")
+    expect(schedule.identifier({ key: "234X", subfields: ["y","1"] })).not.ok
+    expect(schedule.identifier({ key: "234X" })).not.ok
   })
 })
 
