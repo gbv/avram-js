@@ -1,0 +1,46 @@
+[
+  {
+    "schema": {
+      "fields": {
+        "_": {
+          "subfields": {
+            "0": { "required": true },
+            "a": { "repeatable": true }
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "record": [
+          { "tag": "_", "subfields": ["0"," ","a"," ","a"," "] }
+        ]
+      },
+      {
+        "record": [
+          { "tag": "_", "subfields": ["a"," "] }
+        ],
+        "errors": [
+          { "message": "Missing subfield '0'.", "code": "0" }
+        ]
+      },
+      {
+        "record": [
+          { "tag": "_", "subfields": ["0"," ","0"," "] }
+        ],
+        "errors": [
+          { "message": "Subfield '0' must not be repeated.", "code": "0" }
+        ]
+      },
+      {
+        "record": [
+          { "tag": "_", "subfields": ["x"," "] }
+        ],
+        "errors": [
+          { "message": "Unknown subfield 'x'.", "code": "x" },
+          { "message": "Missing subfield '0'.", "code": "0" }
+        ]
+      }
+    ]
+  }
+]

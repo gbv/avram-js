@@ -1,0 +1,40 @@
+[
+  {
+    "schema": {
+      "fields": { 
+        "known": {
+          "subfields": { }
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "unknown field and subfield",
+        "record": [ 
+          { "tag": "known", "subfields": [ "a", "" ] },
+          { "tag": "unknown", "value": "" }
+        ],
+        "errors": [
+          {
+            "message": "Unknown subfield 'a'.",
+            "code": "a"
+          },
+          {
+            "message": "Unknown field 'unknown'.",
+            "tag": "unknown"
+          }
+        ]
+      },
+      {
+        "description": "ignore_unknown_fields",
+        "record": [ { "tag": "unknown", "value": "" } ],
+        "options": ["ignore_unknown_fields"]
+      },
+      {
+        "description": "ignore_unknown_subfields",
+        "record": [ { "tag": "known", "subfields": [ "a", "" ] } ],
+        "options": ["ignore_unknown_subfields"]
+      }
+    ]
+  }
+]

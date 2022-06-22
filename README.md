@@ -25,8 +25,9 @@ This Node package implements [Avram Schema Language](http://format.gbv.de/schema
 
 ## Background
 
-See also Perl modules [MARC::Schema](https://metacpan.org/pod/MARC::Schema) and
-[PICA::Schema](https://metacpan.org/pod/PICA::Schema).
+Several schema languages exist for JSON (JSON Schema), XML (XSD, DTD, Schematron, RELAX NG), RDF (RDFS, SHACL, ShEx), and Strings (regular expressions and formal grammars). Avram is a schema language designed for field-based data formats such as MARC and PICA. Avram can also be used to define and validate flat key-value structures.
+
+See also Perl modules [MARC::Schema](https://metacpan.org/pod/MARC::Schema) and [PICA::Schema](https://metacpan.org/pod/PICA::Schema) partially implementing Avram.
 
 ## Install
 
@@ -112,7 +113,7 @@ import { Record } from "avram"
 
 var record = Record.fromMarc(marc) // expect marjs record structure
 var record = Record.fromPica(pica) // expect PICA/JSON record stucture
-var record = Record.fromFlat(obj)  // any key-value object. Non-flat values are ignored
+var record = Record.fromFlat(obj)  // any key-value object. Non-flat values are ignored.
 ~~~
 
 ## Maintainers

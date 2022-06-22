@@ -1,0 +1,24 @@
+[
+  {
+    "schema": {
+      "fields": {
+        "x": {
+          "repeatable": true,
+          "positions": {
+            "00": { "pattern": "[a-z]" },
+            "01-2": { "codes": { "xy": {} } }
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "record": [
+          { "tag": "x", "value": "a" },
+          { "tag": "x", "value": "axy" },
+          { "tag": "x", "value": "axyz" }
+        ]      
+      }
+    ]
+  }
+]
