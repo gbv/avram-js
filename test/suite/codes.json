@@ -1,0 +1,63 @@
+[
+  {
+    "description": "validate with codes",
+    "schema": {
+      "codelists": {
+        "languages": { "en": { }, "de": { } }
+      },
+      "fields": {
+        "lang": {
+          "codes": "languages",
+          "deprecated-codes": { "deu": { } }
+        },
+        "bool": {
+          "codes": { "yes": {}, "no": {} },
+          "deprecated-codes": "not-found"
+        },
+        "wtf": {
+          "codes": "xy"
+        }
+      }
+    },
+    "tests": [
+      {
+        "record": [ 
+          { "key": "lang", "value": "en" },
+          { "key": "bool", "value": "yes" }
+        ]
+      },{
+        "record": [
+          { "key": "lang", "value": "deu" },
+          { "key": "bool", "value": "y" },
+          { "key": "wtf", "value": "xy" }
+        ],
+        "errors": [
+          { "message": "Value 'deu' is not defined in codelist.", "value": "deu" },          
+          { "message": "Value 'y' is not defined in codelist.", "value": "y" },          
+          { "message": "Unknown codelist 'xy'.", "value": "xy" }
+        ]
+      },{
+        "description": "ignore_codes",
+        "record": [
+          { "key": "lang", "value": "deu" },
+          { "key": "bool", "value": "y" },
+          { "key": "wtf", "value": "xy" }
+        ],
+        "options": ["ignore_codes"]
+      },{
+        "description": "allow_deprecated",
+        "record": [
+          { "key": "lang", "value": "deu" }
+        ],
+        "options": ["allow_deprecated"]
+      },{
+        "description": "ignore_unknown_codelists & allow_deprecated",
+        "record": [
+          { "key": "bool", "value": "y" },
+          { "key": "wtf", "value": "xy" }
+        ],
+        "options": ["ignore_unknown_codelists", "allow_deprecated"]
+      }
+    ]
+  }
+]

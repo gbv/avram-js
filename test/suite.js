@@ -8,6 +8,7 @@ const suite = [
   "ignore_unknown",
   "subfields",
   "positions",
+  "codes",
 ]
 
 const asObject = obj => {
