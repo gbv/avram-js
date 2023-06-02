@@ -46,9 +46,6 @@
   "engines": {
     "node": ">= 14.8.0"
   },
-  "dependencies": {
-    "json-stringify-pretty-compact": "^4.0.0"
-  },
   "devDependencies": {
     "c8": "^7.11.3",
     "chai": "^4.3.6",
@@ -57,10 +54,10 @@
     "eslint": "^8.8.0",
     "eslint-config-gbv": "^1.0.3",
     "js-yaml": "^4.1.0",
-    "lint-staged": "^12.4.1",
+    "lint-staged": "^13.2.2",
     "marcjs": "^2.0.1",
     "mocha": "^10.0.0",
-    "pica-data": "^0.6.0",
+    "pica-data": "^0.7.0",
     "pre-commit": "^1.2.2",
     "standard-readme": "^2.0.4"
   }

@@ -45,13 +45,6 @@ npm install pica-data
 npm install csv-parse
 ~~~
 
-Avram Schema files can get quite large. For more readable JSON output optionally install
-[json-stringify-pretty-compact](https://www.npmjs.com/package/json-stringify-pretty-compact):
-
-~~~sh
-npm install json-stringify-pretty-compact
-~~~
-
 ## Usage
 
 See [API] for usage as programming library.
