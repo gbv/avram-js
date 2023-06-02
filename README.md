@@ -104,10 +104,12 @@ The `Record` object provides methods to convert usual formats to Avram record fo
 ~~~js
 import { Record } from "avram"
 
-var record = Record.fromFlat(obj)  // any key-value object. Non-flat values are ignored.
-var record = Record.fromMarc(marc) // expect marjs record structure
-var record = Record.fromPica(pica) // expect PICA/JSON record stucture
+var record = Record.fromObject(obj)    // any key-value object. Non-flat values are ignored.
+var record = Record.fromMarcjs(marc)   // expect marcjs record structure
+var record = Record.fromPicajson(pica) // expect PICA/JSON record stucture
 ~~~
+
+See [marcjs records](https://github.com/fredericd/marcjs#record-class) and [PICA/JSON](http://format.gbv.de/pica/json) for reference.
 
 ## Maintainers
 
