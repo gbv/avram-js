@@ -69,7 +69,6 @@ An empty string schema argument uses the empty schema. Combining -n and -v emits
 parsed records. Validation options (separable with any of [ ,|+]):
 
   ignore_unknown_fields
-  allow_deprecated
   ignore_subfields
   ignore_unknown_subfields
   ignore_values
