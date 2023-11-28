@@ -7,12 +7,10 @@
       },
       "fields": {
         "lang": {
-          "codes": "languages",
-          "deprecated-codes": { "deu": { } }
+          "codes": "languages"
         },
         "bool": {
-          "codes": { "yes": {}, "no": {} },
-          "deprecated-codes": "not-found"
+          "codes": { "yes": {}, "no": {} }
         },
         "wtf": {
           "codes": "xy"
@@ -45,18 +43,15 @@
         ],
         "options": ["ignore_codes"]
       },{
-        "description": "allow_deprecated",
-        "record": [
-          { "key": "lang", "value": "deu" }
-        ],
-        "options": ["allow_deprecated"]
-      },{
-        "description": "ignore_unknown_codelists & allow_deprecated",
+        "description": "ignore_unknown_codelists",
         "record": [
           { "key": "bool", "value": "y" },
           { "key": "wtf", "value": "xy" }
         ],
-        "options": ["ignore_unknown_codelists", "allow_deprecated"]
+        "options": ["ignore_unknown_codelists"],
+        "errors": [
+          { "message": "Value 'y' is not defined in codelist.", "value": "y" }
+        ]
       }
     ]
   }
