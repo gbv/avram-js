@@ -10,14 +10,18 @@ This Node package implements [Avram Schema Language](http://format.gbv.de/schema
 
 ## Table of Contents
 
-* [Background](#background)
-* [Install]
-* [Usage](#usage)
-  * [avram-validate]
-* [API]
-* [Maintainers](#maintainers)
-* [Contributing](#contributing)
-* [License](#license)
+- [Background](#background)
+- [Install]
+- [Usage](#usage)
+  - [avram-validate]
+- [API]
+  - [Validator](#validator)
+  - [Record](#record)
+  - [SchemaValidator](#schema-validator)
+- [Test suite](#test-suite)
+- [Maintainers](#maintainers)
+- [Contributing](#contributing)
+- [License](#license)
 
 [Install]: #install
 [avram-validate]: #avram-validate
@@ -31,7 +35,7 @@ See also Perl modules [MARC::Schema](https://metacpan.org/pod/MARC::Schema) and 
 
 ## Install
 
-Requires Node >= 14.8.0. Installation of this module provides bare functionality for validating records, including the command line client [avram-validate]:
+Requires Node >= 18.0.0. Installation of this module provides bare functionality for validating records, including the command line client [avram-validate]:
 
 ~~~sh
 npm install avram
@@ -43,6 +47,14 @@ To process selected data formats in serialization forms other than JSON, install
 npm install marcjs  
 npm install pica-data
 npm install csv-parse
+~~~
+
+To also validate schema files, install additional library [ajv]:
+
+[ajv]: https://www.npmjs.com/package/ajv
+
+~~~sh
+npm install ajv
 ~~~
 
 ## Usage
@@ -80,6 +92,10 @@ The list of supported input formats depends on installed parsing libraries (see 
 
 ## API
 
+### Validator
+
+Class `Validator` implements validation against an Avram schema.
+
 ~~~js
 import { Validator } from "avram"
 
@@ -94,9 +110,11 @@ if (!errors.length) {
 
 The record structure expected by `validate` is an array of fields, each with
 
-* `key` (string)
-* optional `occurrence` (string) or `indicators` (array of two strings)
-* `value` (string) or `subfields` (array with alternating subfield codes and subfield values)
+- `key` (string)
+- optional `occurrence` (string) or `indicators` (array of two strings)
+- `value` (string) or `subfields` (array with alternating subfield codes and subfield values)
+
+### Record
 
 The `Record` object provides methods to convert usual formats to Avram record format:
 
@@ -109,6 +127,24 @@ var record = Record.fromPicajson(pica) // expect PICA/JSON record stucture
 ~~~
 
 See [marcjs records](https://github.com/fredericd/marcjs#record-class) and [PICA/JSON](http://format.gbv.de/pica/json) for reference.
+
+### SchemaValidator
+
+Class `SchemaValidator` implements validation of an Avram schema. Full validation requires additional library [ajv] to be installed.
+
+~~~js
+import { SchemaValidator } from "avram"
+
+const validator = new SchemaValidator()
+const errors = validator.validate(schema)
+if (errors.length) {
+  errors.forEach(e => console.error(e))
+}
+~~~
+
+## Test suite
+
+This package contains the official test suite for Avram validators. See directory `test/suite/` and its file `README.md` for details.
 
 ## Maintainers
 

@@ -1,0 +1,337 @@
+{
+  "title": "Avram Schema Format",
+  "description": "JSON Schema of Avram Schema Format to validata Avram Schemas",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "profile": {
+      "type": "string"
+    },
+    "family": {
+      "$ref": "#/definitions/non-empty-string"
+    },
+    "$schema": {
+      "type": "string"
+    },
+    "created": {
+      "$ref": "#/definitions/timestamp"
+    },
+    "modified": {
+      "$ref": "#/definitions/timestamp"
+    },
+    "fields": {
+      "$ref": "#/definitions/field-schedule"
+    },
+    "count": {
+      "$ref": "#/definitions/non-negative-integer",
+      "description": "deprecated, use \"records\" instead!"
+    },
+    "records": {
+      "$ref": "#/definitions/non-negative-integer"
+    },
+    "language": {
+      "type": "string",
+      "pattern": "^[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*$"
+    },
+    "codelists": {
+      "type": "object",
+      "items": {
+        "$ref": "#/definitions/explicitcodelist"
+      }
+    },
+    "checks": {
+      "$ref": "#/definitions/checks"
+    }
+  },
+  "required": [
+    "fields"
+  ],
+  "definitions": {
+    "non-empty-string": {
+      "type": "string",
+      "minLength": 1
+    },
+    "url": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "non-negative-integer": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "field-schedule": {
+      "type": "object",
+      "patternProperties": {
+        "^.+$": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tag": {
+              "$ref": "#/definitions/non-empty-string"
+            },
+            "label": {
+              "type": "string"
+            },
+            "occurrence": {
+              "type": "string",
+              "pattern": "^[0-9][0-9](-[0-9][0-9])?$"
+            },
+            "counter": {
+              "type": "string",
+              "pattern": "^[0-9]+(-[0-9]+)?$"
+            },
+            "description": {
+              "type": "string"
+            },
+            "repeatable": {
+              "type": "boolean"
+            },
+            "required": {
+              "type": "boolean"
+            },
+            "pattern": {
+              "$ref": "#/definitions/regex"
+            },
+            "codes": {
+              "$ref": "#/definitions/codelist"
+            },
+            "positions": {
+              "$ref": "#/definitions/positions"
+            },
+            "url": {
+              "$ref": "#/definitions/url"
+            },
+            "indicator1": {
+              "$ref": "#/definitions/indicator"
+            },
+            "indicator2": {
+              "$ref": "#/definitions/indicator"
+            },
+            "pica3": {
+              "type": "string"
+            },
+            "subfields": {
+              "$ref": "#/definitions/subfield-schedule"
+            },
+            "created": {
+              "$ref": "#/definitions/timestamp"
+            },
+            "modified": {
+              "$ref": "#/definitions/timestamp"
+            },
+            "total": {
+              "$ref": "#/definitions/non-negative-integer"
+            },
+            "records": {
+              "$ref": "#/definitions/non-negative-integer"
+            },
+            "checks": {
+              "$ref": "#/definitions/checks"
+            }
+          }
+        }
+      }
+    },
+    "regex": {
+      "$ref": "#/definitions/non-empty-string"
+    },
+    "positions": {
+      "type": "object",
+      "patternProperties": {
+        "^[0-9]+(-[0-9]+)?$": {
+          "$ref": "#/definitions/codedvalue"
+        }
+      }
+    },
+    "field-types": {
+      "oneOf": [
+        {
+          "type": "object",
+          "patternProperties": {
+            "^.*$": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "positions": {
+                  "$ref": "#/definitions/positions"
+                }
+              },
+              "required": [
+                "positions"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^.*$": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "subfields": {
+                  "$ref": "#/definitions/subfield-schedule"
+                }
+              },
+              "required": [
+                "subfields"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "subfield-schedule": {
+      "type": "object",
+      "patternProperties": {
+        "^.*$": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "repeatable": {
+              "type": "boolean"
+            },
+            "required": {
+              "type": "boolean"
+            },
+            "url": {
+              "$ref": "#/definitions/url"
+            },
+            "order": {
+              "type": "integer"
+            },
+            "positions": {
+              "$ref": "#/definitions/positions"
+            },
+            "codes": {
+              "$ref": "#/definitions/codelist"
+            },
+            "pica3": {
+              "type": "string"
+            },
+            "created": {
+              "$ref": "#/definitions/timestamp"
+            },
+            "modified": {
+              "$ref": "#/definitions/timestamp"
+            },
+            "total": {
+              "$ref": "#/definitions/non-negative-integer"
+            },
+            "records": {
+              "$ref": "#/definitions/non-negative-integer"
+            },
+            "checks": {
+              "$ref": "#/definitions/checks"
+            }
+          }
+        }
+      }
+    },
+    "indicator": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/definitions/codedvalue"
+        }
+      ]
+    },
+    "codedvalue": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "$ref": "#/definitions/url"
+        },
+        "codes": {
+          "$ref": "#/definitions/codelist"
+        },
+        "pattern": {
+          "$ref": "#/definitions/regex"
+        }
+      }
+    },
+    "codelist": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/non-empty-string"
+        },
+        {
+          "$ref": "#/definitions/explicitcodelist"
+        }
+      ]
+    },
+    "explicitcodelist": {
+      "type": "object",
+      "patternProperties": {
+        "^.+$": {
+          "additionalProperties": false,
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "total": {
+              "$ref": "#/definitions/non-negative-integer"
+            },
+            "records": {
+              "$ref": "#/definitions/non-negative-integer"
+            },
+            "created": {
+              "$ref": "#/definitions/timestamp"
+            },
+            "modified": {
+              "$ref": "#/definitions/timestamp"
+            }
+          }
+        }
+      }
+    },
+    "checks": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-06/schema#"
+}
