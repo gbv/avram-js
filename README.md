@@ -49,12 +49,13 @@ npm install pica-data
 npm install csv-parse
 ~~~
 
-To also validate schema files, install additional library [ajv]:
+To also validate schema files, install additional libraries [ajv] and [ajv-formats]:
 
 [ajv]: https://www.npmjs.com/package/ajv
+[ajv-formats]: https://www.npmjs.com/package/ajv-formats
 
 ~~~sh
-npm install ajv
+npm install ajv ajv-formats
 ~~~
 
 ## Usage

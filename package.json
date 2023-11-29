@@ -44,9 +44,11 @@
     ]
   },
   "engines": {
-    "node": ">= 14.8.0"
+    "node": ">= 18.0.0"
   },
   "devDependencies": {
+    "ajv": "^8.12.0",
+    "ajv-formats": "^2.1.1",
     "c8": "^7.11.3",
     "chai": "^4.3.6",
     "chai-as-promised": "^7.1.1",
@@ -60,8 +62,5 @@
     "pica-data": "^0.7.0",
     "pre-commit": "^1.2.2",
     "standard-readme": "^2.0.4"
-  },
-  "dependencies": {
-    "ajv": "^8.12.0"
   }
 }

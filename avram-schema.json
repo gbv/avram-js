@@ -11,16 +11,19 @@
       "type": "string"
     },
     "url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "profile": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "family": {
       "$ref": "#/definitions/non-empty-string"
     },
     "$schema": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "created": {
       "$ref": "#/definitions/timestamp"
@@ -44,8 +47,11 @@
     },
     "codelists": {
       "type": "object",
-      "items": {
-        "$ref": "#/definitions/explicitcodelist"
+      "additionalProperties": false,
+      "patternProperties": {
+        "^.+$": {
+          "$ref": "#/definitions/explicitcodelist"
+        }
       }
     },
     "checks": {
@@ -61,7 +67,8 @@
       "minLength": 1
     },
     "url": {
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "timestamp": {
       "type": "string"
@@ -72,6 +79,7 @@
     },
     "field-schedule": {
       "type": "object",
+      "additionalProperties": false,
       "patternProperties": {
         "^.+$": {
           "type": "object",
@@ -148,9 +156,34 @@
     },
     "positions": {
       "type": "object",
+      "additionalProperties": false,
       "patternProperties": {
         "^[0-9]+(-[0-9]+)?$": {
-          "$ref": "#/definitions/codedvalue"
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "url": {
+              "$ref": "#/definitions/url"
+            },
+            "codes": {
+              "$ref": "#/definitions/codelist"
+            },
+            "pattern": {
+              "$ref": "#/definitions/regex"
+            },
+            "start": {
+              "$ref": "#/definitions/non-negative-integer"
+            },
+            "end": {
+              "$ref": "#/definitions/non-negative-integer"
+            }
+          }
         }
       }
     },
@@ -158,6 +191,7 @@
       "oneOf": [
         {
           "type": "object",
+          "additionalProperties": false,
           "patternProperties": {
             "^.*$": {
               "type": "object",
@@ -175,6 +209,7 @@
         },
         {
           "type": "object",
+          "additionalProperties": false,
           "patternProperties": {
             "^.*$": {
               "type": "object",
@@ -194,6 +229,7 @@
     },
     "subfield-schedule": {
       "type": "object",
+      "additionalProperties": false,
       "patternProperties": {
         "^.*$": {
           "type": "object",
@@ -290,11 +326,12 @@
     },
     "explicitcodelist": {
       "type": "object",
+      "additionalProperties": false,
       "patternProperties": {
         "^.+$": {
           "additionalProperties": false,
           "properties": {
-            "value": {
+            "code": {
               "type": "string"
             },
             "label": {
@@ -333,5 +370,5 @@
       ]
     }
   },
-  "$schema": "http://json-schema.org/draft-06/schema#"
+  "$schema": "http://json-schema.org/draft-07/schema#"
 }
