@@ -2,13 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased
+## 0.2.0 - 2023-11-29
 
 - remove support of deprecated elements (dropped from Avram specification)
 - rename `Record` method `fromFlat` to `fromObject`
 - rename `Record` method `fromMarc` to `fromMarcjs`
 - rename `Record` method `fromPica` to `fromPicajson`
-- add `SchemaValidator` to validate Avram schemas
+- add `SchemaValidator` and `avram-validate-schema` to validate Avram schemas
 
 ## 0.1.1 - 2023-06-02
 
