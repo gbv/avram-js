@@ -14,9 +14,9 @@
     "tests": [
       {
         "record": [
-          { "key": "x", "value": "a" },
-          { "key": "x", "value": "axy" },
-          { "key": "x", "value": "axyz" }
+          { "tag": "x", "value": "a" },
+          { "tag": "x", "value": "axy" },
+          { "tag": "x", "value": "axyz" }
         ]      
       }
     ]

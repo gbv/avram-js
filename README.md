@@ -124,11 +124,20 @@ if (!errors.length) {
 }
 ~~~
 
-The record structure expected by `validate` is an array of fields, each with
+The record structure expected by `validate`, based on the [Avram record model](https://format.gbv.de/schema/avram/specification#records), is array of fields, each a JSON object with the following keys:
 
-- `key` (string)
+- mandatory `tag` (string), the key of a field
+- either `value` (string), the flat field value, or `subfields` (array with alternating subfield codes and subfield values)
 - optional `occurrence` (string) or `indicators` (array of two strings)
-- `value` (string) or `subfields` (array with alternating subfield codes and subfield values)
+
+Method `validate` always returns a (hopefully empty) array of errors. Each error is a JSON object with these keys (all optional except `message`):
+
+- human readable error `message`
+- `tag` or `tag` and `occurence` of an invalid field
+- `identifier` of an invalid field
+- `code` of an invalid subfield
+- `value` of an invalid (sub)field 
+- `pattern` of an invalid (sub)field
 
 ### Record
 

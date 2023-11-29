@@ -15,9 +15,9 @@
     "tests": [
       {
         "record": [
-          { "key": "A", "subfields": [] }, 
-          { "key": "A", "subfields": ["x", "1"] }, 
-          { "key": "Y", "occurrence": "1", "value": "" }
+          { "tag": "A", "subfields": [] }, 
+          { "tag": "A", "subfields": ["x", "1"] }, 
+          { "tag": "Y", "occurrence": "1", "value": "" }
         ],
         "errors": [ 
           { "code": "x", "message": "Missing subfield 'x'." },
@@ -26,16 +26,16 @@
             "pattern": "^[a-z]$", "value": "1"
           },          
           { "identifier": "A", "message": "Field 'A' must not be repeated." },
-          { "key": "Y", "occurrence": "1", "message": "Unknown field 'Y/1'." }
+          { "tag": "Y", "occurrence": "1", "message": "Unknown field 'Y/1'." }
         ]
       },{
         "record": [
-          { "key": "Y", "value": "" },
-          { "key": "B", "value": "z" },
-          { "key": "C", "subfields": ["z", " "] }
+          { "tag": "Y", "value": "" },
+          { "tag": "B", "value": "z" },
+          { "tag": "C", "subfields": ["z", " "] }
         ],
         "errors": [ 
-          { "key": "Y", "message": "Unknown field 'Y'." },
+          { "tag": "Y", "message": "Unknown field 'Y'." },
           {
             "message": "Value 'z' is not defined in codelist.",
             "value": "z"

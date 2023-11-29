@@ -20,14 +20,14 @@
     "tests": [
       {
         "record": [ 
-          { "key": "lang", "value": "en" },
-          { "key": "bool", "value": "yes" }
+          { "tag": "lang", "value": "en" },
+          { "tag": "bool", "value": "yes" }
         ]
       },{
         "record": [
-          { "key": "lang", "value": "deu" },
-          { "key": "bool", "value": "y" },
-          { "key": "wtf", "value": "xy" }
+          { "tag": "lang", "value": "deu" },
+          { "tag": "bool", "value": "y" },
+          { "tag": "wtf", "value": "xy" }
         ],
         "errors": [
           { "message": "Value 'deu' is not defined in codelist.", "value": "deu" },          
@@ -37,16 +37,16 @@
       },{
         "description": "ignore_codes",
         "record": [
-          { "key": "lang", "value": "deu" },
-          { "key": "bool", "value": "y" },
-          { "key": "wtf", "value": "xy" }
+          { "tag": "lang", "value": "deu" },
+          { "tag": "bool", "value": "y" },
+          { "tag": "wtf", "value": "xy" }
         ],
         "options": ["ignore_codes"]
       },{
         "description": "ignore_unknown_codelists",
         "record": [
-          { "key": "bool", "value": "y" },
-          { "key": "wtf", "value": "xy" }
+          { "tag": "bool", "value": "y" },
+          { "tag": "wtf", "value": "xy" }
         ],
         "options": ["ignore_unknown_codelists"],
         "errors": [

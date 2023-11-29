@@ -13,12 +13,12 @@
     "tests": [
       {
         "record": [
-          { "key": "_", "subfields": ["0"," ","a"," ","a"," "] }
+          { "tag": "_", "subfields": ["0"," ","a"," ","a"," "] }
         ]
       },
       {
         "record": [
-          { "key": "_", "subfields": ["a"," "] }
+          { "tag": "_", "subfields": ["a"," "] }
         ],
         "errors": [
           { "message": "Missing subfield '0'.", "code": "0" }
@@ -26,7 +26,7 @@
       },
       {
         "record": [
-          { "key": "_", "subfields": ["0"," ","0"," "] }
+          { "tag": "_", "subfields": ["0"," ","0"," "] }
         ],
         "errors": [
           { "message": "Subfield '0' must not be repeated.", "code": "0" }
@@ -34,7 +34,7 @@
       },
       {
         "record": [
-          { "key": "_", "subfields": ["x"," "] }
+          { "tag": "_", "subfields": ["x"," "] }
         ],
         "errors": [
           { "message": "Unknown subfield 'x'.", "code": "x" },

@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - rename `Record` method `fromMarc` to `fromMarcjs`
 - rename `Record` method `fromPica` to `fromPicajson`
 - add `SchemaValidator` and `avram-validate-schema` to validate Avram schemas
+- rename `key` of record model to `tag`
 
 ## 0.1.1 - 2023-06-02
 

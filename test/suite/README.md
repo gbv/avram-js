@@ -15,7 +15,7 @@ Each test is an object with keys:
 
 * `record` a record, given as array of fields, each with keys
 
-  * `key`
+  * `tag`
   * `indicators` (optional)
   * `occurrence`(optional)
   * either `value` or `subfields`
