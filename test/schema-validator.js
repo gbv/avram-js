@@ -2,7 +2,7 @@
 import { expect, localFiles, jsonFile } from "./test.js"
 import { SchemaValidator } from "../lib/schema-validator.js"
 
-const validSchemaFiles = localFiles("schemas",/\.json$/)
+const schemaFiles = localFiles("schemas",/\.json$/)
 const invalidSchemas = [
   {
     schema: {},
@@ -13,11 +13,16 @@ const invalidSchemas = [
 describe("SchemaValidator", () => {
   const validator = new SchemaValidator()
 
-  for(let file of validSchemaFiles) {
-    it(`valid: ${file}`, () => {
-      const json = jsonFile(file)
-      expect(validator.validate(json)).deep.equal([])
-    })
+  for(let file of schemaFiles) {
+    if (/invalid\.json$/.test(file)) {
+      it(`invalid: ${file}`, () => {
+        expect(validator.validate(jsonFile(file))).to.not.be.empty
+      })
+    } else {
+      it(`valid: ${file}`, () => {
+        expect(validator.validate(jsonFile(file))).deep.equal([])
+      })
+    }
   }
 
   let n=1

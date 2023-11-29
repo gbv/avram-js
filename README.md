@@ -14,6 +14,7 @@ This Node package implements [Avram Schema Language](http://format.gbv.de/schema
 - [Install]
 - [Usage](#usage)
   - [avram-validate]
+  - [avram-validate-schema](#avram-validate-schema)
 - [API]
   - [Validator](#validator)
   - [Record](#record)
@@ -65,7 +66,6 @@ See [API] for usage as programming library.
 ### avram-validate
 
 ~~~
-
 Usage: avram-validate [options] <schema> [<files...>]
 
 Validate file(s) with an Avram schema
@@ -90,6 +90,21 @@ parsed records. Validation options (separable with any of [ ,|+]):
 ~~~
 
 The list of supported input formats depends on installed parsing libraries (see [Install]).
+
+### avram-validate
+
+Requires additional libraries [ajv] and [ajv-formats] to be installed.
+
+~~~
+Usage: avram-validate-schema [options] <schema>
+
+Validate Avram schema file against Avram specification
+
+Options:
+  -v, --verbose  verbose error messages
+  -h, --help     output usage information
+  -V, --version  output the version number
+~~~
 
 ## API
 
