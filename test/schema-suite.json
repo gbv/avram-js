@@ -1,0 +1,50 @@
+{
+  "valid": [
+    {
+      "fields": {},
+      "codelists": {
+        "languages": {
+          "title": "langauges",
+          "description": "language codes",
+          "url": "http://example.org/",
+          "codes": {}
+        }
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "schema": {},
+      "errors": [ "must have required property 'fields'" ]
+    },
+    {
+      "schema": {
+        "fields": {}, 
+        "count": 42
+      },
+      "errors": [ "must NOT have additional properties" ]
+    },
+    {
+      "schema": {
+        "fields": {}, 
+        "url": "x"
+      },
+      "errors": [ "must match format \"uri\"" ]
+    },
+    {
+      "schema": {
+        "fields": {},
+        "codelists": {
+          "ids": {
+            "foo": { "bar": 42 }
+          }
+        }
+      },
+      "errors": [
+        "must NOT have additional properties",
+        "must have required property 'codes'",
+        "must match a schema in anyOf"
+      ]
+    }
+  ]
+}

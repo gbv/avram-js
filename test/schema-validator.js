@@ -3,12 +3,7 @@ import { expect, localFiles, jsonFile } from "./test.js"
 import { SchemaValidator } from "../lib/schema-validator.js"
 
 const schemaFiles = localFiles("schemas",/\.json$/)
-const invalidSchemas = [
-  {
-    schema: {},
-    errors: [ "must have required property 'fields'" ],
-  },
-]
+const schemaSuite = jsonFile("schema-suite.json")
 
 describe("SchemaValidator", () => {
   const validator = new SchemaValidator()
@@ -26,10 +21,18 @@ describe("SchemaValidator", () => {
   }
 
   let n=1
-  for(let { schema, errors } of invalidSchemas) {
+  for(let { schema, errors } of schemaSuite.invalid) {
     it(`detect invalid schema ${n++}`, () => {
       const messages = validator.validate(schema).map(e => e.message)
       expect(messages).deep.equal(errors)
     })
   }
+
+  n=1
+  for(let schema of schemaSuite.valid) {
+    it(`pass valid schema ${n++}`, () => {
+      expect(validator.validate(schema)).deep.equal([])
+    })
+  }
+
 })

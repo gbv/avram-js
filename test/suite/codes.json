@@ -3,7 +3,9 @@
     "description": "validate with codes",
     "schema": {
       "codelists": {
-        "languages": { "en": { }, "de": { } }
+        "languages": { 
+          "codes": { "en": { }, "de": { } }
+        }
       },
       "fields": {
         "lang": {
