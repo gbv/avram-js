@@ -116,12 +116,17 @@ Class `Validator` implements validation against an Avram schema.
 import { Validator } from "avram"
 
 const validator = new Validator(schema, options)
-const errors = validator.validate(record)
+
+// validate a set of records
+const errors = validator.validateRecords(records)
 if (!errors.length) {
   console.log("valid")
 } else {
   errors.forEach(e => console.error(e))
 }
+
+// validate a single record
+errors = validator.validate(record)
 ~~~
 
 The record structure expected by `validate`, based on the [Avram record model](https://format.gbv.de/schema/avram/specification#records), is array of fields, each a JSON object with the following keys:

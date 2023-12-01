@@ -1,15 +1,6 @@
 /* eslint-env node, mocha */
-import { expect, jsonFile } from "./test.js"
+import { expect, localFiles, jsonFile } from "./test.js"
 import { Validator } from "../index.js"
-
-const suite = [
-  "validator",
-  "validate-values",
-  "ignore_unknown",
-  "subfields",
-  "positions",
-  "codes",
-]
 
 const asObject = obj => {
   if (!obj) return {}
@@ -17,19 +8,21 @@ const asObject = obj => {
   return obj
 }
 
-suite.forEach(name => {
-  describe(name, () => {
-    jsonFile(`./suite/${name}.json`).forEach((testCase, caseIndex) => {
+localFiles("suite",/\.json$/).forEach(file => {
+  describe(file, () => {
+    jsonFile(file).forEach((testCase, caseIndex) => {
       const caseDescription = testCase.description || caseIndex + 1
       const { schema, options, tests } = testCase 
       const validator = new Validator(schema, asObject(options))
 
       tests.forEach((test, index) => {
-        const { record, options, errors } = test
+        const { options, errors } = test
         const description = test.description || 
                (caseDescription + (tests.length > 1 ? `-${index + 1}` : ""))
         it(description, () => {
-          const result = validator.validate(record, asObject(options))
+          const result = test.records
+            ? validator.validateRecords(test.records, asObject(options))
+            : validator.validate(test.record, asObject(options))
           if (errors && errors.length) {
             expect(result).deep.equal(errors)
           } else {
