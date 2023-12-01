@@ -4,7 +4,16 @@
     "schema": {
       "fields": {
         "a": { "repeatable": true, "records": 1 },
-        "b": {} 
+        "b": { "code": "xyz" },
+        "c": { "code": "xyz" } 
+      },
+      "codelists": {
+        "abc": {
+          "codes": {
+            "x": { "records": 1 },
+            "y": { "records": 2 }
+          }
+        }
       },
       "records": 2
     },
@@ -23,8 +32,8 @@
           ]
         ],
         "errors": [ 
-          { "message": "expected 2 records, got 3" },
-          { "message": "expected field 'a' in 1 records, got 2" }
+          { "message": "expected 2 records, got 3", "violates": "AR17" },
+          { "message": "expected field 'a' in 1 records, got 2", "violates": "AR18" }
         ]
       }
     ]

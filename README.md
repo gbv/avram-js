@@ -138,6 +138,7 @@ The record structure expected by `validate`, based on the [Avram record model](h
 Method `validate` always returns a (hopefully empty) array of errors. Each error is a JSON object with these keys (all optional except `message`):
 
 - human readable error `message`
+- `violates` with the number of the violated rule from Avram specification (e.g. `"AR1"`)
 - `tag` or `tag` and `occurence` of an invalid field
 - `identifier` of an invalid field
 - `code` of an invalid subfield

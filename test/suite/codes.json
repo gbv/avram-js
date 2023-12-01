@@ -32,9 +32,21 @@
           { "tag": "wtf", "value": "xy" }
         ],
         "errors": [
-          { "message": "Value 'deu' is not defined in codelist.", "value": "deu" },          
-          { "message": "Value 'y' is not defined in codelist.", "value": "y" },          
-          { "message": "Unknown codelist 'xy'.", "value": "xy" }
+          {
+            "message": "Value 'deu' is not defined in codelist.",
+            "value": "deu",
+            "violates": "AR15"
+          },
+          { 
+            "message": "Value 'y' is not defined in codelist.",
+            "value": "y", 
+            "violates": "AR15"
+          },
+          {
+            "message": "Unknown codelist 'xy'.",
+            "value": "xy",
+            "violates": "AR16"
+          }
         ]
       },{
         "description": "ignore_codes",
@@ -52,7 +64,11 @@
         ],
         "options": ["ignore_unknown_codelists"],
         "errors": [
-          { "message": "Value 'y' is not defined in codelist.", "value": "y" }
+          {
+            "message": "Value 'y' is not defined in codelist.",
+            "value": "y",
+            "violates": "AR15"
+          }
         ]
       }
     ]

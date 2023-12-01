@@ -20,6 +20,7 @@
           { 
             "message": "Value 'x' does not match regex pattern '[0-9]'.",
             "pattern": "[0-9]",
+            "violates": "AR12",
             "value": "x"
           }
         ]
@@ -34,7 +35,8 @@
         "errors": [
           {
             "message": "Value 'x' is not defined in codelist.",
-            "value": "x"
+            "value": "x",
+            "violates": "AR15"
           }
         ]
       },
@@ -71,6 +73,7 @@
           { 
             "message": "Value '9' does not match regex pattern '[a-z]'.",
             "pattern": "[a-z]",
+            "violates": "AR12",
             "value": "9"
           }
         ]

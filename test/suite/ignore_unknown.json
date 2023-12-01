@@ -17,11 +17,13 @@
         "errors": [
           {
             "message": "Unknown subfield 'a'.",
-            "code": "a"
+            "code": "a",
+            "violates": "AR7"
           },
           {
             "message": "Unknown field 'unknown'.",
-            "tag": "unknown"
+            "tag": "unknown",
+            "violates": "AR2"
           }
         ]
       },
