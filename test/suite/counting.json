@@ -1,0 +1,32 @@
+[
+  {
+    "description": "count records",
+    "schema": {
+      "fields": {
+        "a": { "repeatable": true, "records": 1 },
+        "b": {} 
+      },
+      "records": 2
+    },
+    "tests": [
+      {
+        "options": ["count_records"],
+        "records": [
+          [
+            { "tag": "a", "value": "" },
+            { "tag": "a", "value": "" }
+          ],
+          [
+            { "tag": "a", "value": "" }
+          ],
+          [
+          ]
+        ],
+        "errors": [ 
+          { "message": "expected 2 records, got 3" },
+          { "message": "expected field 'a' in 1 records, got 2" }
+        ]
+      }
+    ]
+  }
+]
