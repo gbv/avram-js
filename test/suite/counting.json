@@ -20,6 +20,13 @@
     "tests": [
       {
         "options": ["count_records"],
+        "records": [],
+        "errors": [ 
+          { "message": "expected 2 records, got 0", "violates": "AR17" }
+        ]
+      },
+      {
+        "options": ["count_records", "count_fields"],
         "records": [
           [
             { "tag": "a", "value": "" },
@@ -36,6 +43,7 @@
           { "message": "expected field 'a' in 1 records, got 2", "violates": "AR18" }
         ]
       }
+
     ]
   }
 ]
