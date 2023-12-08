@@ -35,17 +35,17 @@
           {
             "message": "Value 'deu' is not defined in codelist.",
             "value": "deu",
-            "violates": "AR15"
+            "error": "AR15"
           },
           { 
             "message": "Value 'y' is not defined in codelist.",
             "value": "y", 
-            "violates": "AR15"
+            "error": "AR15"
           },
           {
             "message": "Unknown codelist 'xy'.",
             "value": "xy",
-            "violates": "AR16"
+            "error": "AR16"
           }
         ]
       },{
@@ -67,7 +67,7 @@
           {
             "message": "Value 'y' is not defined in codelist.",
             "value": "y",
-            "violates": "AR15"
+            "error": "AR15"
           }
         ]
       }

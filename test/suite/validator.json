@@ -20,14 +20,14 @@
           { "tag": "Y", "occurrence": "1", "value": "" }
         ],
         "errors": [ 
-          { "code": "x", "message": "Missing subfield 'x'.", "violates": "AR9" },
+          { "code": "x", "message": "Missing subfield 'x'.", "error": "AR9" },
           {
             "message": "Value '1' does not match regex pattern '^[a-z]$'.",
-            "violates": "AR12",
+            "error": "AR12",
             "pattern": "^[a-z]$", "value": "1"
           },          
-          { "identifier": "A", "message": "Field 'A' must not be repeated.", "violates": "AR3" },
-          { "tag": "Y", "occurrence": "1", "message": "Unknown field 'Y/1'.", "violates": "AR2" }
+          { "identifier": "A", "message": "Field 'A' must not be repeated.", "error": "AR3" },
+          { "tag": "Y", "occurrence": "1", "message": "Unknown field 'Y/1'.", "error": "AR2" }
         ]
       },{
         "record": [
@@ -39,21 +39,21 @@
           { 
             "tag": "Y", 
             "message": "Unknown field 'Y'.", 
-            "violates": "AR2"
+            "error": "AR2"
           },
           {
             "message": "Value 'z' is not defined in codelist.",
             "value": "z",
-            "violates": "AR15"
+            "error": "AR15"
           },{
             "message": "Value ' ' is not defined in codelist.",
             "value": " ",
-            "violates": "AR15"
+            "error": "AR15"
           },
           { 
             "identifier": "A",
             "message": "Missing field 'A'.",
-            "violates": "AR4"
+            "error": "AR4"
           }
         ]
       }

@@ -18,12 +18,12 @@
           {
             "message": "Unknown subfield 'a'.",
             "code": "a",
-            "violates": "AR7"
+            "error": "AR7"
           },
           {
             "message": "Unknown field 'unknown'.",
             "tag": "unknown",
-            "violates": "AR2"
+            "error": "AR2"
           }
         ]
       },

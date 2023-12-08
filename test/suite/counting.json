@@ -22,7 +22,7 @@
         "options": ["count_records"],
         "records": [],
         "errors": [ 
-          { "message": "expected 2 records, got 0", "violates": "AR17" }
+          { "message": "expected 2 records, got 0", "error": "AR17" }
         ]
       },
       {
@@ -39,8 +39,8 @@
           ]
         ],
         "errors": [ 
-          { "message": "expected 2 records, got 3", "violates": "AR17" },
-          { "message": "expected field 'a' in 1 records, got 2", "violates": "AR18" }
+          { "message": "expected 2 records, got 3", "error": "AR17" },
+          { "message": "expected field 'a' in 1 records, got 2", "error": "AR18" }
         ]
       }
 
