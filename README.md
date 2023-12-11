@@ -91,7 +91,7 @@ parsed records. Validation options (separable with any of [ ,|+]):
 
 The list of supported input formats depends on installed parsing libraries (see [Install]).
 
-### avram-validate
+### avram-validate-schema
 
 Requires additional libraries [ajv] and [ajv-formats] to be installed.
 
