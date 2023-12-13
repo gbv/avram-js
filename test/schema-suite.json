@@ -45,6 +45,20 @@
         "must have required property 'codes'",
         "must match a schema in anyOf"
       ]
+    },
+    {
+      "schema": {
+        "fields": {
+          "abc": { "tag": "xyz" }
+        },
+        "codelists": {
+          "test": { "codes": { "x": {}, "y": { "code": "z" } } }
+        }
+      },
+      "errors": [
+        "field identifier 'abc' does not match field definition 'xyz'",
+        "code must be 'y' in codelist"
+      ]
     }
   ]
 }
