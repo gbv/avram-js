@@ -1,7 +1,11 @@
 {
   "valid": [
     {
-      "fields": {},
+      "fields": {
+        "number": {
+          "pattern": "^[0-9]+$" 
+        }
+      },
       "codelists": {
         "languages": {
           "title": "langauges",
@@ -49,7 +53,13 @@
     {
       "schema": {
         "fields": {
-          "abc": { "tag": "xyz" }
+          "abc": {
+            "tag": "xyz",
+            "indicator1": { },
+            "indicator2": {
+              "codes": { "a": { "code": "b" } }
+            }
+          }
         },
         "codelists": {
           "test": { "codes": { "x": {}, "y": { "code": "z" } } }
@@ -57,7 +67,25 @@
       },
       "errors": [
         "field identifier 'abc' does not match field definition 'xyz'",
-        "code must be 'y' in codelist"
+        "code 'b' must be 'a' in codelist",
+        "code 'z' must be 'y' in codelist"
+      ]
+    },
+    {
+      "schema": {
+        "fields": {
+          "abc": {
+            "subfields": { "x": {} },
+            "codes": {}
+          },
+          "number": {
+            "pattern": "["
+          }
+        }
+      },
+      "errors": [
+        "variable field must not have codes",
+        "Invalid pattern '['"
       ]
     }
   ]
