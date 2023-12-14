@@ -30,10 +30,22 @@
     },
     {
       "schema": {
-        "fields": {}, 
+        "fields": {
+          "p": {
+            "positions": {
+              "0-1": { "start": "1", "end": "3" },
+              "2": { "start": 2, "end": 2 }
+            }
+          }
+        }, 
         "url": "x"
       },
-      "errors": [ "must match format \"uri\"" ]
+      "errors": [
+        "must match format \"uri\"",
+        "position should not have end '2'",
+        "position start '1' must be '0'",
+        "position end '3' must be '1'"
+      ]
     },
     {
       "schema": {
@@ -75,7 +87,15 @@
       "schema": {
         "fields": {
           "abc": {
-            "subfields": { "x": {} },
+            "subfields": {
+              "x": {
+                "code": "y",
+                "codes": {
+                  "1": { "code": "2" }
+                },
+                "pattern": "("
+              } 
+            },
             "codes": {}
           },
           "number": {
@@ -85,7 +105,10 @@
       },
       "errors": [
         "variable field must not have codes",
-        "Invalid pattern '['"
+        "subfield code 'y' must be 'x'",
+        "code '2' must be '1' in codelist",
+        "invalid pattern '('",
+        "invalid pattern '['"
       ]
     }
   ]
