@@ -4,7 +4,7 @@
     "schema": {
       "codelists": {
         "languages": { 
-          "codes": { "en": { }, "de": { } }
+          "codes": { "en": { }, "de": "German" }
         }
       },
       "fields": {

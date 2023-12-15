@@ -2,6 +2,14 @@
   "valid": [
     {
       "fields": {
+        "010": {
+          "indicator1": {
+            "codes": {
+              " ": "Abbreviated key title",
+              "0": { "label": "Other abbreviated title" }
+            }
+          }          
+        },
         "number": {
           "pattern": "^[0-9]+$" 
         }
