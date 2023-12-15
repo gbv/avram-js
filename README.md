@@ -173,9 +173,11 @@ if (errors.length) {
 }
 ~~~
 
-## Test suite
+## Test suites
 
 This package contains the official test suite for Avram validators. See directory `test/suite/` and its file `README.md` for details.
+
+The unit tests of this library further contain a test suite of valid and invalid Avram schemas in file `test/schema-suite.json`.
 
 ## Maintainers
 
