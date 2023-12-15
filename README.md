@@ -161,7 +161,7 @@ See [marcjs records](https://github.com/fredericd/marcjs#record-class) and [PICA
 
 ### SchemaValidator
 
-Class `SchemaValidator` implements validation of an Avram schema. Full validation requires additional library [ajv] to be installed.
+Class `SchemaValidator` implements validation of an Avram schema (Avram schema meta-validator). Full validation requires additional library [ajv] to be installed.
 
 ~~~js
 import { SchemaValidator } from "avram"
