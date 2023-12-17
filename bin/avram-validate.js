@@ -20,6 +20,7 @@ cli.usage("avram-validate [options] <schema> [<files...>]")
   .action(async (files, opt) => {
     
     var options = (opt.options||"").split(/[ ,|+]/).filter(Boolean)
+      .map(o => o in Validator.legacyOptions ? Validator.legacyOptions[o] : o)
     options.filter(o => !(o in Validator.options))
       .forEach(o => console.warn(`Unknown validation option '${o}'`))
     options = Object.fromEntries(options.map(name => [name,true]))
