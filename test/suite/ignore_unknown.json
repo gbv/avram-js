@@ -28,14 +28,14 @@
         ]
       },
       {
-        "description": "ignore_unknown_fields",
+        "description": "-undefinedField",
         "record": [ { "tag": "unknown", "value": "" } ],
-        "options": ["ignore_unknown_fields"]
+        "options": { "undefinedField": false }
       },
       {
-        "description": "ignore_unknown_subfields",
+        "description": "-undefinedSubfield",
         "record": [ { "tag": "known", "subfields": [ "a", "" ] } ],
-        "options": ["ignore_unknown_subfields"]
+        "options": { "undefinedSubfield": false }
       }
     ]
   }

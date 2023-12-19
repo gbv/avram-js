@@ -49,20 +49,20 @@
           }
         ]
       },{
-        "description": "ignore_codes",
+        "description": "-undefinedCode",
         "record": [
           { "tag": "lang", "value": "deu" },
           { "tag": "bool", "value": "y" },
           { "tag": "wtf", "value": "xy" }
         ],
-        "options": ["ignore_codes"]
+        "options": { "undefinedCode": false }
       },{
         "description": "ignore_unknown_codelists",
         "record": [
           { "tag": "bool", "value": "y" },
           { "tag": "wtf", "value": "xy" }
         ],
-        "options": ["ignore_unknown_codelists"],
+        "options": { "undefinedCodelist": true },
         "errors": [
           {
             "message": "Value 'y' is not defined in codelist.",

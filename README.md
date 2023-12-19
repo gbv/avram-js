@@ -80,13 +80,6 @@ Options:
 
 An empty string schema argument uses the empty schema. Combining -n and -v emits
 parsed records. Validation options (separable with any of [ ,|+]):
-
-  ignore_unknown_fields
-  ignore_subfields
-  ignore_unknown_subfields
-  ignore_values
-  ignore_codes
-  ignore_unknown_codelists
 ~~~
 
 The list of supported input formats depends on installed parsing libraries (see [Install]).

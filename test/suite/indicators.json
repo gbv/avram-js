@@ -39,7 +39,7 @@
           { "tag": "010", "indicator2": "x", "value": "123" },
           { "tag": "210", "value": "123" }
         ],
-        "options": [ "ignore_codes" ],
+        "options": { "ignore_codes": true },
         "errors": [
           {
             "error": "AR11",

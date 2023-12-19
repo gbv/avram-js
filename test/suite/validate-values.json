@@ -42,7 +42,7 @@
       },
       {
         "record": [{"tag":"_", "value":"x"}],
-        "options": ["ignore_codes"]
+        "options": { "undefinedCode": false }
       }
     ]
   },{

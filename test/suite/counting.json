@@ -19,14 +19,14 @@
     },
     "tests": [
       {
-        "options": ["count_records"],
+        "options": { "countRecords": true },
         "records": [],
         "errors": [ 
           { "message": "expected 2 records, got 0", "error": "AR17" }
         ]
       },
       {
-        "options": ["count_records", "count_fields"],
+        "options": { "countRecords": true, "countFields": true },
         "records": [
           [
             { "tag": "a", "value": "" },
