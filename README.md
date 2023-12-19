@@ -66,20 +66,36 @@ See [API] for usage as programming library.
 ### avram-validate
 
 ~~~
-Usage: avram-validate [options] <schema> [<files...>]
+Usage: avram-validate [options] [validation options] <schema> [<files...>]
 
 Validate file(s) with an Avram schema
 
 Options:
-  -f, --format [name]      input format (marcxml|iso2709|mrc|pp|plain|csv)
-  -v, --verbose            verbose error messages
-  -n, --no-validate        only parse schema and records.
-  -o, --options [options]  set validation options.
-  -h, --help               output usage information
-  -V, --version            output the version number
+  -f, --format [name]  input format (marcxml|iso2709|mrc|pp|plain|csv)
+  -v, --verbose        verbose error messages
+  -n, --no-validate    only parse schema and records.
+  -h, --help           output usage information
+  -V, --version        output the version number
 
 An empty string schema argument uses the empty schema. Combining -n and -v emits
-parsed records. Validation options (separable with any of [ ,|+]):
+parsed records. Supported validation options (enable/disable with +/-):
+
+  +undefinedField
+  +nonrepeatableField
+  +missingField
+  +invalidIndicator
+  +invalidSubfield
+  +undefinedSubfield
+  +nonrepeatableSubfield
+  +missingSubfield
+  +invalidValue
+  +patternMismatch
+  +undefinedCode
+  -undefinedCodelist
+  -countRecords
+  -countFields
+  -countSubfields
+  -countCodes
 ~~~
 
 The list of supported input formats depends on installed parsing libraries (see [Install]).
