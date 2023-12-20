@@ -3,13 +3,26 @@ import cli from "../lib/cli.js"
 import fs from "fs"
 
 import { Validator } from "../lib/validate.js"
+import { SchemaValidator } from "../lib/schema-validator.js"
 import formats from "../lib/formats.js"
 
 const defaults = Validator.options
 
+const loadSchema = file => {
+  if (!file) return {fields:{}}
+  const schema = JSON.parse(fs.readFileSync(file))
+  const schemaValidator = new SchemaValidator()
+  const errors = schemaValidator.validate(schema)
+  if (errors.length) {
+    console.error(`No valid Avram schema: ${file}`)
+    process.exit(1)
+  }
+  return schema
+}
+
 const details = `
-An empty string schema argument uses the empty schema. Combining -n and -v emits
-parsed records. Supported validation options (enable/disable with +/-):
+An empty string schema argument uses the empty schema. Combining -n and -v
+emits parsed records. Supported validation options (enable/disable with +/-):
 
 ${Object.keys(defaults).map(o => "  "+(defaults[o] ? "+" : "-")+o).join("\n")}`
 
@@ -41,9 +54,7 @@ cli.usage("avram-validate [options] [validation options] <schema> [<files...>]")
       throw new Error(`Unknown or unsupported format '${opt.format}'`)
     }
 
-    var schema = files.shift()
-    schema = schema ? JSON.parse(fs.readFileSync(schema)) : {fields:{}}      
-    // TODO: validate schema
+    const schema = loadSchema(files.shift())
     const validator = new Validator(schema, options)
          
     var ok = true

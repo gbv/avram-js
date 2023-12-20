@@ -65,6 +65,10 @@ See [API] for usage as programming library.
 
 ### avram-validate
 
+Validate records from input file(s) or standard input. The first argument
+must be an Avram schema file. Selected validation options can be disabled
+or enabled.
+
 ~~~
 Usage: avram-validate [options] [validation options] <schema> [<files...>]
 
@@ -77,8 +81,7 @@ Options:
   -h, --help           output usage information
   -V, --version        output the version number
 
-An empty string schema argument uses the empty schema. Combining -n and -v emits
-parsed records. Supported validation options (enable/disable with +/-):
+An empty string schema argument uses the empty schema. Combining -n and -v emits parsed records. Supported validation options (enable/disable with +/-):
 
   +undefinedField
   +nonrepeatableField
