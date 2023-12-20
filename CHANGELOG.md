@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## 0.4.0 - 2023-12-20
+
+- Rename validation options
+- Update to Avram 0.9.3
+- Extend schema validator
+
+## 0.3.2 - 2023-12-13
+
+- extend schema validation
+- support validation of indicators
+
+## 0.3.1 - 2023-12-11
+
+- add missing schema file
+
+## 0.3.0 - 2023-12-11
+
+- update to Avram 0.9.2, including validation error codes
+
 ## 0.2.0 - 2023-11-29
 
 - remove support of deprecated elements (dropped from Avram specification)
