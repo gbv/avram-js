@@ -18,12 +18,12 @@
           {
             "message": "Unknown subfield 'a'.",
             "code": "a",
-            "error": "AR7"
+            "error": "undefinedSubfield"
           },
           {
             "message": "Unknown field 'unknown'.",
             "tag": "unknown",
-            "error": "AR2"
+            "error": "undefinedField"
           }
         ]
       },

@@ -42,12 +42,12 @@
         "options": { "ignore_codes": true },
         "errors": [
           {
-            "error": "AR11",
+            "error": "invalidIndicator",
             "message": "Indicator 'x' is not defined.",
             "value": "x"
           },
           {
-            "error": "AR11",
+            "error": "invalidIndicator",
             "message": "Indicator ' ' is not defined.",
             "value": " "
           }

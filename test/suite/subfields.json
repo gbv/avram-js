@@ -21,7 +21,7 @@
           { "tag": "_", "subfields": ["a"," "] }
         ],
         "errors": [
-          { "message": "Missing subfield '0'.", "code": "0", "error": "AR9" }
+          { "message": "Missing subfield '0'.", "code": "0", "error": "missingSubfield" }
         ]
       },
       {
@@ -29,7 +29,7 @@
           { "tag": "_", "subfields": ["0"," ","0"," "] }
         ],
         "errors": [
-          { "message": "Subfield '0' must not be repeated.", "code": "0", "error": "AR8" }
+          { "message": "Subfield '0' must not be repeated.", "code": "0", "error": "nonrepeatableSubfield" }
         ]
       },
       {
@@ -37,8 +37,8 @@
           { "tag": "_", "subfields": ["x"," "] }
         ],
         "errors": [
-          { "message": "Unknown subfield 'x'.", "code": "x", "error": "AR7" },
-          { "message": "Missing subfield '0'.", "code": "0", "error": "AR9"}
+          { "message": "Unknown subfield 'x'.", "code": "x", "error": "undefinedSubfield" },
+          { "message": "Missing subfield '0'.", "code": "0", "error": "missingSubfield"}
         ]
       }
     ]

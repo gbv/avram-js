@@ -20,14 +20,14 @@
           { "tag": "Y", "occurrence": "1", "value": "" }
         ],
         "errors": [ 
-          { "code": "x", "message": "Missing subfield 'x'.", "error": "AR9" },
+          { "code": "x", "message": "Missing subfield 'x'.", "error": "missingSubfield" },
           {
             "message": "Value '1' does not match regex pattern '^[a-z]$'.",
-            "error": "AR12",
+            "error": "patternMismatch",
             "pattern": "^[a-z]$", "value": "1"
           },          
-          { "identifier": "A", "message": "Field 'A' must not be repeated.", "error": "AR3" },
-          { "tag": "Y", "occurrence": "1", "message": "Unknown field 'Y/1'.", "error": "AR2" }
+          { "identifier": "A", "message": "Field 'A' must not be repeated.", "error": "nonrepeatableField" },
+          { "tag": "Y", "occurrence": "1", "message": "Unknown field 'Y/1'.", "error": "undefinedField" }
         ]
       },{
         "record": [
@@ -39,21 +39,21 @@
           { 
             "tag": "Y", 
             "message": "Unknown field 'Y'.", 
-            "error": "AR2"
+            "error": "undefinedField"
           },
           {
             "message": "Value 'z' is not defined in codelist.",
             "value": "z",
-            "error": "AR15"
+            "error": "undefinedCode"
           },{
             "message": "Value ' ' is not defined in codelist.",
             "value": " ",
-            "error": "AR15"
+            "error": "undefinedCode"
           },
           { 
             "identifier": "A",
             "message": "Missing field 'A'.",
-            "error": "AR4"
+            "error": "missingField"
           }
         ]
       }
@@ -66,7 +66,7 @@
       "options": { "undefinedField": false },
       "errors": [
         {
-          "error": "AR4",
+          "error": "missingField",
           "identifier": "a",
           "message": "Missing field 'a'."
         }

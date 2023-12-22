@@ -19,14 +19,14 @@
     },
     "tests": [
       {
-        "options": { "countRecords": true },
+        "options": { "countRecord": true },
         "records": [],
         "errors": [ 
-          { "message": "expected 2 records, got 0", "error": "AR17" }
+          { "message": "expected 2 records, got 0", "error": "countRecord" }
         ]
       },
       {
-        "options": { "countRecords": true, "countFields": true },
+        "options": { "countRecord": true, "countField": true },
         "records": [
           [
             { "tag": "a", "value": "" },
@@ -39,8 +39,8 @@
           ]
         ],
         "errors": [ 
-          { "message": "expected 2 records, got 3", "error": "AR17" },
-          { "message": "expected field 'a' in 1 records, got 2", "error": "AR18" }
+          { "message": "expected 2 records, got 3", "error": "countRecord" },
+          { "message": "expected field 'a' in 1 records, got 2", "error": "countField" }
         ]
       }
 

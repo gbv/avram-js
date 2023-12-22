@@ -35,17 +35,17 @@
           {
             "message": "Value 'deu' is not defined in codelist.",
             "value": "deu",
-            "error": "AR15"
+            "error": "undefinedCode"
           },
           { 
             "message": "Value 'y' is not defined in codelist.",
             "value": "y", 
-            "error": "AR15"
+            "error": "undefinedCode"
           },
           {
             "message": "Unknown codelist 'xy'.",
             "value": "xy",
-            "error": "AR16"
+            "error": "undefinedCodelist"
           }
         ]
       },{
@@ -57,7 +57,7 @@
         ],
         "options": { "undefinedCode": false }
       },{
-        "description": "ignore_unknown_codelists",
+        "description": "+undefinedCodelist",
         "record": [
           { "tag": "bool", "value": "y" },
           { "tag": "wtf", "value": "xy" }
@@ -67,7 +67,7 @@
           {
             "message": "Value 'y' is not defined in codelist.",
             "value": "y",
-            "error": "AR15"
+            "error": "undefinedCode"
           }
         ]
       }
