@@ -52,7 +52,7 @@
         "_": {
           "repeatable": true,
           "positions": { 
-            "00-01": { "pattern": "[a-z]" }, 
+            "00": { "pattern": "[a-z]" }, 
             "01-02": { "pattern": "[a-z0-9]" } 
           } 
         } 
@@ -61,20 +61,25 @@
     "tests":[
       {
         "record": [
-          {"tag":"_","value":""},
-          {"tag":"_","value":"ab"},
-          {"tag":"_","value":"abc"},
-          {"tag":"_","value":"ab9"}
+          {"tag":"_","value":"ab0"},
+          {"tag":"_","value":"xx9z"}
         ] 
       },
       {
-        "record": [{"tag":"_","value":"9"}],
+        "record": [
+          {"tag":"_","value":"9a"}
+        ],
         "errors": [
           { 
             "message": "Value '9' does not match regex pattern '[a-z]'.",
             "pattern": "[a-z]",
             "error": "patternMismatch",
             "value": "9"
+          },
+          {
+            "message": "Position 01-02 does not exist",
+            "value": "9a",
+            "error": "invalidPosition"
           }
         ]
       }

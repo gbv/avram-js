@@ -14,10 +14,19 @@
     "tests": [
       {
         "record": [
-          { "tag": "x", "value": "a" },
-          { "tag": "x", "value": "axy" },
+          { "tag": "x", "value": "zxy" },
           { "tag": "x", "value": "axyz" }
         ]      
+      },
+      {
+        "record": [
+          { "tag": "x", "value": "a" }
+        ],
+        "errors": [{
+          "error": "invalidPosition",
+          "message": "Position 01-2 does not exist",
+          "value": "a"
+        }]
       }
     ]
   }
