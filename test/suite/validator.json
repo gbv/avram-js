@@ -58,5 +58,23 @@
         ]
       }
     ]
+  },
+  {
+    "schema": { "fields": { "a": { "required": true } } },
+    "tests": [ {
+      "record": [ { "tag": "b" } ],
+      "options": { "undefinedField": false },
+      "errors": [
+        {
+          "error": "AR4",
+          "identifier": "a",
+          "message": "Missing field 'a'."
+        }
+      ]
+    }, {
+      "record": [ { "tag": "b" } ],
+      "options": { "undefinedField": false, "missingField": false },
+      "errors": [ ]
+    } ]
   }
 ]
