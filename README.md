@@ -96,11 +96,9 @@ An empty string schema argument uses the empty schema. Combining -n and -v emits
   +undefinedCode
   -undefinedCodelist
   +invalidPosition
-  -countRecords
-  -countFields
-  -countSubfields
-  -countCodes
-  -externalRule
+  -countRecord
+  -countField
+  -countSubfield
 ~~~
 
 The list of supported input formats depends on installed parsing libraries (see [Install]).

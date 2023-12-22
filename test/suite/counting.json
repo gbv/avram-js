@@ -4,7 +4,7 @@
     "schema": {
       "fields": {
         "a": { "repeatable": true, "records": 1 },
-        "b": { "code": "xyz" },
+        "b": { "code": "xyz", "total": 2 },
         "c": { "code": "xyz" } 
       },
       "codelists": {
@@ -26,7 +26,7 @@
         ]
       },
       {
-        "options": { "countRecord": true, "countField": true },
+        "options": { "countRecord": true, "countField": true, "countSubfield": true },
         "records": [
           [
             { "tag": "a", "value": "" },
@@ -35,12 +35,53 @@
           [
             { "tag": "a", "value": "" }
           ],
-          [
-          ]
+          [ ]
         ],
         "errors": [ 
           { "message": "expected 2 records, got 3", "error": "countRecord" },
-          { "message": "expected field 'a' in 1 records, got 2", "error": "countField" }
+          { "message": "expected field 'a' in 1 records, got 2", "error": "countField" },
+          { "message": "expected field 'b' total count to be 2, got 0", "error": "countField" }
+        ]
+      }
+    ]
+  },
+  {
+    "description": "count subfields",
+    "schema": {
+      "fields": {
+        "X": {
+          "subfields": {
+            "a": { "repeatable": true, "total": 2, "records": 1 }
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "records": [
+          [
+            { "tag": "X" },
+            { "tag": "X", "subfields": [ "a", "" ] }
+          ]
+        ],
+        "options": { "invalidRecord": false, "countSubfield": true },
+        "errors": [
+          {
+            "error": "countSubfield",
+            "message": "expected subfield 'X$a' total count to be 2, got 1"
+          }
+        ]
+      },{
+        "records": [
+          [ { "tag": "X", "subfields": [ "a", "" ] } ],
+          [ { "tag": "X", "subfields": [ "a", "" ] } ]
+        ],
+        "options": { "invalidRecord": false, "countRecord": true, "countSubfield": true },
+        "errors": [
+          {
+            "error": "countSubfield",
+            "message": "expected subfield 'X$a' in 1 records, got 2"
+          }
         ]
       }
 

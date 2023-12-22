@@ -47,12 +47,6 @@
                 },
                 "modified": {
                   "$ref": "#/definitions/timestamp"
-                },
-                "records": {
-                  "$ref": "#/definitions/non-negative-integer"
-                },
-                "total": {
-                  "$ref": "#/definitions/non-negative-integer"
                 }
               },
               "type": "object"
