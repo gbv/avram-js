@@ -4,10 +4,12 @@ import fs from "fs"
 
 import { SchemaValidator } from "../lib/schema-validator.js"
 
+const version = cli.pkg.avram
+
 cli.usage("avram-validate-schemas [options] <schema>")
-  .description("Validate Avram schema file against Avram specification")
+  .description(`Validate Avram schema file against Avram specification ${version}`)
   .option("-v, --verbose           verbose error messages")
-  .action(async ([schemaFile], opt) => {
+  .action(async ([schemaFile]) => {
     const schema = JSON.parse(fs.readFileSync(schemaFile))
     const validator = new SchemaValidator()
           
@@ -18,9 +20,7 @@ cli.usage("avram-validate-schemas [options] <schema>")
       })
       process.exit(2)
     } else {
-      if (opt.verbose) {
-        console.log(`${schemaFile} is a valid Avram schema`)
-      }
+      console.log(`${schemaFile} is a valid Avram ${version} schema`)
     }
   })
   .parse(process.argv)
@@ -32,5 +32,3 @@ cli.usage("avram-validate-schemas [options] <schema>")
     }
     process.exit(1)
   })
-
- 
