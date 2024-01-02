@@ -30,26 +30,24 @@
       {
         "record": [
           { "tag": "000", "value": "..." },
-          { "tag": "010", "indicator1": " ", "value": "123" },
+          { "tag": "010", "indicator1": " ", "indicator2": " ", "value": "123" },
           { "tag": "210", "indicator1": "0", "indicator2": " ", "value": "123" }
         ]
       },
       {
         "record": [
-          { "tag": "010", "indicator2": "x", "value": "123" },
-          { "tag": "210", "value": "123" }
+          { "tag": "010", "indicator2": "x", "value": "123" }
         ],
         "options": { "ignore_codes": true },
         "errors": [
           {
             "error": "invalidIndicator",
-            "message": "Indicator 'x' is not defined.",
-            "value": "x"
+            "message": "Existence mismatch of indicator1."
           },
           {
             "error": "invalidIndicator",
-            "message": "Indicator ' ' is not defined.",
-            "value": " "
+            "message": "Indicator 'x' is not defined.",
+            "value": "x"
           }
         ]
       }
