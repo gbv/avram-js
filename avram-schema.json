@@ -2,19 +2,6 @@
   "$schema": "http://json-schema.org/draft-06/schema#",
   "additionalProperties": false,
   "definitions": {
-    "checks": {
-      "oneOf": [
-        {
-          "type": "string"
-        },
-        {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      ]
-    },
     "codelist": {
       "oneOf": [
         {
@@ -65,9 +52,6 @@
         "^.+$": {
           "additionalProperties": false,
           "properties": {
-            "checks": {
-              "$ref": "#/definitions/checks"
-            },
             "codes": {
               "$ref": "#/definitions/codelist"
             },
@@ -114,6 +98,9 @@
             },
             "required": {
               "type": "boolean"
+            },
+            "rules": {
+              "$ref": "#/definitions/rules"
             },
             "subfields": {
               "$ref": "#/definitions/subfield-schedule"
@@ -242,14 +229,24 @@
     "regex": {
       "$ref": "#/definitions/non-empty-string"
     },
+    "rules": {
+      "items": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    },
     "subfield-schedule": {
       "additionalProperties": false,
       "patternProperties": {
         "^.*$": {
           "properties": {
-            "checks": {
-              "$ref": "#/definitions/checks"
-            },
             "code": {
               "type": "string"
             },
@@ -287,6 +284,9 @@
             "required": {
               "type": "boolean"
             },
+            "rules": {
+              "$ref": "#/definitions/rules"
+            },
             "total": {
               "$ref": "#/definitions/non-negative-integer"
             },
@@ -313,9 +313,6 @@
     "$schema": {
       "format": "uri",
       "type": "string"
-    },
-    "checks": {
-      "$ref": "#/definitions/checks"
     },
     "codelists": {
       "additionalProperties": false,
@@ -383,6 +380,9 @@
     },
     "records": {
       "$ref": "#/definitions/non-negative-integer"
+    },
+    "rules": {
+      "$ref": "#/definitions/rules"
     },
     "title": {
       "type": "string"

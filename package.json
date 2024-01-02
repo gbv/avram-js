@@ -2,7 +2,7 @@
   "name": "avram",
   "version": "0.4.2",
   "description": "Validation with Avram Schema Language",
-  "avram": "0.9.3",
+  "avram": "0.9.4",
   "homepage": "https://github.com/gbv/avram-js#readme",
   "author": "Jakob Voß",
   "license": "MIT",
