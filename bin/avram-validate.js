@@ -7,6 +7,27 @@ import { SchemaValidator } from "../lib/schema-validator.js"
 import formats from "../lib/formats.js"
 
 const defaults = Validator.options
+const optionHelp = {
+  invalidRecord: "invalid records",
+  undefinedField: "fields not found in the field schedule",
+  nonrepeatableField: "repetition of non-repeatable fields",
+  missingField: "required fields missing from a record",
+  invalidIndicator: "field not matching expected validation definition",
+  invalidFieldValue: "invalid flat field values",
+  invalidSubfield: "invalid subfields (subsumes all subfield errors)",
+  undefinedSubfield: "subfields not found in the subfield schedule",
+  nonrepeatableSubfield: "repetition of non-repeatable subfields",
+  missingSubfield: "required subfields missing from a field",
+  invalidSubfieldValue: "invalid subfield values",
+  patternMismatch: "values not matching an expected pattern",
+  invalidPosition: "values not matching expected positions",
+  undefinedCode: "values not found in an expected codelist",
+  undefinedCodelist: "non-resolveable codelist references",
+  countRecord: "expected number of records not met",
+  countField: "expected number of fields not met", 
+  countSubfield: "expected number of subfields not met",
+//  externalRule: "violation of external rules",
+}
 
 const loadSchema = file => {
   if (!file) return {fields:{}}
@@ -20,21 +41,27 @@ const loadSchema = file => {
   return schema
 }
 
-const details = `
-An empty string schema argument uses the empty schema. Combining -n and -v
-emits parsed records. Supported validation options (enable/disable with +/-):
-
-${Object.keys(defaults).map(o => "  "+(defaults[o] ? "+" : "-")+o).join("\n")}`
-
 cli.usage("avram-validate [options] [validation options] <schema> [<files...>]")
   .description("Validate file(s) with an Avram schema")
   .option(`-f, --format [name]     input format (${Object.keys(formats).join("|")})`)
   .option("-v, --verbose           verbose error messages")
-  .option("-n, --no-validate       only parse schema and records.")
-  .details(details)
+  .option("-n, --no-validate       only parse schema and records")
+  .option("-l, --list              list supported validation options")
+  .details(`
+An empty string schema argument uses the empty schema. Combining -n and -v
+emits parsed records. See supported validation options with --list.`)
   .action(async (args, opt) => {
     var files = []
     const options = {}
+
+    if (opt.list) {
+      console.log("Validation options can be enable/disable by prepending +/-. The following")
+      console.log("options (each with default status) are supported to report:\n")
+      for (let option in defaults) {
+        console.log(`${defaults[option] ? "+" : "-"}${option}`.padEnd(25)+optionHelp[option])
+      }
+      return
+    }
 
     for (let arg of args) {
       if (/^[+-][a-zA-Z]+$/.test(arg)) {

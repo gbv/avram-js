@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## next
 
 - CLI: show Avram specification number and result
+- CLI: move and extend list of validation options
 
 ## 0.4.1 - 2023-12-22
 

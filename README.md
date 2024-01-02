@@ -66,8 +66,8 @@ See [API] for usage as programming library.
 ### avram-validate
 
 Validate records from input file(s) or standard input. The first argument
-must be an Avram schema file. Selected validation options can be disabled
-or enabled.
+must be an Avram schema file. The list of supported input formats depends
+on installed parsing libraries (see [Install]).
 
 ~~~
 Usage: avram-validate [options] [validation options] <schema> [<files...>]
@@ -77,31 +77,38 @@ Validate file(s) with an Avram schema
 Options:
   -f, --format [name]  input format (marcxml|iso2709|mrc|pp|plain|csv)
   -v, --verbose        verbose error messages
-  -n, --no-validate    only parse schema and records.
+  -n, --no-validate    only parse schema and records
+  -l, --list           list supported validation options
   -h, --help           output usage information
   -V, --version        output the version number
 
-An empty string schema argument uses the empty schema. Combining -n and -v emits parsed records. Supported validation options (enable/disable with +/-):
-
-  +undefinedField
-  +nonrepeatableField
-  +missingField
-  +invalidIndicator
-  +invalidSubfield
-  +undefinedSubfield
-  +nonrepeatableSubfield
-  +missingSubfield
-  +invalidValue
-  +patternMismatch
-  +undefinedCode
-  -undefinedCodelist
-  +invalidPosition
-  -countRecord
-  -countField
-  -countSubfield
+An empty string schema argument uses the empty schema. Combining -n and -v
+emits parsed records. See supported validation options with --list.
 ~~~
 
-The list of supported input formats depends on installed parsing libraries (see [Install]).
+Validation options can be enable/disable by prepending `+` or `-` respectively.
+The following options (each with default status) are supported to report:
+
+~~~
++invalidRecord           invalid records
++undefinedField          fields not found in the field schedule
++nonrepeatableField      repetition of non-repeatable fields
++missingField            required fields missing from a record
++invalidIndicator        field not matching expected validation definition
++invalidFieldValue       invalid flat field values
++invalidSubfield         invalid subfields (subsumes all subfield errors)
++undefinedSubfield       subfields not found in the subfield schedule
++nonrepeatableSubfield   repetition of non-repeatable subfields
++missingSubfield         required subfields missing from a field
++invalidSubfieldValue    invalid subfield values
++patternMismatch         values not matching an expected pattern
++invalidPosition         values not matching expected positions
++undefinedCode           values not found in an expected codelist
+-undefinedCodelist       non-resolveable codelist references
+-countRecord             expected number of records not met
+-countField              expected number of fields not met
+-countSubfield           expected number of subfields not met
+~~~
 
 ### avram-validate-schema
 
