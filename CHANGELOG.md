@@ -2,8 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
-## next
+## 0.4.2 - 2024-01-02
 
+- Meta-validator: check restrictions by format family
 - CLI: show Avram specification number and result
 - CLI: move and extend list of validation options
 

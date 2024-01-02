@@ -128,6 +128,48 @@
         "invalid pattern '('",
         "invalid pattern '['"
       ]
+    },
+    {
+      "schema": {
+        "family": "flat",
+        "fields": { "xy": { "subfields": {} } }
+      },
+      "errors": [ "Field 'xy' must not have key 'subfields'" ]
+    },
+    {
+      "schema": {
+        "family": "marc",
+        "fields": { "leader": { "subfields": {}, "pattern": "." } }
+      },
+      "errors": [ "Invalid MARC field identifier 'leader'" ]
+    },
+    {
+      "schema": {
+        "family": "marc",
+        "fields": { "LDR": { "indicator1": {} } }
+      },
+      "errors": [ "Flat field 'LDR' must not have indicators" ]
+    },
+    {
+      "schema": {
+        "family": "marc",
+        "fields": { "123": { "occurrence": "12" } }
+      },
+      "errors": [ "Field '123' must not have key 'occurrence'" ]
+    },
+    {
+      "schema": {
+        "family": "pica",
+        "fields": { "012@/$x1": { } }
+      },
+      "errors": [ "Invalid PICA field definition '012@/$x1'" ]
+    },
+    {
+      "schema": {
+        "family": "pica",
+        "fields": { "234A/12": { } }
+      },
+      "errors": [ "Invalid PICA field definition '234A/12'" ]
     }
   ]
 }

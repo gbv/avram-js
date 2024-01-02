@@ -20,7 +20,8 @@ cli.usage("avram-validate-schemas [options] <schema>")
       })
       process.exit(2)
     } else {
-      console.log(`${schemaFile} is a valid Avram ${version} schema`)
+      const family = "family" in schema ? schema.family + " " : ""
+      console.log(`${schemaFile} is a valid Avram ${version} ${family}schema`)
     }
   })
   .parse(process.argv)
