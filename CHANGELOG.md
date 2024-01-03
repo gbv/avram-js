@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## 0.5.2 - ?
 
 - SchemaValidator: fix referencing positions with leading zeroes
+- SchemaValidator: detect invalid code length
 
 ## 0.5.1 - 2024-01-03
 

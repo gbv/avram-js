@@ -46,7 +46,12 @@
           "p": {
             "positions": {
               "00-02": { "start": 1, "end": 3 },
-              "1": { "start": 1 }
+              "1": {
+                "start": 1,
+                "codes": {
+                  "ab": {}
+                }
+              }
             }
           }
         }, 
@@ -54,6 +59,7 @@
       },
       "errors": [
         { "message": "must match pattern \"^https?://\"" },
+        { "message": "code 'ab' must have length 1", "field": "p", "position": "1", "code": "ab" },
         { "message": "position start '1' must be '0'", "field": "p", "position": "00-02" },
         { "message": "position end '3' must be '2'", "field": "p", "position": "00-02" },
         { "message": "position '1' overlaps with position 00-02", "field": "p", "position": "1" }
@@ -89,7 +95,9 @@
         "fields": {
           "abc": {
             "tag": "xyz",
-            "indicator1": { },
+            "indicator1": {
+              "codes": { "xy": { } }
+            },
             "indicator2": {
               "codes": { "a": { "code": "b" } }
             }
@@ -101,6 +109,7 @@
       },
       "errors": [
         { "message": "field identifier 'abc' does not match field definition 'xyz'", "field": "abc" },
+        { "message": "code 'xy' must have length 1", "field": "abc", "code": "xy" },
         { "message": "code 'b' must be 'a' in codelist", "code": "a", "field": "abc" },
         { "message": "code 'z' must be 'y' in codelist", "code": "y", "codelist": "test" }
       ]
