@@ -2,9 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## 0.5.2 - ?
+
+- SchemaValidator: fix referencing positions with leading zeroes
+
 ## 0.5.1 - 2024-01-03
 
-- SchemaValidator: Show error position
+- SchemaValidator: show error position
 
 ## 0.5.0 - 2024-01-02
 

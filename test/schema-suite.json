@@ -45,7 +45,7 @@
         "fields": {
           "p": {
             "positions": {
-              "0-2": { "start": 1, "end": 3 },
+              "00-02": { "start": 1, "end": 3 },
               "1": { "start": 1 }
             }
           }
@@ -54,9 +54,9 @@
       },
       "errors": [
         { "message": "must match pattern \"^https?://\"" },
-        { "message": "position start '1' must be '0'", "field": "p", "position": "0-2" },
-        { "message": "position end '3' must be '2'", "field": "p", "position": "0-2" },
-        { "message": "position '1' overlaps with position 0-2", "field": "p", "position": "1" }
+        { "message": "position start '1' must be '0'", "field": "p", "position": "00-02" },
+        { "message": "position end '3' must be '2'", "field": "p", "position": "00-02" },
+        { "message": "position '1' overlaps with position 00-02", "field": "p", "position": "1" }
       ]
     },
     {
