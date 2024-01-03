@@ -54,9 +54,9 @@
       },
       "errors": [
         { "message": "must match pattern \"^https?://\"" },
-        { "message": "position start '1' must be '0'" },
-        { "message": "position end '3' must be '2'" },
-        { "message": "position '1' overlaps with position 0-2" }
+        { "message": "position start '1' must be '0'", "field": "p", "position": "0-2" },
+        { "message": "position end '3' must be '2'", "field": "p", "position": "0-2" },
+        { "message": "position '1' overlaps with position 0-2", "field": "p", "position": "1" }
       ]
     },
     {
@@ -100,9 +100,9 @@
         }
       },
       "errors": [
-        { "message": "field identifier 'abc' does not match field definition 'xyz'" },
-        { "message": "code 'b' must be 'a' in codelist" },
-        { "message": "code 'z' must be 'y' in codelist" }
+        { "message": "field identifier 'abc' does not match field definition 'xyz'", "field": "abc" },
+        { "message": "code 'b' must be 'a' in codelist", "code": "a", "field": "abc" },
+        { "message": "code 'z' must be 'y' in codelist", "code": "y", "codelist": "test" }
       ]
     },
     {
@@ -126,11 +126,11 @@
         }
       },
       "errors": [
-        { "message": "variable field must not have codes" },
-        { "message": "subfield code 'y' must be 'x'" },
-        { "message": "code '2' must be '1' in codelist" },
-        { "message": "invalid pattern '('" },
-        { "message": "invalid pattern '['" }
+        { "message": "variable field must not have codes", "field": "abc" },
+        { "message": "subfield code 'y' must be 'x'", "field": "abc", "subfield": "x" },
+        { "message": "code '2' must be '1' in codelist", "field": "abc", "code": "1" },
+        { "message": "invalid pattern '('", "field": "abc", "subfield": "x" },
+        { "message": "invalid pattern '['", "field": "number" }
       ]
     },
     {
@@ -138,8 +138,8 @@
         "family": "flat",
         "fields": { "xy": { "subfields": {} } }
       },
-      "errors": [ {
-        "message": "Field 'xy' must not have key 'subfields'" }
+      "errors": [
+        { "message": "Field 'xy' must not have key 'subfields'", "field": "xy" }
       ]
     },
     {
@@ -148,7 +148,7 @@
         "fields": { "leader": { "subfields": {}, "pattern": "." } }
       },
       "errors": [ {
-        "message": "Invalid MARC field identifier 'leader'"
+        "message": "Invalid MARC field identifier 'leader'", "field": "leader"
       } ]
     },
     {
@@ -157,7 +157,7 @@
         "fields": { "LDR": { "indicator1": {} } }
       },
       "errors": [ {
-        "message": "Flat field 'LDR' must not have indicators" 
+        "message": "Flat field 'LDR' must not have indicators", "field": "LDR" 
       } ]
     },
     {
@@ -166,7 +166,7 @@
         "fields": { "123": { "occurrence": "12" } }
       },
       "errors": [ {
-        "message": "Field '123' must not have key 'occurrence'"
+        "message": "Field '123' must not have key 'occurrence'", "field": "123"
       } ]
     },
     {
@@ -175,7 +175,7 @@
         "fields": { "012@/$x1": { } }
       },
       "errors": [ {
-        "message": "Invalid PICA field definition '012@/$x1'"
+        "message": "Invalid PICA field definition '012@/$x1'", "field": "012@/$x1"
       } ]
     },
     {
@@ -184,7 +184,7 @@
         "fields": { "234A/12": { } }
       },
       "errors": [ {
-        "message": "Invalid PICA field definition '234A/12'" 
+        "message": "Invalid PICA field definition '234A/12'", "field": "234A/12" 
       } ]
     }
   ]

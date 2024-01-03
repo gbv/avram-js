@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## 0.5.1 - 2024-01-03
+
+- SchemaValidator: Show error position
+
+## 0.5.0 - 2024-01-02
+
+- Update metaschema to Avram 0.9.4
+- Extend validation of indicators
+
 ## 0.4.2 - 2024-01-02
 
 - Meta-validator: check restrictions by format family
