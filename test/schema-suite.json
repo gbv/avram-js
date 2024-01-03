@@ -27,14 +27,18 @@
   "invalid": [
     {
       "schema": {},
-      "errors": [ "must have required property 'fields'" ]
+      "errors": [ {
+        "message": "must have required property 'fields'" 
+      } ]
     },
     {
       "schema": {
         "fields": {}, 
         "count": 42
       },
-      "errors": [ "must NOT have additional properties" ]
+      "errors": [ { 
+        "message": "must NOT have additional properties" 
+      } ]
     },
     {
       "schema": {
@@ -49,10 +53,10 @@
         "url": "x"
       },
       "errors": [
-        "must match pattern \"^https?://\"",
-        "position start '1' must be '0'",
-        "position end '3' must be '2'",
-        "position '1' overlaps with position 0-2"
+        { "message": "must match pattern \"^https?://\"" },
+        { "message": "position start '1' must be '0'" },
+        { "message": "position end '3' must be '2'" },
+        { "message": "position '1' overlaps with position 0-2" }
       ]
     },
     {
@@ -72,12 +76,12 @@
         }
       },
       "errors": [
-        "must NOT have additional properties",
-        "must be string",
-        "must match exactly one schema in oneOf",
-        "must have required property 'codes'",
-        "must match a schema in anyOf",
-        "position end '3' must be '2'"
+        { "message": "must NOT have additional properties" },
+        { "message": "must be string" },
+        { "message": "must match exactly one schema in oneOf" },
+        { "message": "must have required property 'codes'" },
+        { "message": "must match a schema in anyOf" },
+        { "message": "position end '3' must be '2'" }
       ]
     },
     {
@@ -96,9 +100,9 @@
         }
       },
       "errors": [
-        "field identifier 'abc' does not match field definition 'xyz'",
-        "code 'b' must be 'a' in codelist",
-        "code 'z' must be 'y' in codelist"
+        { "message": "field identifier 'abc' does not match field definition 'xyz'" },
+        { "message": "code 'b' must be 'a' in codelist" },
+        { "message": "code 'z' must be 'y' in codelist" }
       ]
     },
     {
@@ -122,11 +126,11 @@
         }
       },
       "errors": [
-        "variable field must not have codes",
-        "subfield code 'y' must be 'x'",
-        "code '2' must be '1' in codelist",
-        "invalid pattern '('",
-        "invalid pattern '['"
+        { "message": "variable field must not have codes" },
+        { "message": "subfield code 'y' must be 'x'" },
+        { "message": "code '2' must be '1' in codelist" },
+        { "message": "invalid pattern '('" },
+        { "message": "invalid pattern '['" }
       ]
     },
     {
@@ -134,42 +138,54 @@
         "family": "flat",
         "fields": { "xy": { "subfields": {} } }
       },
-      "errors": [ "Field 'xy' must not have key 'subfields'" ]
+      "errors": [ {
+        "message": "Field 'xy' must not have key 'subfields'" }
+      ]
     },
     {
       "schema": {
         "family": "marc",
         "fields": { "leader": { "subfields": {}, "pattern": "." } }
       },
-      "errors": [ "Invalid MARC field identifier 'leader'" ]
+      "errors": [ {
+        "message": "Invalid MARC field identifier 'leader'"
+      } ]
     },
     {
       "schema": {
         "family": "marc",
         "fields": { "LDR": { "indicator1": {} } }
       },
-      "errors": [ "Flat field 'LDR' must not have indicators" ]
+      "errors": [ {
+        "message": "Flat field 'LDR' must not have indicators" 
+      } ]
     },
     {
       "schema": {
         "family": "marc",
         "fields": { "123": { "occurrence": "12" } }
       },
-      "errors": [ "Field '123' must not have key 'occurrence'" ]
+      "errors": [ {
+        "message": "Field '123' must not have key 'occurrence'"
+      } ]
     },
     {
       "schema": {
         "family": "pica",
         "fields": { "012@/$x1": { } }
       },
-      "errors": [ "Invalid PICA field definition '012@/$x1'" ]
+      "errors": [ {
+        "message": "Invalid PICA field definition '012@/$x1'"
+      } ]
     },
     {
       "schema": {
         "family": "pica",
         "fields": { "234A/12": { } }
       },
-      "errors": [ "Invalid PICA field definition '234A/12'" ]
+      "errors": [ {
+        "message": "Invalid PICA field definition '234A/12'" 
+      } ]
     }
   ]
 }

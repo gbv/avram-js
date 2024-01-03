@@ -23,8 +23,13 @@ describe("SchemaValidator", () => {
   let n=1
   for(let { schema, errors } of schemaSuite.invalid) {
     it(`detect invalid schema ${n++}`, () => {
-      const messages = validator.validate(schema).map(e => e.message)
-      expect(messages).deep.equal(errors)
+      const found = validator.validate(schema)
+      expect(found.length).equal(errors.length)
+      for (let i=0; i<found.length; i++) {
+        for (let key in errors[i]) {
+          expect(found[i][key]).deep.equal(errors[i][key])
+        }
+      }
     })
   }
 
