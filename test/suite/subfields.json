@@ -21,7 +21,11 @@
           { "tag": "_", "subfields": ["a"," "] }
         ],
         "errors": [
-          { "message": "Missing subfield '0'.", "code": "0", "error": "missingSubfield" }
+          { 
+            "message": "Missing subfield '0' in field '_'.",
+            "code": "0", "id": "_",
+            "error": "missingSubfield" 
+          }
         ]
       },
       {
@@ -29,7 +33,12 @@
           { "tag": "_", "subfields": ["0"," ","0"," "] }
         ],
         "errors": [
-          { "message": "Subfield '0' must not be repeated.", "code": "0", "error": "nonrepeatableSubfield" }
+          { 
+            "message": "Subfield '0' in field '_' must not be repeated.", 
+            "code": "0",
+            "id": "_",
+            "error": "nonrepeatableSubfield" 
+          }
         ]
       },
       {
@@ -37,8 +46,15 @@
           { "tag": "_", "subfields": ["x"," "] }
         ],
         "errors": [
-          { "message": "Unknown subfield 'x'.", "code": "x", "error": "undefinedSubfield" },
-          { "message": "Missing subfield '0'.", "code": "0", "error": "missingSubfield"}
+          { 
+            "message": "Unknown subfield 'x' in field '_'.", 
+            "code": "x", "id": "_",
+            "error": "undefinedSubfield" 
+          },
+          { 
+            "message": "Missing subfield '0' in field '_'.", 
+            "code": "0", "id": "_", "error": "missingSubfield"
+          }
         ]
       }
     ]

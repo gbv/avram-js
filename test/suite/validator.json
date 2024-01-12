@@ -20,7 +20,7 @@
           { "tag": "Y", "occurrence": "1", "value": "" }
         ],
         "errors": [ 
-          { "code": "x", "message": "Missing subfield 'x'.", "error": "missingSubfield" },
+          { "code": "x", "id": "A", "message": "Missing subfield 'x' in field 'A'.", "error": "missingSubfield" },
           {
             "message": "Value '1' does not match regex pattern '^[a-z]$'.",
             "error": "patternMismatch",

@@ -16,8 +16,8 @@
         ],
         "errors": [
           {
-            "message": "Unknown subfield 'a'.",
-            "code": "a",
+            "message": "Unknown subfield 'a' in field 'known'.",
+            "code": "a", "id": "known",
             "error": "undefinedSubfield"
           },
           {
