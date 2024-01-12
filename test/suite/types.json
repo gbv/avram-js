@@ -1,0 +1,65 @@
+[
+  {
+    "schema": {
+      "fields": {
+        "A": {
+          "pattern": "^.$",
+          "types": {
+            "a": { "pattern": "[a-z]" },
+            "b": { "codes": { "x": { } } },
+            "c": { "positions": { "0": { "pattern": "0" } } },
+            "d": { "pattern": "[0-9]" }
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "record": {
+          "fields": [ { "tag": "A", "value": "x" } ],
+          "types": [ "a", "b", "c" ]
+        },
+        "options": { "recordTypes": false }
+      },
+      {
+        "record": {
+          "fields": [ { "tag": "A", "value": "9" } ],
+          "types": [ "a", "b", "d" ]
+        },
+        "errors": [
+          {
+            "error": "patternMismatch",
+            "message": "Value '9' does not match regex pattern '[a-z]'.",
+            "pattern": "[a-z]",
+            "value": "9"
+          },
+          {
+            "error": "undefinedCode",
+            "message": "Value '9' is not defined in codelist.",
+            "value": "9"
+          }
+        ]
+      },
+      {
+        "record": {
+          "fields": [ { "tag": "A", "value": "x" } ],
+          "types": [ "b", "c", "d" ]
+        },
+        "errors": [
+          {
+            "error": "patternMismatch",
+            "message": "Value 'x' does not match regex pattern '0'.",
+            "pattern": "0",
+            "value": "x"
+          },
+          {
+            "error": "patternMismatch",
+            "message": "Value 'x' does not match regex pattern '[0-9]'.",
+            "pattern": "[0-9]",
+            "value": "x"
+          }
+        ]
+      }
+    ]
+  }
+]
