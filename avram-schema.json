@@ -62,6 +62,9 @@
             "created": {
               "$ref": "#/definitions/timestamp"
             },
+            "deprecated": {
+              "type": "boolean"
+            },
             "description": {
               "type": "string"
             },
@@ -110,6 +113,15 @@
             },
             "total": {
               "$ref": "#/definitions/non-negative-integer"
+            },
+            "types": {
+              "patternProperties": {
+                "^.+$": {
+                  "$ref": "#/definitions/typed-field-definition",
+                  "type": "object"
+                }
+              },
+              "type": "object"
             },
             "url": {
               "$ref": "#/definitions/url"
@@ -256,6 +268,9 @@
             "created": {
               "$ref": "#/definitions/timestamp"
             },
+            "deprecated": {
+              "type": "boolean"
+            },
             "description": {
               "type": "string"
             },
@@ -301,6 +316,27 @@
     },
     "timestamp": {
       "type": "string"
+    },
+    "typed-field-definition": {
+      "additionalProperties": false,
+      "properties": {
+        "codes": {
+          "$ref": "#/definitions/codelist"
+        },
+        "description": {
+          "type": "string"
+        },
+        "pattern": {
+          "$ref": "#/definitions/regex"
+        },
+        "positions": {
+          "$ref": "#/definitions/positions"
+        },
+        "url": {
+          "$ref": "#/definitions/url"
+        }
+      },
+      "type": "object"
     },
     "url": {
       "format": "uri",

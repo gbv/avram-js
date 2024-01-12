@@ -3,11 +3,15 @@
     {
       "fields": {
         "010": {
+          "deprecated": false,
           "indicator1": {
             "codes": {
               " ": "Abbreviated key title",
               "0": { "label": "Other abbreviated title" }
             }
+          },
+          "types": {
+            "x": { "pattern": "X+", "codes": { "a": {}  } }
           }          
         },
         "number": {
