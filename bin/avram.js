@@ -10,17 +10,20 @@ const defaults = Validator.options
 const optionHelp = {
   invalidRecord: "invalid records",
   undefinedField: "fields not found in the field schedule",
+  deprecatedField: "report deprecated fields",
   nonrepeatableField: "repetition of non-repeatable fields",
   missingField: "required fields missing from a record",
   invalidIndicator: "field not matching expected validation definition",
   invalidFieldValue: "invalid flat field values",
   invalidSubfield: "invalid subfields (subsumes all subfield errors)",
   undefinedSubfield: "subfields not found in the subfield schedule",
+  deprecatedSubfield: "report deprecated subfields",
   nonrepeatableSubfield: "repetition of non-repeatable subfields",
   missingSubfield: "required subfields missing from a field",
   invalidSubfieldValue: "invalid subfield values",
   patternMismatch: "values not matching an expected pattern",
   invalidPosition: "values not matching expected positions",
+  recordTypes: "support record types",
   undefinedCode: "values not found in an expected codelist",
   undefinedCodelist: "non-resolveable codelist references",
   countRecord: "expected number of records not met",
@@ -29,24 +32,38 @@ const optionHelp = {
 //  externalRule: "violation of external rules",
 }
 
-const loadSchema = file => {
-  if (!file) return {fields:{}}
+function loadSchema(file, opt) {
   const schema = JSON.parse(fs.readFileSync(file))
   const schemaValidator = new SchemaValidator()
   const errors = schemaValidator.validate(schema)
+  const version = cli.pkg.avram + ("family" in schema ? ` ${schema.family}` : "")
+
   if (errors.length) {
-    console.error(`No valid Avram schema: ${file}`)
-    process.exit(1)
+    if (opt.schema || opt.verbose) {
+      errors.forEach(e => {
+        console.log(e)
+      })
+    } else {
+      console.error(`No valid Avram ${version} schema: ${file}`)
+    }
+    process.exit(2)
   }
+
+  if (opt.schema) {
+    console.log(`${file} is a valid Avram ${version} schema`)
+    process.exit()
+  }
+
   return schema
 }
 
-cli.usage("avram-validate [options] [validation options] <schema> [<files...>]")
+cli.usage("avram [options] [validation options] <schema> [<files...>]")
   .description("Validate file(s) with an Avram schema")
   .option(`-f, --format [name]     input format (${Object.keys(formats).join("|")})`)
   .option("-v, --verbose           verbose error messages")
-  .option("-n, --no-validate       only parse schema and records")
+  .option("-p, --print             print all input records (in JSON)")
   .option("-l, --list              list supported validation options")
+  .option("-s, --schema            validate schema instead of record files")
   .details(`
 An empty string schema argument uses the empty schema. Combining -n and -v
 emits parsed records. See supported validation options with --list.`)
@@ -81,7 +98,9 @@ emits parsed records. See supported validation options with --list.`)
       throw new Error(`Unknown or unsupported format '${opt.format}'`)
     }
 
-    const schema = loadSchema(files.shift())
+    const schemaFile = opt.schema && !files.length ? "/dev/stdin" : files.shift()
+    const schema = loadSchema(schemaFile, opt)
+
     const validator = new Validator(schema, options)
          
     var ok = true
@@ -99,32 +118,32 @@ emits parsed records. See supported validation options with --list.`)
       }
 
       const input = file === "-" ? process.stdin : fs.createReadStream(file)
-      const stream = format.stream(input)
+      const stream = format.stream(input) // TODO: marcxml parser should emit error on parsing error
 
       stream.on("data", record => {
-        if (opt["no-validate"]) {
-          if (opt.verbose) {
-            console.log(JSON.stringify(record))
+        const errors = validator.validate(record)
+        errors.forEach(e => {
+          if (file !== "-") {
+            e.file = file
           }
-        } else {
-          const errors = validator.validate(record)
-          errors.forEach(e => {
-            if (file !== "-") {
-              e.file = file
-            }
-            if (opt.verbose) {
-              console.error(JSON.stringify(e))
-            } else {
-              console.error(e.message)
-            }
-            ok = false
-          })
+          if (opt.verbose) {
+            console.error(JSON.stringify(e))
+          } else {
+            console.error(e.message)
+          }
+          ok = false
+        })
+        if (opt.print) {
+          console.log(JSON.stringify(record))
         }
       })
       stream.on("error", reject)
       stream.on("end", resolve)
     })))
 
+    if (opt.verbose && ok) {
+      console.log("input is valid against given Avram schema")
+    }
     process.exit(ok ? 0 : 2) 
   })
   .parse(process.argv)

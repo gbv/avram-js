@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## 0.6.0 - 2024-01-13
 
 - Update metaschema and validation rules to Avram 0.9.5
+- Unify and rename CLI to 'avram'
 - SchemaValidator: fix referencing positions with leading zeroes
 - SchemaValidator: detect invalid code length
 

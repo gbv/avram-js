@@ -19,8 +19,7 @@
     "bin/"
   ],
   "bin": {
-    "avram-validate": "./bin/avram-validate.js",
-    "avram-validate-schema": "./bin/avram-validate-schema.js"
+    "avram": "./bin/avram.js"
   },
   "scripts": {
     "test": "mocha",
