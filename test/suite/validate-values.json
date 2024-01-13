@@ -18,9 +18,10 @@
         "record": [{"tag":"_","value":"x"}],
         "errors": [
           { 
-            "message": "Value 'x' does not match regex pattern '[0-9]'.",
-            "pattern": "[0-9]",
             "error": "patternMismatch",
+            "message": "value 'x' does not match regex pattern '[0-9]' in field _",
+            "id": "_",
+            "pattern": "[0-9]",
             "value": "x"
           }
         ]
@@ -34,9 +35,10 @@
         "record": [{"tag":"_","value":"x"}],
         "errors": [
           {
-            "message": "Value 'x' is not defined in codelist.",
-            "value": "x",
-            "error": "undefinedCode"
+            "error": "undefinedCode",
+            "message": "value 'x' is not defined in codelist in field _",
+            "id": "_",
+            "value": "x"
           }
         ]
       },
@@ -71,15 +73,19 @@
         ],
         "errors": [
           { 
-            "message": "Value '9' does not match regex pattern '[a-z]'.",
-            "pattern": "[a-z]",
             "error": "patternMismatch",
+            "message": "value '9' does not match regex pattern '[a-z]' in field _ position 00",
+            "id": "_",
+            "position": "00",
+            "pattern": "[a-z]",
             "value": "9"
           },
           {
-            "message": "Position 01-02 does not exist",
-            "value": "9a",
-            "error": "invalidPosition"
+            "error": "invalidPosition",
+            "message": "field _ position 01-02 does not exist",
+            "id": "_",
+            "position": "01-02",
+            "value": "9a"
           }
         ]
       }

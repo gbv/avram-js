@@ -29,13 +29,15 @@
         "errors": [
           {
             "error": "patternMismatch",
-            "message": "Value '9' does not match regex pattern '[a-z]'.",
+            "message": "value '9' does not match regex pattern '[a-z]' in field A",
+            "id": "A",
             "pattern": "[a-z]",
             "value": "9"
           },
           {
             "error": "undefinedCode",
-            "message": "Value '9' is not defined in codelist.",
+            "message": "value '9' is not defined in codelist in field A",
+            "id": "A",
             "value": "9"
           }
         ]
@@ -48,13 +50,16 @@
         "errors": [
           {
             "error": "patternMismatch",
-            "message": "Value 'x' does not match regex pattern '0'.",
+            "message": "value 'x' does not match regex pattern '0' in field A position 0",
+            "id": "A",
             "pattern": "0",
-            "value": "x"
+            "value": "x",
+            "position": "0"
           },
           {
             "error": "patternMismatch",
-            "message": "Value 'x' does not match regex pattern '[0-9]'.",
+            "message": "value 'x' does not match regex pattern '[0-9]' in field A",
+            "id": "A",
             "pattern": "[0-9]",
             "value": "x"
           }

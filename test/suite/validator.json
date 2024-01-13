@@ -20,11 +20,19 @@
           { "tag": "Y", "occurrence": "1", "value": "" }
         ],
         "errors": [ 
-          { "code": "x", "id": "A", "message": "Missing subfield 'x' in field 'A'.", "error": "missingSubfield" },
           {
-            "message": "Value '1' does not match regex pattern '^[a-z]$'.",
+            "error": "missingSubfield",
+            "message": "missing field A subfield x",
+            "id": "A", 
+            "subfield": "x" 
+          },
+          {
+            "message": "value '1' does not match regex pattern '^[a-z]$' in field A subfield x",
             "error": "patternMismatch",
-            "pattern": "^[a-z]$", "value": "1"
+            "id": "A",
+            "subfield": "x",
+            "pattern": "^[a-z]$",
+            "value": "1"
           },          
           { "identifier": "A", "message": "Field 'A' must not be repeated.", "error": "nonrepeatableField" },
           { "tag": "Y", "occurrence": "1", "message": "Unknown field 'Y/1'.", "error": "undefinedField" }
@@ -50,18 +58,21 @@
             "error": "undefinedField"
           },
           {
-            "message": "Value 'z' is not defined in codelist.",
-            "value": "z",
-            "error": "undefinedCode"
+            "error": "undefinedCode",
+            "message": "value 'z' is not defined in codelist in field B",
+            "id": "B",
+            "value": "z"
           },{
-            "message": "Value ' ' is not defined in codelist.",
-            "value": " ",
-            "error": "undefinedCode"
+            "error": "undefinedCode",
+            "message": "value ' ' is not defined in codelist in field C subfield z",
+            "id": "C",
+            "subfield": "z",
+            "value": " "
           },
           { 
-            "identifier": "A",
-            "message": "Missing field 'A'.",
-            "error": "missingField"
+            "error": "missingField",
+            "message": "missing field A",
+            "id": "A"
           }
         ]
       }
@@ -75,8 +86,8 @@
       "errors": [
         {
           "error": "missingField",
-          "identifier": "a",
-          "message": "Missing field 'a'."
+          "message": "missing field a",
+          "id": "a"
         }
       ]
     }, {

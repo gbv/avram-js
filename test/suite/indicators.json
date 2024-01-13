@@ -42,11 +42,13 @@
         "errors": [
           {
             "error": "invalidIndicator",
-            "message": "Existence mismatch of indicator1."
+            "message": "Existence mismatch of field 010 indicator1."
           },
           {
             "error": "invalidIndicator",
-            "message": "Indicator 'x' is not defined.",
+            "message": "value 'x' in field 010 indicator2 is not defined",
+            "id": "010",
+            "indicator": "indicator2",
             "value": "x"
           }
         ]

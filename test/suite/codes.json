@@ -33,17 +33,19 @@
         ],
         "errors": [
           {
-            "message": "Value 'deu' is not defined in codelist.",
-            "value": "deu",
-            "error": "undefinedCode"
+            "error": "undefinedCode",
+            "message": "value 'deu' is not defined in codelist in field lang",
+            "id": "lang",
+            "value": "deu"
           },
           { 
-            "message": "Value 'y' is not defined in codelist.",
-            "value": "y", 
-            "error": "undefinedCode"
+            "error": "undefinedCode",
+            "message": "value 'y' is not defined in codelist in field bool",
+            "id": "bool",
+            "value": "y"
           },
           {
-            "message": "Unknown codelist 'xy'.",
+            "message": "Unknown codelist 'xy' in field wtf.",
             "value": "xy",
             "error": "undefinedCodelist"
           }
@@ -65,9 +67,10 @@
         "options": { "undefinedCodelist": true },
         "errors": [
           {
-            "message": "Value 'y' is not defined in codelist.",
-            "value": "y",
-            "error": "undefinedCode"
+            "error": "undefinedCode",
+            "message": "value 'y' is not defined in codelist in field bool",
+            "id": "bool",
+            "value": "y"
           }
         ]
       }
