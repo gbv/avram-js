@@ -73,10 +73,10 @@ Validate file(s) with an Avram schema
 
 Options:
   -f, --format [name]  input format (marcxml|iso2709|mrc|pp|plain|csv)
-  -v, --verbose        verbose error messages
-  -p, --print          print all input records (in JSON)
-  -l, --list           list supported validation options
   -s, --schema         validate schema instead of record files
+  -p, --print          print all input records (in JSON)
+  -v, --verbose        verbose error messages
+  -l, --list           list supported validation options
   -h, --help           output usage information
   -V, --version        output the version number
 

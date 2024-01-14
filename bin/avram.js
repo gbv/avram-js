@@ -60,10 +60,10 @@ function loadSchema(file, opt) {
 cli.usage("avram [options] [validation options] <schema> [<files...>]")
   .description("Validate file(s) with an Avram schema")
   .option(`-f, --format [name]     input format (${Object.keys(formats).join("|")})`)
-  .option("-v, --verbose           verbose error messages")
-  .option("-p, --print             print all input records (in JSON)")
-  .option("-l, --list              list supported validation options")
   .option("-s, --schema            validate schema instead of record files")
+  .option("-p, --print             print all input records (in JSON)")
+  .option("-v, --verbose           verbose error messages")
+  .option("-l, --list              list supported validation options")
   .details(`
 An empty string schema argument uses the empty schema. Combining -n and -v
 emits parsed records. See supported validation options with --list.`)
