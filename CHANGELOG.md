@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 0.6.2 - 2024-01-??
+
+- CLI: recommend additional installation on help
+
 ## 0.6.1 - 2024-01-14
 
 - Support setting record type(s)

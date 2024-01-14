@@ -1,7 +1,16 @@
 #!/usr/bin/env node
 import cli from "../lib/cli.js"
-import formats from "../lib/formats.js"
+import { formats, missing } from "../lib/formats.js"
 import avramAction from "../lib/action.js"
+
+console.log(missing)
+
+import ajv from "../lib/ajv.js"
+var details = ajv ? "" : `
+Install ajv and ajv-formats for better validation of schemas.`
+
+if (missing.size) details += `
+Install ${[...missing.keys()].join(", ")} for additional input formats.`
 
 cli.usage("avram [options] [validation options] <schema> [<files...>]")
   .description("Validate file(s) with an Avram schema")
@@ -11,9 +20,7 @@ cli.usage("avram [options] [validation options] <schema> [<files...>]")
   .option("-p, --print             print all input records (in JSON)")
   .option("-v, --verbose           verbose error messages")
   .option("-l, --list              list supported validation options")
-  .details(`
-An empty string schema argument uses the empty schema. Combining -n and -v
-emits parsed records. See supported validation options with --list.`)
+  .details(details)
   .action(avramAction)
   .parse(process.argv)
   .catch(e => {
