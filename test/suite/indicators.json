@@ -46,7 +46,7 @@
           },
           {
             "error": "invalidIndicator",
-            "message": "value 'x' in field 010 indicator2 is not defined",
+            "message": "value 'x' in field 010 indicator2 is not defined in codelist",
             "id": "010",
             "indicator": "indicator2",
             "value": "x"
