@@ -14,7 +14,7 @@ describe("fromMarcjs", () => {
     expect(Record.fromMarcjs(record)).deep.equal([
       { tag: "LDR", value: "..." },
       { tag: "009", value: "http://example.org/" },
-      { tag: "101", indicators: [ "0", " " ], subfields: [ "a", "eng" ] },
+      { tag: "101", indicator1: "0", indicator2: " ", subfields: [ "a", "eng" ] },
     ])
   })
 })
