@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 0.6.1 - 2024-01-14
+
+- Support setting record type(s)
+- Extend error messages
+- Fix Avram version number
+
 ## 0.6.0 - 2024-01-13
 
 - Update metaschema and validation rules to Avram 0.9.5
