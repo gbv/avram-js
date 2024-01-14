@@ -13,10 +13,8 @@ This Node package implements [Avram Schema Language](http://format.gbv.de/schema
 - [Background](#background)
 - [Install]
 - [Usage](#usage)
-  - [avram-validate]
-  - [avram-validate-schema](#avram-validate-schema)
 - [API]
-  - [Validator](#validator)
+    - [Validator](#validator)
   - [Record](#record)
   - [SchemaValidator](#schema-validator)
 - [Test suite](#test-suite)
@@ -25,7 +23,6 @@ This Node package implements [Avram Schema Language](http://format.gbv.de/schema
 - [License](#license)
 
 [Install]: #install
-[avram-validate]: #avram-validate
 [API]: #api
 
 ## Background
@@ -36,7 +33,7 @@ See also Perl modules [MARC::Schema](https://metacpan.org/pod/MARC::Schema) and 
 
 ## Install
 
-Requires Node >= 18.0.0. Installation of this module provides bare functionality for validating records, including the command line client [avram-validate]:
+Requires Node >= 18.0.0. Installation of this module provides bare functionality for validating records, including the command line client [avram](#usage):
 
 ~~~sh
 npm install avram
@@ -63,22 +60,23 @@ npm install ajv ajv-formats
 
 See [API] for usage as programming library.
 
-### avram-validate
+### avram
 
 Validate records from input file(s) or standard input. The first argument
 must be an Avram schema file. The list of supported input formats depends
 on installed parsing libraries (see [Install]).
 
 ~~~
-Usage: avram-validate [options] [validation options] <schema> [<files...>]
+Usage: avram [options] [validation options] <schema> [<files...>]
 
 Validate file(s) with an Avram schema
 
 Options:
   -f, --format [name]  input format (marcxml|iso2709|mrc|pp|plain|csv)
   -v, --verbose        verbose error messages
-  -n, --no-validate    only parse schema and records
+  -p, --print          print all input records (in JSON)
   -l, --list           list supported validation options
+  -s, --schema         validate schema instead of record files
   -h, --help           output usage information
   -V, --version        output the version number
 
@@ -92,17 +90,20 @@ The following options (each with default status) are supported to report:
 ~~~
 +invalidRecord           invalid records
 +undefinedField          fields not found in the field schedule
++deprecatedField         report deprecated fields
 +nonrepeatableField      repetition of non-repeatable fields
 +missingField            required fields missing from a record
 +invalidIndicator        field not matching expected validation definition
 +invalidFieldValue       invalid flat field values
 +invalidSubfield         invalid subfields (subsumes all subfield errors)
 +undefinedSubfield       subfields not found in the subfield schedule
++deprecatedSubfield      report deprecated subfields
 +nonrepeatableSubfield   repetition of non-repeatable subfields
 +missingSubfield         required subfields missing from a field
 +invalidSubfieldValue    invalid subfield values
 +patternMismatch         values not matching an expected pattern
 +invalidPosition         values not matching expected positions
++recordTypes             support record types
 +undefinedCode           values not found in an expected codelist
 -undefinedCodelist       non-resolveable codelist references
 -countRecord             expected number of records not met
@@ -110,20 +111,7 @@ The following options (each with default status) are supported to report:
 -countSubfield           expected number of subfields not met
 ~~~
 
-### avram-validate-schema
-
-Requires additional libraries [ajv] and [ajv-formats] to be installed.
-
-~~~
-Usage: avram-validate-schema [options] <schema>
-
-Validate Avram schema file against Avram specification
-
-Options:
-  -v, --verbose  verbose error messages
-  -h, --help     output usage information
-  -V, --version  output the version number
-~~~
+Proper validation of schemas requires additional libraries [ajv] and [ajv-formats] to be installed.
 
 ## API
 
