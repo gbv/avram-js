@@ -26,6 +26,9 @@
                 "created": {
                   "$ref": "#/definitions/timestamp"
                 },
+                "deprecated": {
+                  "type": "boolean"
+                },
                 "description": {
                   "type": "string"
                 },
@@ -183,14 +186,14 @@
             "codes": {
               "$ref": "#/definitions/codelist"
             },
-            "pattern": {
-              "$ref": "#/definitions/regex"
-            },
             "description": {
               "type": "string"
             },
             "label": {
               "type": "string"
+            },
+            "pattern": {
+              "$ref": "#/definitions/regex"
             },
             "url": {
               "$ref": "#/definitions/url"
@@ -326,10 +329,10 @@
         "codes": {
           "$ref": "#/definitions/codelist"
         },
-        "label": {
+        "description": {
           "type": "string"
         },
-        "description": {
+        "label": {
           "type": "string"
         },
         "pattern": {
