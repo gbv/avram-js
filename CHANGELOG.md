@@ -2,9 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## 0.6.2 - 2024-01-??
+## 0.6.2 - 2024-01-15
 
 - CLI: recommend additional installation on help
+- Anticipate Avram 0.9.6
+- Support detection of record types via extensions (experimental)
 
 ## 0.6.1 - 2024-01-14
 

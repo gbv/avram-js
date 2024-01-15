@@ -1,5 +1,7 @@
 /* eslint-env node, mocha */
-import { expect } from "./test.js"
+import { expect, localPath, jsonFile } from "./test.js"
+import { validateFiles } from "../lib/action.js"
+
 import marc21 from "../lib/extension/marc21.js"
 
 const tests = [
@@ -22,10 +24,20 @@ const tests = [
   }, 
 ]
 
-describe("MARC21", () => {
+describe("MARC21 extension", () => {
   it("detectTypes", () => {
     for (let {fields, types} of tests) {
       expect(marc21.detectTypes(fields)).deep.equal(types)
     }
+  })
+
+  it("validates MARC", async () => {
+    const schema = jsonFile("schemas/marc21-bibliographic.json")
+    const files = [localPath("files/sandburg.xml")]
+    const result = await validateFiles(files, schema, {}, {})
+    expect(result).equal(true)
+
+    // TODO: set type to e.g. ["c","CF"] and expect errors
+
   })
 })

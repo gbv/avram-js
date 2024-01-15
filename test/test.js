@@ -13,4 +13,4 @@ const localFiles = (dir, pattern) =>
     .filter(file => pattern.test(file))
     .map(file => path.join(dir, file))
 
-export { expect, localFiles, jsonFile }
+export { expect, localPath, localFiles, jsonFile }

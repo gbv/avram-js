@@ -72,16 +72,15 @@ Usage: avram [options] [validation options] <schema> [<files...>]
 Validate file(s) with an Avram schema
 
 Options:
-  -f, --format [name]  input format (marcxml|iso2709|mrc|pp|plain|csv)
-  -s, --schema         validate schema instead of record files
-  -p, --print          print all input records (in JSON)
-  -v, --verbose        verbose error messages
-  -l, --list           list supported validation options
-  -h, --help           output usage information
-  -V, --version        output the version number
-
-An empty string schema argument uses the empty schema. Combining -n and -v
-emits parsed records. See supported validation options with --list.
+  -f, --format [name]     input format (marcxml|iso2709|mrc|pp|plain|csv)
+  -s, --schema            validate schema instead of record files
+  -t, --type [types]      specify comma-separated record types
+  -x, --extension [name]  specify comma-separated extensions (e.g. marc)
+  -p, --print             print all input records (in JSON)
+  -v, --verbose           verbose error messages
+  -l, --list              list supported validation options
+  -h, --help              output usage information
+  -V, --version           output the version number
 ~~~
 
 Validation options can be enable/disable by prepending `+` or `-` respectively.
@@ -136,7 +135,7 @@ if (!errors.length) {
 errors = validator.validate(record)
 ~~~
 
-The record structure expected by `validate`, based on the [Avram record model](https://format.gbv.de/schema/avram/specification#records), is array of fields, each a JSON object with the following keys:
+The record structure expected by `validate`, based on the [Avram record model](https://format.gbv.de/schema/avram/specification#records), is a JSON object with optional array `types` and required array `fields`, each a JSON object with the following keys:
 
 - mandatory `tag` (string), the key of a field
 - either `value` (string), the flat field value, or `subfields` (array with alternating subfield codes and subfield values)
