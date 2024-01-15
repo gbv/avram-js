@@ -1,0 +1,45 @@
+[
+  {
+    "description": "validate with deprecated elements",
+    "schema": {
+      "fields": {
+        "old": { "deprecated": true },
+        "new": { "deprecated": false },
+        "sub": {
+          "subfields": {
+            "o": { "deprecated": true },
+            "n": { "deprecated": false }
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "record": [ 
+          { "tag": "old", "value": "1" },
+          { "tag": "new", "value": "2" },
+          { "tag": "sub", "subfields": [ "o", "3", "n", "4" ] }
+        ],
+        "options": { "deprecatedField": false, "deprecatedSubfield": false },
+        "errors": [ ]
+      },
+      {
+        "record": [ { "tag": "old", "value": "1" } ],
+        "errors": [ {
+          "error": "deprecatedField", "id": "old",
+          "message": "field old is deprecated"
+        } ]
+      },
+      {
+        "record": [ { "tag": "sub", "subfields": [ "o", "3", "n", "4" ] } ],
+        "options": { "deprecatedField": false },
+        "errors": [ {
+          "error": "deprecatedSubfield",
+          "message": "field sub subfield o is deprecated",
+          "id": "sub",
+          "subfield": "o"
+        } ]
+      }
+    ]
+  }
+]
