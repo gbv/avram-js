@@ -8,9 +8,11 @@ const tests = [
       {tag:"LDR"}, // should not crash
       {tag:"LDR",value:"******t"},
       {tag:"006"}, // should not crash
-      {tag:"006",value:"a"},
+      {tag:"006",value:"a*"},
+      {tag:"007"}, // should not crash
+      {tag:"007",value:"c*"},
     ],
-    types: ["t","BK"],
+    types: ["t","BK","007c"],
   },{
     fields:  [
       {tag:"LDR",value:"******+"},
