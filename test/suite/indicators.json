@@ -6,14 +6,18 @@
       "fields": {
         "000": { },
         "010": {
-          "indicator1": { " ": { } },
+          "indicator1": { "codes": { " ": { } } },
           "indicator2": null
         },
         "210": {
+          "repeatable": true,
           "indicator1": "title-added-entry",
           "indicator2": {
-            " ": "Abbreviated key title",
-            "0": "Other abbreviated title"
+            "pattern": "[^0-9]",
+            "codes": {
+              " ": "Abbreviated key title",
+              "0": "Other abbreviated title"
+            }
           }
         }
       },
@@ -30,8 +34,19 @@
       {
         "record": [
           { "tag": "000", "value": "..." },
-          { "tag": "010", "indicator1": " ", "indicator2": " ", "value": "123" },
-          { "tag": "210", "indicator1": "0", "indicator2": " ", "value": "123" }
+          { "tag": "010", "indicator1": " ", "indicator2": " " },
+          { "tag": "210", "indicator1": "0", "indicator2": " " },
+          { "tag": "210", "indicator1": "0", "indicator2": "0" }
+        ],
+        "errors": [
+          {
+            "error": "patternMismatch",
+            "message": "value '0' does not match regex pattern '[^0-9]' in field 210 indicator2",
+            "id": "210",
+            "indicator": "indicator2",
+            "pattern": "[^0-9]",
+            "value": "0"
+          }
         ]
       },
       {

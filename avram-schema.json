@@ -183,6 +183,9 @@
             "codes": {
               "$ref": "#/definitions/codelist"
             },
+            "pattern": {
+              "$ref": "#/definitions/regex"
+            },
             "description": {
               "type": "string"
             },
