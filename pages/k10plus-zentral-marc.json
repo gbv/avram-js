@@ -1,0 +1,193 @@
+{
+  "title": "MARC Export für K10plus-Zentral - Vorgaben",
+  "url": "https://info.gbv.de/pages/viewpage.action?pageId=894500927",
+  "description": "Subset of MARC profile used for import records into K10plus-Zentral",
+  "family": "marc",
+  "fields": {
+    "711": {
+      "label": "Added Entry-Meeting Name",
+      "repeatable": true,
+      "indicator1": { "codes": { "2": {} } },
+      "indicator2": { "codes": { "9": {} } },
+      "subfields": {
+        "a": {
+          "label": "Meeting name or jurisdiction name as entry element",
+          "repeatable": false,
+          "required": true
+        },
+        "e": {
+          "label": "Subordinate unit",
+          "repeatable": true
+        },
+        "n": {
+          "label": "Number of part/section/meeting",
+          "repeatable": true
+        },
+        "c": {
+          "label": "Location of meeting",
+          "repeatable": true
+        },
+        "d": {
+          "label": "Date of meeting or treaty signing",
+          "repeatable": true
+        }
+      }
+    },
+    "720": {
+      "label": "Added Entry-Uncontrolled Name",
+      "repeatable": true,
+      "indicator1": null,
+      "indicator2": { "codes": { "9": {} } },
+      "subfields": {
+        "a": {
+          "label": "Name",
+          "repeatable": false
+        }
+      }
+    },
+    "912": {
+      "label": "Internal Library Number / System flag / Product code / Holding information / OLC-SSG segment / OLC-OPC-Segment / ISIL_DE / GBV_KXP / GBV_OLC",
+      "repeatable": "true",
+      "subfields": {
+        "a": {
+          "label": "useflag / sysflag / product code / ILN / SSG segment / OPC-Segment / ISIL / GBV_KXP / GBV_OLC",
+          "repeatable": false,
+          "required": true,
+          "pattern": "^(GBV_USEFLAG_.+|SYSFLAG_.+|.*|GBV_ILN_.+|FID|SSG-OLC-.+|SSG-OPC-.+|ISI-DE-.+|GBV_KXP|GBV_OLC)$"
+        },
+        "b": {
+          "label": "license year for product code (if $a is product code)",
+          "repeatable": false
+        }
+      }
+    },
+    "951": {
+      "label": "Structure of Element",
+      "repeatable": true,
+      "subfields": {
+        "a": {
+          "label": "code",
+          "required": true,
+          "codes": {
+            "JT": { "label": "Journal Title" },
+            "AI": { "label": "Article included in other work (german: beigefügt)" },
+            "AR": { "label": "Article" },
+            "MC": { "label": "Multi Volume: Collective Title" },
+            "MV": { "label": "Multi Volume: Volume" },
+            "ST": { "label": "Serial Title" },
+            "JV": { "label": "Journal Volume" },
+            "BO": { "label": "single element, e.g. book" }
+          }
+        },
+        "b": {
+          "label": "code",
+          "repeatable": false,
+          "codes": {
+            "SLoT": { "label": "Zusammenstellung ohne übergeordneten Titel" }
+          }
+        }
+      }
+    },
+    "952": {
+      "label": "Article source or license period",
+      "repeatable": false,
+      "subfields": {
+        "d": {
+          "label": "volume",
+          "repeatable": false
+        },
+        "j": {
+          "label": "year",
+          "repeatable": false
+        },
+        "e": {
+          "label": "issue",
+          "repeatable": false
+        },
+        "b": {
+          "label": "day",
+          "repeatable": false
+        },
+        "c": {
+          "label": "month",
+          "repeatable": false
+        },
+        "f": {
+          "label": "special issue",
+          "repeatable": false
+        },
+        "h": {
+          "label": "pages",
+          "repeatable": false
+        },
+        "g": {
+          "label": "number of pages",
+          "repeatable": false
+        },
+        "y": {
+          "label": "presentation form",
+          "repeatable": false
+        }
+      }
+    },
+    "953": {
+      "label": "DDC-Expansion",
+      "repeatable": false,
+      "subfields": {
+        "2": {
+          "label": "number source"
+        },
+        "a": {
+          "label": "classification number",
+          "repeatable": true
+        },
+        "u": {
+          "label": "URL",
+          "repeatable": false
+        }
+      }
+    },
+    "980": {
+      "label": "Library Holding",
+      "repeatable": true
+    },
+    "981": {
+      "label": "Library Holding / Library Specific Links",
+      "repeatable": true
+    },
+    "982": {
+      "label": "Library Specific Subject Headings",
+      "repeatable": true
+    },
+    "983": {
+      "label": "Library Specific Classification",
+      "repeatable": true
+    },
+    "984": {
+      "label": "Access Numbers",
+      "subfields": {
+        "2": {
+          "label": "internal library number (ILN)"
+        },
+        "1": {
+          "label": "copy sequence number"
+        },
+        "x": {
+          "label": "library/department (only for ill)"
+        },
+        "a": {
+          "repeatable": true,
+          "label": "access number (from)"
+        },
+        "b": {
+          "repeatable": true,
+          "label": "access number (to)"
+        },
+        "c": {
+          "repeatable": true,
+          "label": "volume label"
+        }
+      }
+    }
+  }
+}

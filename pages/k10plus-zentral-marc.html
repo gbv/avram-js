@@ -1,0 +1,652 @@
+<html>
+<head>
+<style type="text/css">
+table {
+  border-collapse: collapse;
+  border-color: gray;  
+  border: 1px solid #C1C7D0;
+}
+td, th {
+  border: 1px solid #C1C7D0;
+  vertical-align: top;
+  padding: 4px;
+}
+th {
+  background-color: #F4F5F7;
+  text-align: left;
+}
+</style>
+</head>
+
+<body>
+  <h1>MARC Export für K10plus-Zentral - Vorgaben</h1>
+  
+    <p><a href="https://info.gbv.de/pages/viewpage.action?pageId=894500927">https://info.gbv.de/pages/viewpage.action?pageId=894500927</a></p>
+  
+  
+    <p>Subset of MARC profile used for import records into K10plus-Zentral</p>
+  
+  <p>
+    This table has been generated from an
+    <a href="https://format.gbv.de/schema/avram/specification">Avram Schema</a>.
+    
+      <a href="k10plus-zentral-marc.json">download</a>
+    
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>R?</th>
+        <th>Ind</th>
+        <th>SF</th>
+        <th>R?</th>
+        <th>Title</th>
+        <th>Remark</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td><b>
+            711
+          </b></td>
+          <td>R</td>
+          
+            <td>
+              
+               1=2<br>
+              
+              
+               2=9<br>
+              
+            </td>
+          
+          <td></td>
+          <td></td>
+          <td><b>Added Entry-Meeting Name</b></td>
+          <td></td>
+        </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$a</td>
+            <td>NR</td>
+            <td>Meeting name or jurisdiction name as entry element</td>
+            <td>
+              required<br>
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$c</td>
+            <td>R</td>
+            <td>Location of meeting</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$d</td>
+            <td>R</td>
+            <td>Date of meeting or treaty signing</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$e</td>
+            <td>R</td>
+            <td>Subordinate unit</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$n</td>
+            <td>R</td>
+            <td>Number of part/section/meeting</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td><b>
+            720
+          </b></td>
+          <td>R</td>
+          
+            <td>
+              
+               1=#<br>
+              
+              
+               2=9<br>
+              
+            </td>
+          
+          <td></td>
+          <td></td>
+          <td><b>Added Entry-Uncontrolled Name</b></td>
+          <td></td>
+        </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$a</td>
+            <td>NR</td>
+            <td>Name</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td><b>
+            912
+          </b></td>
+          <td>R</td>
+          
+            <td>
+              
+              
+            </td>
+          
+          <td></td>
+          <td></td>
+          <td><b>Internal Library Number / System flag / Product code / Holding information / OLC-SSG segment / OLC-OPC-Segment / ISIL_DE / GBV_KXP / GBV_OLC</b></td>
+          <td></td>
+        </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$a</td>
+            <td>NR</td>
+            <td>useflag / sysflag / product code / ILN / SSG segment / OPC-Segment / ISIL / GBV_KXP / GBV_OLC</td>
+            <td>
+              required<br>
+              pattern: <code>^(GBV_USEFLAG_.+|SYSFLAG_.+|.*|GBV_ILN_.+|FID|SSG-OLC-.+|SSG-OPC-.+|ISI-DE-.+|GBV_KXP|GBV_OLC)$</code><br>
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$b</td>
+            <td>NR</td>
+            <td>license year for product code (if $a is product code)</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td><b>
+            951
+          </b></td>
+          <td>R</td>
+          
+            <td>
+              
+              
+            </td>
+          
+          <td></td>
+          <td></td>
+          <td><b>Structure of Element</b></td>
+          <td></td>
+        </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$a</td>
+            <td>NR</td>
+            <td>code</td>
+            <td>
+              required<br>
+              
+              JT = Journal Title<br>AI = Article included in other work (german: beigefügt)<br>AR = Article<br>MC = Multi Volume: Collective Title<br>MV = Multi Volume: Volume<br>ST = Serial Title<br>JV = Journal Volume<br>BO = single element, e.g. book<br>
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$b</td>
+            <td>NR</td>
+            <td>code</td>
+            <td>
+              
+              
+              SLoT = Zusammenstellung ohne übergeordneten Titel<br>
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td><b>
+            952
+          </b></td>
+          <td>NR</td>
+          
+            <td>
+              
+              
+            </td>
+          
+          <td></td>
+          <td></td>
+          <td><b>Article source or license period</b></td>
+          <td></td>
+        </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$b</td>
+            <td>NR</td>
+            <td>day</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$c</td>
+            <td>NR</td>
+            <td>month</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$d</td>
+            <td>NR</td>
+            <td>volume</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$e</td>
+            <td>NR</td>
+            <td>issue</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$f</td>
+            <td>NR</td>
+            <td>special issue</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$g</td>
+            <td>NR</td>
+            <td>number of pages</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$h</td>
+            <td>NR</td>
+            <td>pages</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$j</td>
+            <td>NR</td>
+            <td>year</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$y</td>
+            <td>NR</td>
+            <td>presentation form</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td><b>
+            953
+          </b></td>
+          <td>NR</td>
+          
+            <td>
+              
+              
+            </td>
+          
+          <td></td>
+          <td></td>
+          <td><b>DDC-Expansion</b></td>
+          <td></td>
+        </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$2</td>
+            <td>NR</td>
+            <td>number source</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$a</td>
+            <td>R</td>
+            <td>classification number</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$u</td>
+            <td>NR</td>
+            <td>URL</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td><b>
+            980
+          </b></td>
+          <td>R</td>
+          
+            <td>
+              
+              
+            </td>
+          
+          <td></td>
+          <td></td>
+          <td><b>Library Holding</b></td>
+          <td></td>
+        </tr>
+        
+      
+        <tr>
+          <td><b>
+            981
+          </b></td>
+          <td>R</td>
+          
+            <td>
+              
+              
+            </td>
+          
+          <td></td>
+          <td></td>
+          <td><b>Library Holding / Library Specific Links</b></td>
+          <td></td>
+        </tr>
+        
+      
+        <tr>
+          <td><b>
+            982
+          </b></td>
+          <td>R</td>
+          
+            <td>
+              
+              
+            </td>
+          
+          <td></td>
+          <td></td>
+          <td><b>Library Specific Subject Headings</b></td>
+          <td></td>
+        </tr>
+        
+      
+        <tr>
+          <td><b>
+            983
+          </b></td>
+          <td>R</td>
+          
+            <td>
+              
+              
+            </td>
+          
+          <td></td>
+          <td></td>
+          <td><b>Library Specific Classification</b></td>
+          <td></td>
+        </tr>
+        
+      
+        <tr>
+          <td><b>
+            984
+          </b></td>
+          <td>NR</td>
+          
+            <td>
+              
+              
+            </td>
+          
+          <td></td>
+          <td></td>
+          <td><b>Access Numbers</b></td>
+          <td></td>
+        </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$1</td>
+            <td>NR</td>
+            <td>copy sequence number</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$2</td>
+            <td>NR</td>
+            <td>internal library number (ILN)</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$a</td>
+            <td>R</td>
+            <td>access number (from)</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$b</td>
+            <td>R</td>
+            <td>access number (to)</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$c</td>
+            <td>R</td>
+            <td>volume label</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$x</td>
+            <td>NR</td>
+            <td>library/department (only for ill)</td>
+            <td>
+              
+              
+              
+            </td>
+          </tr>
+        
+      
+    </tbody>
+  </table>
+</body>
+</html>
+

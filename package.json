@@ -23,6 +23,7 @@
   },
   "scripts": {
     "test": "mocha",
+    "pages": "./bin/pages.sh",
     "lint": "eslint './**/*.js';",
     "fix": "eslint --fix './**/*.js'",
     "coverage": "NODE_ENV=debug c8 --skip-full mocha",
