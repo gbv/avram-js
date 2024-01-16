@@ -56,6 +56,12 @@ To also validate schema files, install additional libraries [ajv] and [ajv-forma
 npm install ajv ajv-formats
 ~~~
 
+To convert schema files to HTML, install additional library [ejs](https://ejs.co/):
+
+~~~sh
+npm install ejs
+~~~
+
 ## Usage
 
 See [API] for usage as programming library.
@@ -74,6 +80,7 @@ Validate file(s) with an Avram schema
 Options:
   -f, --format [name]     input format (marcxml|iso2709|mrc|pp|plain|csv)
   -s, --schema            validate schema instead of record files
+  -d, --document          document schema in HTML (requires ejs)
   -t, --type [types]      specify comma-separated record types
   -x, --extension [name]  specify comma-separated extensions (e.g. marc)
   -p, --print             print all input records (in JSON)
