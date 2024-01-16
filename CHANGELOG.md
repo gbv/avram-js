@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-# 0.6.3 -
+# 0.6.3 - 2024-01-16
 
 - CLI: start HTML export
 - CLI: add option -n, --novalid to ignore schema errors
