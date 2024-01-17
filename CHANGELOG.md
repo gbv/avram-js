@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+# 0.6.4 - 2024-01-17
+
+- CLI: require argument to option -d
+- Support validation of flags
+
 # 0.6.3 - 2024-01-16
 
 - CLI: start HTML export
