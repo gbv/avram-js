@@ -219,6 +219,12 @@
         { "message": "flag 'abc' does not fit in position 0-1", "field": "a", "position": "0-1", "code": "abc" },
         { "message": "flag 'xy' does not fit in position 2-4", "field": "a", "position": "2-4", "code": "xy" }
       ]
+    },
+    {
+      "schema": { "fields": { "a": { "positions": { "2-0": {} } } } },
+      "errors": [
+        { "message": "invalid position 2-0", "field": "a", "position": "2-0" }
+      ]
     }
   ]
 }
