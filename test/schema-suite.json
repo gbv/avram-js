@@ -199,6 +199,26 @@
       "errors": [ {
         "message": "Invalid PICA field definition '234A/12'", "field": "234A/12" 
       } ]
+    },
+    {
+      "schema": {
+        "fields": {
+          "a": {
+            "positions": {
+              "0-1": {
+                "flags": { "abc": {} }
+              },
+              "2-4": {
+                "flags": { "xy": {} }
+              }
+            }
+          }
+        }
+      },
+      "errors": [
+        { "message": "flag 'abc' does not fit in position 0-1", "field": "a", "position": "0-1", "code": "abc" },
+        { "message": "flag 'xy' does not fit in position 2-4", "field": "a", "position": "2-4", "code": "xy" }
+      ]
     }
   ]
 }
