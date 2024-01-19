@@ -110,6 +110,7 @@ The following options (each with default status) are supported to report:
 +patternMismatch         values not matching an expected pattern
 +invalidPosition         values not matching expected positions
 +recordTypes             support record types
++invalidFlag             value is not a concatenation of flags
 +undefinedCode           values not found in an expected codelist
 -undefinedCodelist       non-resolveable codelist references
 -countRecord             expected number of records not met

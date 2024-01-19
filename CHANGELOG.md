@@ -2,8 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+# 0.6.5 - 2024-01-18
+
 - CLI: emit schema errors in JSON
 - Fix detection of unmatchable flags
+- Add validation option invalidFlag
 
 # 0.6.4 - 2024-01-17
 

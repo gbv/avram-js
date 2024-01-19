@@ -28,14 +28,14 @@
         "record": [ { "tag": "a", "value": "0xAGyCUC" } ],
         "errors": [
           {
-            "error": "undefinedCode",
+            "error": "invalidFlag",
             "message": "value 'x' is not defined in flags in field a position 0-1",
             "id": "a",
             "position": "0-1",
             "value": "x"
           },
           {
-            "error": "undefinedCode",
+            "error": "invalidFlag",
             "message": "value 'y' is not defined in flags in field a position 2-7",
             "id": "a",
             "position": "2-7",
