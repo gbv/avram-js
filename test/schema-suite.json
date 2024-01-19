@@ -16,6 +16,13 @@
         },
         "number": {
           "pattern": "^[0-9]+$" 
+        },
+        "123": {
+          "positions": {
+            "0-3": {
+              "flags": { "ab": {}, "cd": {} }
+            }
+          }
         }
       },
       "codelists": {
