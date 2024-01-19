@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file.
 
+- CLI: emit schema errors in JSON
+
 # 0.6.4 - 2024-01-17
 
 - CLI: require argument to option -d
