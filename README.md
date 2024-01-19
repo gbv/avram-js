@@ -14,10 +14,11 @@ This Node package implements [Avram Schema Language](http://format.gbv.de/schema
 - [Install]
 - [Usage](#usage)
 - [API]
-    - [Validator](#validator)
+  - [Validator](#validator)
   - [Record](#record)
   - [SchemaValidator](#schema-validator)
 - [Test suite](#test-suite)
+- [Related projects](#related-projects)
 - [Maintainers](#maintainers)
 - [Contributing](#contributing)
 - [License](#license)
@@ -27,9 +28,7 @@ This Node package implements [Avram Schema Language](http://format.gbv.de/schema
 
 ## Background
 
-Several schema languages exist for JSON (JSON Schema), XML (XSD, DTD, Schematron, RELAX NG), RDF (RDFS, SHACL, ShEx), and Strings (regular expressions and formal grammars). Avram is a schema language designed for field-based data formats such as MARC and PICA. Avram can also be used to define and validate flat key-value structures.
-
-See also Perl modules [MARC::Schema](https://metacpan.org/pod/MARC::Schema) and [PICA::Schema](https://metacpan.org/pod/PICA::Schema) partially implementing Avram.
+Several schema languages exist for JSON (JSON Schema), XML (XSD, DTD, Schematron, RELAX NG), RDF (RDFS, SHACL, ShEx), and Strings (regular expressions and formal grammars). Avram is a schema language designed for field-based data formats such as MARC and PICA. Avram can also be used to define and validate flat key-value structures such as found in tabular data (CSV, TSV).
 
 ## Install
 
@@ -175,7 +174,7 @@ See [marcjs records](https://github.com/fredericd/marcjs#record-class) and [PICA
 
 ### SchemaValidator
 
-Class `SchemaValidator` implements validation of an Avram schema (Avram schema meta-validator). Full validation requires additional library [ajv] to be installed.
+Class `SchemaValidator` implements validation of an Avram schema (Avram schema meta-validator). Full validation requires additional libraries [ajv] and [ajv-formats] to be installed.
 
 ~~~js
 import { SchemaValidator } from "avram"
@@ -192,6 +191,14 @@ if (errors.length) {
 This package contains the official test suite for Avram validators. See directory `test/suite/` and its file `README.md` for details.
 
 The unit tests of this library further contain a test suite of valid and invalid Avram schemas in file `test/schema-suite.json`.
+
+## Related projects
+
+[QA Catalogue](https://github.com/pkiraly/qa-catalogue) implements validation of MARC 21, UNIMARC and K10plus PICA, partly based on Avram Schemas.
+
+Perl modules [MARC::Schema](https://metacpan.org/pod/MARC::Schema) and [PICA::Schema](https://metacpan.org/pod/PICA::Schema) partially implement Avram as well.
+
+Several libraries and tools exist to validate MARC data: [@natlibfi/marc-record-validate](https://www.npmjs.com/package/@natlibfi/marc-record-validate), [@russian-state-library/js-marc-rsl](https://www.npmjs.com/package/@russian-state-library/js-marc-rsl) (Node), [MARCEdit](https://marcedit.reeset.net/).
 
 ## Maintainers
 
