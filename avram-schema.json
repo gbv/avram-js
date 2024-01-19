@@ -71,6 +71,9 @@
             "description": {
               "type": "string"
             },
+            "groups": {
+              "$ref": "#/definitions/groups"
+            },
             "indicator1": {
               "$ref": "#/definitions/indicator"
             },
@@ -175,6 +178,26 @@
         }
       ]
     },
+    "groups": {
+      "patternProperties": {
+        "^[1-9][0-9]*$": {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            },
+            "url": {
+              "$ref": "#/definitions/url"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
     "indicator": {
       "oneOf": [
         {
@@ -188,6 +211,9 @@
             },
             "description": {
               "type": "string"
+            },
+            "groups": {
+              "$ref": "#/definitions/groups"
             },
             "label": {
               "type": "string"
@@ -220,14 +246,17 @@
             "codes": {
               "$ref": "#/definitions/codelist"
             },
-            "flags": {
-              "$ref": "#/definitions/codelist"
-            },
             "description": {
               "type": "string"
             },
             "end": {
               "$ref": "#/definitions/non-negative-integer"
+            },
+            "flags": {
+              "$ref": "#/definitions/codelist"
+            },
+            "groups": {
+              "$ref": "#/definitions/groups"
             },
             "label": {
               "type": "string"
@@ -334,6 +363,9 @@
         },
         "description": {
           "type": "string"
+        },
+        "groups": {
+          "$ref": "#/definitions/groups"
         },
         "label": {
           "type": "string"
