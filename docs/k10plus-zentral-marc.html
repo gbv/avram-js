@@ -1,10 +1,20 @@
 <html>
 <head>
 <style type="text/css">
+body {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
 table {
   border-collapse: collapse;
   border-color: gray;  
   border: 1px solid #C1C7D0;
+}
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }
 td, th {
   border: 1px solid #C1C7D0;
@@ -30,17 +40,17 @@ th {
     This table has been generated from an
     <a href="https://format.gbv.de/schema/avram/specification">Avram Schema</a>.
     
-      <a href="k10plus-zentral-marc.json">download</a>
+      <a href="docs/k10plus-zentral-marc.json">download</a>
     
   </p>
   <table>
     <thead>
       <tr>
         <th>Field</th>
-        <th>R?</th>
+        <th></th>
         <th>Ind</th>
         <th>SF</th>
-        <th>R?</th>
+        <th></th>
         <th>Title</th>
         <th>Remark</th>
       </tr>
@@ -55,10 +65,10 @@ th {
           
             <td>
               
-               1=2<br>
+               <div>1&nbsp;<code>2</code></div>
               
               
-               2=9<br>
+               <div>2&nbsp;<code>9</code></div>
               
             </td>
           
@@ -72,7 +82,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$a</td>
+            <td><b>$a</b></td>
             <td>NR</td>
             <td>Meeting name or jurisdiction name as entry element</td>
             <td>
@@ -86,7 +96,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$c</td>
+            <td><b>$c</b></td>
             <td>R</td>
             <td>Location of meeting</td>
             <td>
@@ -100,7 +110,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$d</td>
+            <td><b>$d</b></td>
             <td>R</td>
             <td>Date of meeting or treaty signing</td>
             <td>
@@ -114,7 +124,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$e</td>
+            <td><b>$e</b></td>
             <td>R</td>
             <td>Subordinate unit</td>
             <td>
@@ -128,7 +138,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$n</td>
+            <td><b>$n</b></td>
             <td>R</td>
             <td>Number of part/section/meeting</td>
             <td>
@@ -147,10 +157,10 @@ th {
           
             <td>
               
-               1=#<br>
+               <div>1&nbsp;<code>#</code></div>
               
               
-               2=9<br>
+               <div>2&nbsp;<code>9</code></div>
               
             </td>
           
@@ -164,7 +174,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$a</td>
+            <td><b>$a</b></td>
             <td>NR</td>
             <td>Name</td>
             <td>
@@ -196,7 +206,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$a</td>
+            <td><b>$a</b></td>
             <td>NR</td>
             <td>useflag / sysflag / product code / ILN / SSG segment / OPC-Segment / ISIL / GBV_KXP / GBV_OLC</td>
             <td>
@@ -210,7 +220,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$b</td>
+            <td><b>$b</b></td>
             <td>NR</td>
             <td>license year for product code (if $a is product code)</td>
             <td>
@@ -242,13 +252,13 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$a</td>
+            <td><b>$a</b></td>
             <td>NR</td>
             <td>code</td>
             <td>
               required<br>
               
-              JT = Journal Title<br>AI = Article included in other work (german: beigefügt)<br>AR = Article<br>MC = Multi Volume: Collective Title<br>MV = Multi Volume: Volume<br>ST = Serial Title<br>JV = Journal Volume<br>BO = single element, e.g. book<br>
+              <code>JT</code> = Journal Title<br><code>AI</code> = Article included in other work (german: beigefügt)<br><code>AR</code> = Article<br><code>MC</code> = Multi Volume: Collective Title<br><code>MV</code> = Multi Volume: Volume<br><code>ST</code> = Serial Title<br><code>JV</code> = Journal Volume<br><code>BO</code> = single element, e.g. book<br>
             </td>
           </tr>
         
@@ -256,13 +266,13 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$b</td>
+            <td><b>$b</b></td>
             <td>NR</td>
             <td>code</td>
             <td>
               
               
-              SLoT = Zusammenstellung ohne übergeordneten Titel<br>
+              <code>SLoT</code> = Zusammenstellung ohne übergeordneten Titel<br>
             </td>
           </tr>
         
@@ -288,7 +298,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$b</td>
+            <td><b>$b</b></td>
             <td>NR</td>
             <td>day</td>
             <td>
@@ -302,7 +312,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$c</td>
+            <td><b>$c</b></td>
             <td>NR</td>
             <td>month</td>
             <td>
@@ -316,7 +326,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$d</td>
+            <td><b>$d</b></td>
             <td>NR</td>
             <td>volume</td>
             <td>
@@ -330,7 +340,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$e</td>
+            <td><b>$e</b></td>
             <td>NR</td>
             <td>issue</td>
             <td>
@@ -344,7 +354,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$f</td>
+            <td><b>$f</b></td>
             <td>NR</td>
             <td>special issue</td>
             <td>
@@ -358,7 +368,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$g</td>
+            <td><b>$g</b></td>
             <td>NR</td>
             <td>number of pages</td>
             <td>
@@ -372,7 +382,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$h</td>
+            <td><b>$h</b></td>
             <td>NR</td>
             <td>pages</td>
             <td>
@@ -386,7 +396,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$j</td>
+            <td><b>$j</b></td>
             <td>NR</td>
             <td>year</td>
             <td>
@@ -400,7 +410,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$y</td>
+            <td><b>$y</b></td>
             <td>NR</td>
             <td>presentation form</td>
             <td>
@@ -432,7 +442,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$2</td>
+            <td><b>$2</b></td>
             <td>NR</td>
             <td>number source</td>
             <td>
@@ -446,7 +456,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$a</td>
+            <td><b>$a</b></td>
             <td>R</td>
             <td>classification number</td>
             <td>
@@ -460,7 +470,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$u</td>
+            <td><b>$u</b></td>
             <td>NR</td>
             <td>URL</td>
             <td>
@@ -564,7 +574,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$1</td>
+            <td><b>$1</b></td>
             <td>NR</td>
             <td>copy sequence number</td>
             <td>
@@ -578,7 +588,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$2</td>
+            <td><b>$2</b></td>
             <td>NR</td>
             <td>internal library number (ILN)</td>
             <td>
@@ -592,7 +602,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$a</td>
+            <td><b>$a</b></td>
             <td>R</td>
             <td>access number (from)</td>
             <td>
@@ -606,7 +616,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$b</td>
+            <td><b>$b</b></td>
             <td>R</td>
             <td>access number (to)</td>
             <td>
@@ -620,7 +630,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$c</td>
+            <td><b>$c</b></td>
             <td>R</td>
             <td>volume label</td>
             <td>
@@ -634,7 +644,7 @@ th {
             <td></td>
             <td></td>
             <td></td>
-            <td>$x</td>
+            <td><b>$x</b></td>
             <td>NR</td>
             <td>library/department (only for ill)</td>
             <td>
@@ -647,6 +657,8 @@ th {
       
     </tbody>
   </table>
+
+  
 </body>
 </html>
 

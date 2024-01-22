@@ -47,7 +47,7 @@
     },
     "912": {
       "label": "Internal Library Number / System flag / Product code / Holding information / OLC-SSG segment / OLC-OPC-Segment / ISIL_DE / GBV_KXP / GBV_OLC",
-      "repeatable": "true",
+      "repeatable": true,
       "subfields": {
         "a": {
           "label": "useflag / sysflag / product code / ILN / SSG segment / OPC-Segment / ISIL / GBV_KXP / GBV_OLC",
