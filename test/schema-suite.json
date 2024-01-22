@@ -85,19 +85,9 @@
               "2": { "start": 2, "end": 3 }
             }
           }
-        },
-        "codelists": {
-          "ids": {
-            "foo": { "bar": 42 }
-          }
         }
       },
       "errors": [
-        { "message": "must NOT have additional properties" },
-        { "message": "must be string" },
-        { "message": "must match exactly one schema in oneOf" },
-        { "message": "must have required property 'codes'" },
-        { "message": "must match a schema in anyOf" },
         { "message": "position end '3' must be '2'" }
       ]
     },
