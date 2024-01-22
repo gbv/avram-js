@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+# 0.6.6 - ?
+
+- Extend HTML display
+
 # 0.6.5 - 2024-01-18
 
 - CLI: emit schema errors in JSON
