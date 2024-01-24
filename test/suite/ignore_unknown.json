@@ -18,7 +18,7 @@
           {
             "error": "undefinedSubfield",
             "message": "unknown field known subfield a",
-            "id": "known",
+            "id": "known", "tag": "known",
             "subfield": "a"
           },
           {

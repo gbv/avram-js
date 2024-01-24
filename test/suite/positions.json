@@ -25,7 +25,7 @@
         "errors": [{
           "error": "invalidPosition",
           "message": "field x position 01-2 does not exist",
-          "id": "x",
+          "id": "x", "tag": "x",
           "position": "01-2",
           "value": "a"
         }]

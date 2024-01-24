@@ -24,7 +24,7 @@
           { 
             "error": "missingSubfield", 
             "message": "missing field _ subfield 0",
-            "id": "_",
+            "id": "_", "tag": "_",
             "subfield": "0"
           }
         ]
@@ -37,7 +37,7 @@
           { 
             "error": "nonrepeatableSubfield", 
             "message": "field _ subfield 0 must not be repeated", 
-            "id": "_",
+            "id": "_", "tag": "_",
             "subfield": "0"
           }
         ]
@@ -50,13 +50,13 @@
           { 
             "error": "undefinedSubfield", 
             "message": "unknown field _ subfield x", 
-            "id": "_",
+            "id": "_", "tag": "_",
             "subfield": "x"
           },
           { 
             "error": "missingSubfield",
             "message": "missing field _ subfield 0", 
-            "id": "_",
+            "id": "_", "tag": "_",
             "subfield": "0"
           }
         ]

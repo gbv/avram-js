@@ -30,14 +30,14 @@
           {
             "error": "invalidFlag",
             "message": "value 'x' is not defined in flags in field a position 0-1",
-            "id": "a",
+            "id": "a", "tag": "a",
             "position": "0-1",
             "value": "x"
           },
           {
             "error": "invalidFlag",
             "message": "value 'y' is not defined in flags in field a position 2-7",
-            "id": "a",
+            "id": "a", "tag": "a",
             "position": "2-7",
             "value": "y"
           }

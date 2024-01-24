@@ -20,7 +20,7 @@
           { 
             "error": "patternMismatch",
             "message": "value 'x' does not match regex pattern '[0-9]' in field _",
-            "id": "_",
+            "id": "_", "tag": "_",
             "pattern": "[0-9]",
             "value": "x"
           }
@@ -37,7 +37,7 @@
           {
             "error": "undefinedCode",
             "message": "value 'x' is not defined in codelist in field _",
-            "id": "_",
+            "id": "_", "tag": "_",
             "value": "x"
           }
         ]
@@ -75,7 +75,7 @@
           { 
             "error": "patternMismatch",
             "message": "value '9' does not match regex pattern '[a-z]' in field _ position 00",
-            "id": "_",
+            "id": "_", "tag": "_",
             "position": "00",
             "pattern": "[a-z]",
             "value": "9"
@@ -83,7 +83,7 @@
           {
             "error": "invalidPosition",
             "message": "field _ position 01-02 does not exist",
-            "id": "_",
+            "id": "_", "tag": "_",
             "position": "01-02",
             "value": "9a"
           }
