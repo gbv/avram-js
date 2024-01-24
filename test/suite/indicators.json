@@ -42,6 +42,7 @@
           {
             "error": "patternMismatch",
             "message": "value '0' does not match regex pattern '[^0-9]' in field 210 indicator2",
+            "tag": "210",
             "id": "210",
             "indicator": "indicator2",
             "pattern": "[^0-9]",
@@ -57,12 +58,15 @@
         "errors": [
           {
             "error": "invalidIndicator",
-            "message": "Existence mismatch of field 010 indicator1."
+            "message": "Existence mismatch of field 010 indicator1",
+            "tag": "010", "id": "010",
+            "indicator": "indicator1"
           },
           {
             "error": "invalidIndicator",
             "message": "value 'x' in field 010 indicator2 is not defined in codelist",
             "id": "010",
+            "tag": "010",
             "indicator": "indicator2",
             "value": "x"
           }

@@ -27,7 +27,7 @@ Each test is an object with keys:
   * `code` subfield code an error was found in
   * `tag` tag of the field an error was found in
   * `occurrence` occurrence of the field an error was found in
-  * `identifier` field identifier from the field schedule for the field an error was found in
+  * `id` field identifier from the field schedule for the field an error was found in
   * `pattern` regular expression that was violated
   * `value` malformed or disallowed value that caused an error
 

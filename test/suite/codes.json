@@ -35,13 +35,13 @@
           {
             "error": "undefinedCode",
             "message": "value 'deu' is not defined in codelist in field lang",
-            "id": "lang",
+            "id": "lang", "tag": "lang",
             "value": "deu"
           },
           { 
             "error": "undefinedCode",
             "message": "value 'y' is not defined in codelist in field bool",
-            "id": "bool",
+            "id": "bool", "tag": "bool",
             "value": "y"
           },
           {
@@ -69,7 +69,7 @@
           {
             "error": "undefinedCode",
             "message": "value 'y' is not defined in codelist in field bool",
-            "id": "bool",
+            "id": "bool", "tag": "bool",
             "value": "y"
           }
         ]

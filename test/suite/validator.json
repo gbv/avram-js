@@ -23,18 +23,18 @@
           {
             "error": "missingSubfield",
             "message": "missing field A subfield x",
-            "id": "A", 
+            "id": "A", "tag": "A",
             "subfield": "x" 
           },
           {
             "message": "value '1' does not match regex pattern '^[a-z]$' in field A subfield x",
             "error": "patternMismatch",
-            "id": "A",
+            "id": "A", "tag": "A",
             "subfield": "x",
             "pattern": "^[a-z]$",
             "value": "1"
           },          
-          { "identifier": "A", "message": "Field 'A' must not be repeated.", "error": "nonrepeatableField" },
+          { "tag": "A", "id": "A", "message": "Field 'A' must not be repeated.", "error": "nonrepeatableField" },
           { "tag": "Y", "occurrence": "1", "message": "Unknown field 'Y/1'.", "error": "undefinedField" }
         ]
       },{
@@ -60,12 +60,12 @@
           {
             "error": "undefinedCode",
             "message": "value 'z' is not defined in codelist in field B",
-            "id": "B",
+            "id": "B", "tag": "B",
             "value": "z"
           },{
             "error": "undefinedCode",
             "message": "value ' ' is not defined in codelist in field C subfield z",
-            "id": "C",
+            "id": "C", "tag": "C",
             "subfield": "z",
             "value": " "
           },

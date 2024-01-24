@@ -26,7 +26,7 @@
       {
         "record": [ { "tag": "old", "value": "1" } ],
         "errors": [ {
-          "error": "deprecatedField", "id": "old",
+          "error": "deprecatedField", "tag": "old", "id": "old",
           "message": "field old is deprecated"
         } ]
       },
@@ -36,7 +36,7 @@
         "errors": [ {
           "error": "deprecatedSubfield",
           "message": "field sub subfield o is deprecated",
-          "id": "sub",
+          "id": "sub", "tag": "sub",
           "subfield": "o"
         } ]
       }
