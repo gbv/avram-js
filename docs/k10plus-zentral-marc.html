@@ -50,6 +50,7 @@ th {
     
     
   </ul>
+  
   <h2 id="fields">Fields</h2>
   <table>
     <thead>
@@ -57,10 +58,9 @@ th {
         <th>Field</th>
         <th></th>
         <th>Ind</th>
-        <th>SF</th>
+        <th>SF</th><th></th>
+        <th>Description</th>
         <th></th>
-        <th>Title</th>
-        <th>Remark</th>
       </tr>
     </thead>
     <tbody>
@@ -69,7 +69,7 @@ th {
           <td><b>
             711
           </b></td>
-          <td>R</td>
+          <td><tt>0..*</tt></td>
           
             <td>
               
@@ -80,10 +80,14 @@ th {
               
             </td>
           
-          <td></td>
-          <td></td>
-          <td><b>Added Entry-Meeting Name</b></td>
-          <td></td>
+          <td></td><td></td>
+          <td>
+            <b>Added Entry-Meeting Name</b>
+            
+          </td>
+          <td>
+  
+  </td>
         </tr>
         
           <tr>
@@ -91,14 +95,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$a</b></td>
-            <td>NR</td>
-            <td>Meeting name or jurisdiction name as entry element</td>
+            <td><tt>1</tt></td>
             <td>
-              required<br>
-              
-              
+              Meeting name or jurisdiction name as entry element
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -106,14 +110,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$c</b></td>
-            <td>R</td>
-            <td>Location of meeting</td>
+            <td><tt>0..*</tt></td>
             <td>
-              
-              
-              
+              Location of meeting
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -121,14 +125,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$d</b></td>
-            <td>R</td>
-            <td>Date of meeting or treaty signing</td>
+            <td><tt>0..*</tt></td>
             <td>
-              
-              
-              
+              Date of meeting or treaty signing
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -136,14 +140,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$e</b></td>
-            <td>R</td>
-            <td>Subordinate unit</td>
+            <td><tt>0..*</tt></td>
             <td>
-              
-              
-              
+              Subordinate unit
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -151,14 +155,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$n</b></td>
-            <td>R</td>
-            <td>Number of part/section/meeting</td>
+            <td><tt>0..*</tt></td>
             <td>
-              
-              
-              
+              Number of part/section/meeting
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
       
@@ -166,7 +170,7 @@ th {
           <td><b>
             720
           </b></td>
-          <td>R</td>
+          <td><tt>0..*</tt></td>
           
             <td>
               
@@ -177,10 +181,14 @@ th {
               
             </td>
           
-          <td></td>
-          <td></td>
-          <td><b>Added Entry-Uncontrolled Name</b></td>
-          <td></td>
+          <td></td><td></td>
+          <td>
+            <b>Added Entry-Uncontrolled Name</b>
+            
+          </td>
+          <td>
+  
+  </td>
         </tr>
         
           <tr>
@@ -188,14 +196,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$a</b></td>
-            <td>NR</td>
-            <td>Name</td>
+            <td><tt>0..1</tt></td>
             <td>
-              
-              
-              
+              Name
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
       
@@ -203,17 +211,21 @@ th {
           <td><b>
             912
           </b></td>
-          <td>R</td>
+          <td><tt>0..*</tt></td>
           
             <td>
               
               
             </td>
           
-          <td></td>
-          <td></td>
-          <td><b>Internal Library Number / System flag / Product code / Holding information / OLC-SSG segment / OLC-OPC-Segment / ISIL_DE / GBV_KXP / GBV_OLC</b></td>
-          <td></td>
+          <td></td><td></td>
+          <td>
+            <b>Internal Library Number / System flag / Product code / Holding information / OLC-SSG segment / OLC-OPC-Segment / ISIL_DE / GBV_KXP / GBV_OLC</b>
+            
+          </td>
+          <td>
+  
+  </td>
         </tr>
         
           <tr>
@@ -221,14 +233,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$a</b></td>
-            <td>NR</td>
-            <td>useflag / sysflag / product code / ILN / SSG segment / OPC-Segment / ISIL / GBV_KXP / GBV_OLC</td>
+            <td><tt>1</tt></td>
             <td>
-              required<br>
-              pattern: <code>^(GBV_USEFLAG_.+|SYSFLAG_.+|.*|GBV_ILN_.+|FID|SSG-OLC-.+|SSG-OPC-.+|ISI-DE-.+|GBV_KXP|GBV_OLC)$</code><br>
-              
+              useflag / sysflag / product code / ILN / SSG segment / OPC-Segment / ISIL / GBV_KXP / GBV_OLC
               
             </td>
+            <td>pattern: <code>^(GBV_USEFLAG_.+|SYSFLAG_.+|.*|GBV_ILN_.+|FID|SSG-OLC-.+|SSG-OPC-.+|ISI-DE-.+|GBV_KXP|GBV_OLC)$</code><br>
+  
+  </td>
           </tr>
         
           <tr>
@@ -236,14 +248,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$b</b></td>
-            <td>NR</td>
-            <td>license year for product code (if $a is product code)</td>
+            <td><tt>0..1</tt></td>
             <td>
-              
-              
-              
+              license year for product code (if $a is product code)
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
       
@@ -251,17 +263,21 @@ th {
           <td><b>
             951
           </b></td>
-          <td>R</td>
+          <td><tt>0..*</tt></td>
           
             <td>
               
               
             </td>
           
-          <td></td>
-          <td></td>
-          <td><b>Structure of Element</b></td>
-          <td></td>
+          <td></td><td></td>
+          <td>
+            <b>Structure of Element</b>
+            
+          </td>
+          <td>
+  
+  </td>
         </tr>
         
           <tr>
@@ -269,14 +285,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$a</b></td>
-            <td>NR</td>
-            <td>code</td>
+            <td><tt>1</tt></td>
             <td>
-              required<br>
-              
-              <code>JT</code> = Journal Title<br><code>AI</code> = Article included in other work (german: beigefügt)<br><code>AR</code> = Article<br><code>MC</code> = Multi Volume: Collective Title<br><code>MV</code> = Multi Volume: Volume<br><code>ST</code> = Serial Title<br><code>JV</code> = Journal Volume<br><code>BO</code> = single element, e.g. book<br>
+              code
               
             </td>
+            <td>
+  <code>JT</code> = Journal Title<br><code>AI</code> = Article included in other work (german: beigefügt)<br><code>AR</code> = Article<br><code>MC</code> = Multi Volume: Collective Title<br><code>MV</code> = Multi Volume: Volume<br><code>ST</code> = Serial Title<br><code>JV</code> = Journal Volume<br><code>BO</code> = single element, e.g. book<br>
+  </td>
           </tr>
         
           <tr>
@@ -284,14 +300,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$b</b></td>
-            <td>NR</td>
-            <td>code</td>
+            <td><tt>0..1</tt></td>
             <td>
-              
-              
-              <code>SLoT</code> = Zusammenstellung ohne übergeordneten Titel<br>
+              code
               
             </td>
+            <td>
+  <code>SLoT</code> = Zusammenstellung ohne übergeordneten Titel<br>
+  </td>
           </tr>
         
       
@@ -299,17 +315,21 @@ th {
           <td><b>
             952
           </b></td>
-          <td>NR</td>
+          <td><tt>0..1</tt></td>
           
             <td>
               
               
             </td>
           
-          <td></td>
-          <td></td>
-          <td><b>Article source or license period</b></td>
-          <td></td>
+          <td></td><td></td>
+          <td>
+            <b>Article source or license period</b>
+            
+          </td>
+          <td>
+  
+  </td>
         </tr>
         
           <tr>
@@ -317,14 +337,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$b</b></td>
-            <td>NR</td>
-            <td>day</td>
+            <td><tt>0..1</tt></td>
             <td>
-              
-              
-              
+              day
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -332,14 +352,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$c</b></td>
-            <td>NR</td>
-            <td>month</td>
+            <td><tt>0..1</tt></td>
             <td>
-              
-              
-              
+              month
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -347,14 +367,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$d</b></td>
-            <td>NR</td>
-            <td>volume</td>
+            <td><tt>0..1</tt></td>
             <td>
-              
-              
-              
+              volume
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -362,14 +382,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$e</b></td>
-            <td>NR</td>
-            <td>issue</td>
+            <td><tt>0..1</tt></td>
             <td>
-              
-              
-              
+              issue
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -377,14 +397,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$f</b></td>
-            <td>NR</td>
-            <td>special issue</td>
+            <td><tt>0..1</tt></td>
             <td>
-              
-              
-              
+              special issue
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -392,14 +412,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$g</b></td>
-            <td>NR</td>
-            <td>number of pages</td>
+            <td><tt>0..1</tt></td>
             <td>
-              
-              
-              
+              number of pages
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -407,14 +427,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$h</b></td>
-            <td>NR</td>
-            <td>pages</td>
+            <td><tt>0..1</tt></td>
             <td>
-              
-              
-              
+              pages
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -422,14 +442,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$j</b></td>
-            <td>NR</td>
-            <td>year</td>
+            <td><tt>0..1</tt></td>
             <td>
-              
-              
-              
+              year
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -437,14 +457,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$y</b></td>
-            <td>NR</td>
-            <td>presentation form</td>
+            <td><tt>0..1</tt></td>
             <td>
-              
-              
-              
+              presentation form
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
       
@@ -452,17 +472,21 @@ th {
           <td><b>
             953
           </b></td>
-          <td>NR</td>
+          <td><tt>0..1</tt></td>
           
             <td>
               
               
             </td>
           
-          <td></td>
-          <td></td>
-          <td><b>DDC-Expansion</b></td>
-          <td></td>
+          <td></td><td></td>
+          <td>
+            <b>DDC-Expansion</b>
+            
+          </td>
+          <td>
+  
+  </td>
         </tr>
         
           <tr>
@@ -470,14 +494,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$2</b></td>
-            <td>NR</td>
-            <td>number source</td>
+            <td><tt>0..1</tt></td>
             <td>
-              
-              
-              
+              number source
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -485,14 +509,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$a</b></td>
-            <td>R</td>
-            <td>classification number</td>
+            <td><tt>0..*</tt></td>
             <td>
-              
-              
-              
+              classification number
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -500,14 +524,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$u</b></td>
-            <td>NR</td>
-            <td>URL</td>
+            <td><tt>0..1</tt></td>
             <td>
-              
-              
-              
+              URL
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
       
@@ -515,17 +539,21 @@ th {
           <td><b>
             980
           </b></td>
-          <td>R</td>
+          <td><tt>0..*</tt></td>
           
             <td>
               
               
             </td>
           
-          <td></td>
-          <td></td>
-          <td><b>Library Holding</b></td>
-          <td></td>
+          <td></td><td></td>
+          <td>
+            <b>Library Holding</b>
+            
+          </td>
+          <td>
+  
+  </td>
         </tr>
         
       
@@ -533,17 +561,21 @@ th {
           <td><b>
             981
           </b></td>
-          <td>R</td>
+          <td><tt>0..*</tt></td>
           
             <td>
               
               
             </td>
           
-          <td></td>
-          <td></td>
-          <td><b>Library Holding / Library Specific Links</b></td>
-          <td></td>
+          <td></td><td></td>
+          <td>
+            <b>Library Holding / Library Specific Links</b>
+            
+          </td>
+          <td>
+  
+  </td>
         </tr>
         
       
@@ -551,17 +583,21 @@ th {
           <td><b>
             982
           </b></td>
-          <td>R</td>
+          <td><tt>0..*</tt></td>
           
             <td>
               
               
             </td>
           
-          <td></td>
-          <td></td>
-          <td><b>Library Specific Subject Headings</b></td>
-          <td></td>
+          <td></td><td></td>
+          <td>
+            <b>Library Specific Subject Headings</b>
+            
+          </td>
+          <td>
+  
+  </td>
         </tr>
         
       
@@ -569,17 +605,21 @@ th {
           <td><b>
             983
           </b></td>
-          <td>R</td>
+          <td><tt>0..*</tt></td>
           
             <td>
               
               
             </td>
           
-          <td></td>
-          <td></td>
-          <td><b>Library Specific Classification</b></td>
-          <td></td>
+          <td></td><td></td>
+          <td>
+            <b>Library Specific Classification</b>
+            
+          </td>
+          <td>
+  
+  </td>
         </tr>
         
       
@@ -587,17 +627,21 @@ th {
           <td><b>
             984
           </b></td>
-          <td>NR</td>
+          <td><tt>0..1</tt></td>
           
             <td>
               
               
             </td>
           
-          <td></td>
-          <td></td>
-          <td><b>Access Numbers</b></td>
-          <td></td>
+          <td></td><td></td>
+          <td>
+            <b>Access Numbers</b>
+            
+          </td>
+          <td>
+  
+  </td>
         </tr>
         
           <tr>
@@ -605,14 +649,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$1</b></td>
-            <td>NR</td>
-            <td>copy sequence number</td>
+            <td><tt>0..1</tt></td>
             <td>
-              
-              
-              
+              copy sequence number
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -620,14 +664,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$2</b></td>
-            <td>NR</td>
-            <td>internal library number (ILN)</td>
+            <td><tt>0..1</tt></td>
             <td>
-              
-              
-              
+              internal library number (ILN)
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -635,14 +679,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$a</b></td>
-            <td>R</td>
-            <td>access number (from)</td>
+            <td><tt>0..*</tt></td>
             <td>
-              
-              
-              
+              access number (from)
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -650,14 +694,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$b</b></td>
-            <td>R</td>
-            <td>access number (to)</td>
+            <td><tt>0..*</tt></td>
             <td>
-              
-              
-              
+              access number (to)
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -665,14 +709,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$c</b></td>
-            <td>R</td>
-            <td>volume label</td>
+            <td><tt>0..*</tt></td>
             <td>
-              
-              
-              
+              volume label
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
           <tr>
@@ -680,14 +724,14 @@ th {
             <td></td>
             <td></td>
             <td><b>$x</b></td>
-            <td>NR</td>
-            <td>library/department (only for ill)</td>
+            <td><tt>0..1</tt></td>
             <td>
-              
-              
-              
+              library/department (only for ill)
               
             </td>
+            <td>
+  
+  </td>
           </tr>
         
       
