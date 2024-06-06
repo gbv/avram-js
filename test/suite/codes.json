@@ -26,6 +26,7 @@
           { "tag": "bool", "value": "yes" }
         ]
       },{
+        "options": { "undefinedCodelist": true },
         "record": [
           { "tag": "lang", "value": "deu" },
           { "tag": "bool", "value": "y" },
@@ -64,7 +65,7 @@
           { "tag": "bool", "value": "y" },
           { "tag": "wtf", "value": "xy" }
         ],
-        "options": { "undefinedCodelist": true },
+        "options": { "undefinedCodelist": false },
         "errors": [
           {
             "error": "undefinedCode",
