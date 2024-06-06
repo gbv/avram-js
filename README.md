@@ -32,18 +32,17 @@ Several schema languages exist for JSON (JSON Schema), XML (XSD, DTD, Schematron
 
 ## Install
 
-Requires Node >= 18.0.0. Installation of this module provides bare functionality for validating records, including the command line client [avram](#usage):
+Requires Node >= 18.0.0 (possibly try [nvm](https://github.com/nvm-sh/nvm) to get a current version of Node). Installation of this module provides bare functionality for validating records, including the command line client [avram](#usage).
 
 ~~~sh
-npm install avram
+npm install -g avram
 ~~~
 
+If 
 To process selected data formats in serialization forms other than JSON, install additional parsing libraries [marcjs](https://www.npmjs.com/package/marcjs) for MARC, [pica-data](https://www.npmjs.com/package/marcjs) for PICA and [csv-parse](https://www.npmjs.com/package/csv-parse) for CSV:
 
 ~~~sh
-npm install marcjs  
-npm install pica-data
-npm install csv-parse
+npm install -g marcjs pica-data csv-parse
 ~~~
 
 To also validate schema files, install additional libraries [ajv] and [ajv-formats]:
@@ -52,13 +51,13 @@ To also validate schema files, install additional libraries [ajv] and [ajv-forma
 [ajv-formats]: https://www.npmjs.com/package/ajv-formats
 
 ~~~sh
-npm install ajv ajv-formats
+npm install -g ajv ajv-formats
 ~~~
 
 To convert schema files to HTML, install additional library [ejs](https://ejs.co/):
 
 ~~~sh
-npm install ejs
+npm install -g ejs
 ~~~
 
 ## Usage
