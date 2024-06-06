@@ -2,10 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
-# 0.6.6 - ?
+# 0.6.7 - 2024-06-06
 
 - Extend HTML display
 - Update JSON Schema
+- Extend error objects
+
+# 0.6.6 - 2024-01-19
+
+- Allow pattern groups
 
 # 0.6.5 - 2024-01-18
 
