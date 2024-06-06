@@ -22,6 +22,7 @@ cli.usage("avram [options] [validation options] <schema> [<files...>]")
   .option("-p, --print             print all input records (in JSON)")
   .option("-v, --verbose           verbose error messages")
   .option("-l, --list              list supported validation options")
+  .option("--nullSequence [string] ignore fields with this value in CSV")
   .details(details)
   .action(async (args, opt) => {
     if (opt.list) {
