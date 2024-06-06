@@ -122,6 +122,15 @@
             "description": {
               "type": "string"
             },
+            "comment": {
+              "type": "string"
+            },
+            "examples": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
             "repeatable": {
               "type": "boolean"
             },
@@ -310,6 +319,15 @@
             },
             "description": {
               "type": "string"
+            },
+            "comment": {
+              "type": "string"
+            },
+            "examples": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "repeatable": {
               "type": "boolean"
