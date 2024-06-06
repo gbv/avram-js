@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 - Extend HTML display
 - Update JSON Schema
 - Extend error objects
+- CLI: add option --nullSequence
 
 # 0.6.6 - 2024-01-19
 
