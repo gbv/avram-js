@@ -118,6 +118,21 @@ The following options (each with default status) are supported to report:
 
 Proper validation of schemas requires additional libraries [ajv] and [ajv-formats] to be installed.
 
+The JSON format emitted with option `-p` or `--print` looks like this:
+
+~~~json
+{
+  "fields": [
+    { "key": "tag1", "value": "..." },
+    { "key": "tag2", "value": "..." }
+  ],
+  "types": []
+}
+~~~
+
+It can be converted to flat key-value structure by piping to
+[jq](https://jqlang.github.io/jq/) command `jq '.fields|from_entries'`.
+
 ## API
 
 ### Validator
