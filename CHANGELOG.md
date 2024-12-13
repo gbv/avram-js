@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+# 0.6.8 - 2024-12-13
+
+- CLI: add option --split for CSV input
+
 # 0.6.7 - 2024-06-06
 
 - Extend HTML display
