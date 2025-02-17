@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+# 0.6.9 - 2025-02-17
+
+- CLI: allow schema file to be documented from stdin
+
 # 0.6.8 - 2024-12-13
 
 - CLI: add option --split for CSV input
