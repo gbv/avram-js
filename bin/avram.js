@@ -5,11 +5,13 @@ import { optionHelp, optionDefault } from "../lib/options.js"
 import { avramAction } from "../lib/action.js"
 
 import ajv from "../lib/ajv.js"
-var details = ajv ? "" : `
+let details = ajv ? "" : `
 Install ajv and ajv-formats for better validation of schemas.`
 
-if (missing.size) details += `
+if (missing.size) {
+  details += `
 Install ${[...missing.keys()].join(", ")} for additional input formats.`
+}
 
 cli.usage("avram [options] [validation options] <schema> [<files...>]")
   .description("Validate file(s) with an Avram schema")

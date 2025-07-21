@@ -1,6 +1,4 @@
-import chai from "chai"
-const { expect } = chai
-
+import { expect } from "chai"
 import fs from "fs"
 import path from "path"
 
