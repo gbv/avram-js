@@ -1,6 +1,25 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project are documented here.
+
+
+# 0.7.0 - 2026-08-20
+
+- Update dependencies
+- Change support of marcjs from 2.0.0 to 3.0.0
+
+# 0.6.12 - 2025-10-08
+
+- Add deprecated field 'profile' to schema
+
+# 0.6.11 - 2025-09-23
+
+- Update metaschema
+
+# 0.6.10 - 2025-09-23
+
+- Update metaschema
+- Update dependencies
 
 # 0.6.9 - 2025-02-17
 
