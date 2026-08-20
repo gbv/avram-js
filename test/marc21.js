@@ -1,4 +1,3 @@
-/* eslint-env node, mocha */
 import { expect, localPath, jsonFile } from "./test.js"
 import { validateFiles } from "../lib/action.js"
 

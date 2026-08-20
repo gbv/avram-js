@@ -1,4 +1,3 @@
-/* eslint-env node, mocha */
 import { expect } from "./test.js"
 import { Record } from "../index.js"
 

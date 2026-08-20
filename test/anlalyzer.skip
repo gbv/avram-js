@@ -1,4 +1,3 @@
-/* eslint-env node, mocha */
 import { expect, jsonFile } from "./test.js"
 
 import { Analyzer } from "../index.js"

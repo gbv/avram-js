@@ -1,4 +1,3 @@
-/* eslint-env node, mocha */
 import { expect, localFiles, jsonFile } from "./test.js"
 import { SchemaValidator } from "../lib/schema-validator.js"
 
