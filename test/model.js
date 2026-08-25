@@ -58,7 +58,7 @@ describe("FieldIdentifier", () => {
 })
 
 describe("FieldSchedule (pica)", () => {
-  const ids = ["003@", "012X/03", "000X/00-02", "234Xx1" ].sort()
+  const ids = ["003@", "012X/03", "000X/00-02", "234X/$x1" ].sort()
   const fields = Object.fromEntries(ids.map(id => [id, {label: id}]))
   const schedule = new FieldSchedule({ fields, family: "pica" })
 
@@ -73,7 +73,7 @@ describe("FieldSchedule (pica)", () => {
     expect(schedule.identifier({ tag: "012X", occurrence: "03" })).equal("012X/03")
     expect(schedule.identifier({ tag: "000X", occurrence: "02" })).equal("000X/00-02")
     expect(schedule.identifier({ tag: "000X" })).equal("000X/00-02")
-    expect(schedule.identifier({ tag: "234X", subfields: ["x","1"] })).equal("234Xx1")
+    expect(schedule.identifier({ tag: "234X", subfields: ["x","1"] })).equal("234X/$x1")
     expect(schedule.identifier({ tag: "234X", subfields: ["y","1"] })).not.ok
     expect(schedule.identifier({ tag: "234X" })).not.ok
   })

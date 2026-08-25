@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented here.
 
+# 0.8.0 - 2026-08-25
+
+- Upgrade support of pica-data
+- Change field counters in field identifiers (PICA x-occurrence)
 
 # 0.7.0 - 2026-08-20
 
