@@ -6,6 +6,7 @@ All notable changes to this project are documented here.
 
 - Upgrade support of pica-data
 - Change field counters in field identifiers (PICA x-occurrence)
+- Add option 'ignore' to ignore selected fields
 
 # 0.7.0 - 2026-08-20
 

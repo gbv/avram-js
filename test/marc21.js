@@ -37,6 +37,5 @@ describe("MARC21 extension", () => {
     expect(result).equal(true)
 
     // TODO: set type to e.g. ["c","CF"] and expect errors
-
   })
 })
