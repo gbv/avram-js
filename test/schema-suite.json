@@ -33,6 +33,14 @@
           "codes": {}
         }
       }
+    },
+    {
+      "family" : "pica",
+       "fields" : {
+         "012X/00": {
+           "description": "Applications MAY allow and remove occurrence keys with value two zeroes (00) as alias for a field definition without occurrence."
+         }
+      }
     }
   ],
   "invalid": [
