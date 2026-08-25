@@ -1,6 +1,6 @@
 {
   "name": "avram",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Validation with Avram Schema Language",
   "avram": "0.9.7",
   "homepage": "https://github.com/gbv/avram-js#readme",
